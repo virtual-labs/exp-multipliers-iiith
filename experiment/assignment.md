@@ -1,0 +1,1 @@
+1. Design the serial-parallel multiplier circuit as given in the Theory section
