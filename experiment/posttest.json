@@ -1,0 +1,65 @@
+{
+    "version": 2.0,
+    "questions": [
+        {
+            "question": "1. To multiply two 3 bit numbers, the number of output bits will be:",
+            "answers": {
+                "a": "5",
+                "b": "6",
+                "c": "7",
+                "d": "4"
+            },
+            "correctAnswer": "b",
+            "explanations": {"b":"The number of output bits is 6, since the graetest possible product can be 49 which requires 6 bits for binary representation."},
+            "difficulty": "beginner"
+        },
+        {
+            "question": "2. Which of the following combinations can be used to make a 2 bit multiplier :",
+            "answers": {
+                "a": "6 AND gates and 2 OR gates",
+                "b": "2 AND gates and 6 XOR gates",
+                "c": "6 AND gates and 2 XOR gates",
+                "d": "Both b and c"
+            },
+            "correctAnswer": "c",
+            "explanations": {"c":"The number of AND gates is 6, the number of XOR gates is 2."},
+            "difficulty": "intermediate"
+        },
+        {
+            "question": "3. Which of the following combinations can be used to make a 2 bit multiplier :",
+            "answers": {
+                "a": "2 half adders",
+                "b": "2 half adders and 4 AND gates",
+                "c": "2 half adders and 4 XOR gates",
+                "d": "None of the above"
+            },
+            "correctAnswer": "b",
+            "explanations": {"b":"The number of half adders is 2, the number of AND gates is 4."},
+            "difficulty": "advanced"
+        },
+        {
+            "question": "4. A 2 bit multiplier circuit built using half adders:",
+            "answers": {
+                "a": "is a sequential circuit",
+                "b": "is a combinational circuit",
+                "c": "uses a clock",
+                "d": "None of the above"
+            },
+            "correctAnswer": "b",
+            "explanations": {"b":"A 2 bit multiplier circuit built using half adders is a combinational circuit."},
+            "difficulty": "beginner"
+        },
+        {
+            "question": "5. To build a 2 bit multiplier we can use:",
+            "answers": {
+                "a": "AND and XOR gates",
+                "b": "Half adders and AND gates",
+                "c": "NOR and NAND gates",
+                "d": "All of the above"
+            },
+            "correctAnswer": "d",
+            "explanations": {"d":"NAND and NOR are universal gates so they can be used as well."},
+            "difficulty": "intermediate"
+        }
+    ]
+}

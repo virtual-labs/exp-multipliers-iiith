@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+
 <html lang="en">
 
 <head>
@@ -26,7 +26,7 @@
                     <ul>
 
                         
-                        <li class="is-active" id="Task1" onclick="window.location.href = 'demo.html';">
+                        <li class="is-active" id="task1" onclick="window.location.href = 'demo.html';">
                             <a>
                                 Full adder
                             </a>
@@ -40,8 +40,8 @@
         <div class="columns is-centered">
             <div class="column">
                 <div class="v-instruction-container instructions-box">
-                    <div class="v-instruction-title" id="TaskTitle">Full adder</div>
-                    <div class="v-instruction-text" id="TaskDescription">
+                    <div class="v-instruction-title" id="taskTitle">Full adder</div>
+                    <div class="v-instruction-text" id="taskDescription">
                         Simulation of a 2 bit multiplier built using logic gates.
                         <p></p>
                     </div>
@@ -51,17 +51,6 @@
                         <p>Select the speed through dropdown menu</p>
                         <p>Reset - Resets the simulation</p>
                         <p>Click on the green input bits to set their values.</p>
-                        <!-- <p>
-                            <p></p>
-                            <p></p>
-                            <p></p>
-                            <svg>
-                                <rect x="0" y="0" width="30" height="30" class="color-blue" />
-                                <text font-size="0.9em" x="50" y="20" fill="black">bit = 1</text>
-                                <rect x="0" y="60" width="30" height="30" class="color-yellow" />
-                                <text font-size="0.9em" x="50" y="80" fill="black">bit = 0</text>
-                            </svg>
-                        </p> -->
                     </div>
                 </div>
             </div>
@@ -76,8 +65,8 @@
                   <option value="4">4x</option>
                 </select>
             </div>
-            <button class="v-button" id="currentwork" onclick="workCircuit()">Start</button>
-            <a href="demo.html"><button class="v-button">Reset simulation</button></a>
+            <button class="v-button" id="play-or-pause" onclick="simulationStatus()">Start</button>
+            <button class="v-button" id="restart" onclick="restartCircuit()">Reset</button>
         </div>
     </div>
     <div class="columns is-centered is-flex is-flex-direction-row is-flex-wrap-wrap is-align-content-start">
@@ -112,7 +101,7 @@
                         <path id="path11" fill="none" stroke="currentColor" stroke-width="3" 
                         d="M 280 440 L 370 440" />
                         <path id="path12" fill="none" stroke="currentColor" stroke-width="3" 
-                        d="M 280 440 L 300 440 L 300 400 L 360 400" />
+                        d="M 280 440 L 300 440 L 300 400 L 350 400" />
 
                         <path id="path13" fill="none" stroke="currentColor" stroke-width="3" 
                         d="M 280 240 L 470 240" />
@@ -120,7 +109,7 @@
                         d="M 280 240 L 420 240 L 420 320 L 480 320" />
                         <path id="path15" fill="none" stroke="currentColor" stroke-width="3" 
                         d="M 400 370 L 500 370" />
-                        <path id="path15" fill="none" stroke="currentColor" stroke-width="3" 
+                        <path id="path20" fill="none" stroke="currentColor" stroke-width="3" 
                         d="M 400 370 L 440 370 L 440 180 L 470 180" />
                         <path id="path16" fill="none" stroke="currentColor" stroke-width="3" 
                         d="M 500 205 L 700 205" />
@@ -128,13 +117,10 @@
                         d="M 500 340 L 700 340" />
                         <path id="path18" fill="none" stroke="currentColor" stroke-width="3" 
                         d="M 400 460 L 700 460" />
-                        <path id="path18" fill="none" stroke="currentColor" stroke-width="3" 
+                        <path id="path19" fill="none" stroke="currentColor" stroke-width="3" 
                         d="M 280 540 L 700 540" />
 
-                        <!-- <path id="path9" fill="none" stroke="currentColor" stroke-width="3" 
-                        d="M 280 340 L 320 340 L 320 480 L 370 480" />
-                         -->
-                        
+                                              
                         <g id="AND">
                             <path id="path1AND" fill="#29e" stroke="currentColor" stroke-width="3"
                                 d="M 221 200 v 80 h 40 Q 301 240 261 200 h -40" />
@@ -174,9 +160,9 @@
 
                         
                         <circle id="a1" cx="20" cy="220" r="15" onclick="appendInput1()" class="color-green" />
-                        <circle id="a0" cx="20" cy="560" r="15" onclick="appendInput1()" class="color-green" />
-                        <circle id="b1" cx="20" cy="340" r="15" onclick="appendInput1()" class="color-green" />
-                        <circle id="b0" cx="20" cy="440" r="15" onclick="appendInput1()" class="color-green" />
+                        <circle id="a0" cx="20" cy="560" r="15" onclick="appendInput2()" class="color-green" />
+                        <circle id="b1" cx="20" cy="340" r="15" onclick="appendInput3()" class="color-green" />
+                        <circle id="b0" cx="20" cy="440" r="15" onclick="appendInput4()" class="color-green" />
                         
                         <text font-size="1em" x="15" y="200" fill="black">a1</text>
                         <text font-size="1em" x="15" y="320" fill="black">b1</text>
@@ -203,7 +189,7 @@
             <div class="v-datalist-container components-list">
                 <div class="v-datalist-title">Observations</div>
                 <div class="v-datalist-row">
-                    <div id="Observations">
+                    <div id="observations">
                     </div>
                     <div id="result"></div>
                 </div>
@@ -217,9 +203,9 @@
             <li class="menu-option">Cancel</li>
         </ul>
     </div>
-
+    <script type="module" src="js/animation.js"></script>
 </body>
-<script src="js/animation-full-adder.js"></script>
+
 
 </body>
 

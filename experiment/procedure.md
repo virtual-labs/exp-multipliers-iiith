@@ -1,6 +1,5 @@
-1. With the help of Theory Page , try to build the Multiplier Circuit.
-2. If you are unable to make it , load or export the circuit component directly and use it.
-3. Then combine these component according to theory page in order to make the multiplier circuit.
-4. Then test the circuit with various input.
-5. There is an import feature, which lets you construct building blocks. Click on import and then click on circuit board to see the imported block. For more details, refer import section in manual.
+Learn everything from the 'Demo' section.
 
+In the 'Practice' section you need to make the circuit for the 2 bit multiplier. The circuit is to be made using logic gates provided, you can test your circuit after entering an input binary string and then click on simulate.
+
+After performing the tasks observe the output bits C3,C2,C1,C0.

@@ -1,1 +1,1 @@
-- Design the serial-parallel multiplier circuit as given in the Theory section
+- Design the 4 bit multiplier circuit as given in the Theory section
