@@ -28,7 +28,7 @@
                         
                         <li class="is-active" id="task1" onclick="window.location.href = 'demo.html';">
                             <a>
-                                Full adder
+                                Two Bit Multiplier
                             </a>
                         </li>
                         
@@ -40,7 +40,7 @@
         <div class="columns is-centered">
             <div class="column">
                 <div class="v-instruction-container instructions-box">
-                    <div class="v-instruction-title" id="taskTitle">Full adder</div>
+                    <div class="v-instruction-title" id="taskTitle">Two Bit Multiplier</div>
                     <div class="v-instruction-text" id="taskDescription">
                         Simulation of a 2 bit multiplier built using logic gates.
                         <p></p>
@@ -78,47 +78,47 @@
                         viewBox="0 80 1000 800 ">
 
                         <path id="path1" fill="none" stroke="currentColor" stroke-width="3" 
-                        d="M 20 220 L 220 220" />
+                        d="M 20 220 L 220 220" /><!--a1 to first and gate-->
                         <path id="path2" fill="none" stroke="currentColor" stroke-width="3" 
-                        d="M 20 220 L 150 220 L 150 320 L 220 320" />
+                        d="M 20 220 L 150 220 L 150 320 L 220 320" /> <!--a1 to second and gate-->
                         <path id="path3" fill="none" stroke="currentColor" stroke-width="3" 
-                        d="M 20 340 L 100 340 L 100 260 L 220 260" />
+                        d="M 20 340 L 100 340 L 100 260 L 220 260" /> <!--b1 to first and gate-->
                         <path id="path4" fill="none" stroke="currentColor" stroke-width="3" 
-                        d="M 20 340 L 100 340 L 100 420 L 220 420" />
+                        d="M 20 340 L 100 340 L 100 420 L 220 420" /> <!--b1 to third and gate-->
                         <path id="path5" fill="none" stroke="currentColor" stroke-width="3" 
-                        d="M 20 440 L 150 440 L 150 360 L 220 360" />
+                        d="M 20 440 L 150 440 L 150 360 L 220 360" /> <!--b0 to second and gate-->
                         <path id="path6" fill="none" stroke="currentColor" stroke-width="3" 
-                        d="M 20 440 L 150 440 L 150 520 L 220 520" />
+                        d="M 20 440 L 150 440 L 150 520 L 220 520" /> <!--b0 to fourth and gate-->
                         <path id="path7" fill="none" stroke="currentColor" stroke-width="3" 
-                        d="M 20 560 L 220 560 " />
+                        d="M 20 560 L 220 560 " /> <!--a0 to fourth and gate-->
                         <path id="path8" fill="none" stroke="currentColor" stroke-width="3" 
-                        d="M 20 560 L 100 560 L 100 460 L 220 460" />
+                        d="M 20 560 L 100 560 L 100 460 L 220 460" /> <!--a0 to third and gate-->
                         
                         <path id="path9" fill="none" stroke="currentColor" stroke-width="3" 
-                        d="M 280 340 L 350 340" />
+                        d="M 280 340 L 350 340" /> <!--second and gate to 5th and gate--> 
                         <path id="path10" fill="none" stroke="currentColor" stroke-width="3" 
-                        d="M 280 340 L 320 340 L 320 480 L 370 480" />
+                        d="M 280 340 L 320 340 L 320 480 L 370 480" /> <!--second and gate to 1st xor gate-->
                         <path id="path11" fill="none" stroke="currentColor" stroke-width="3" 
-                        d="M 280 440 L 370 440" />
+                        d="M 280 440 L 370 440" />  <!--third and gate to 1st xor gate-->
                         <path id="path12" fill="none" stroke="currentColor" stroke-width="3" 
-                        d="M 280 440 L 300 440 L 300 400 L 350 400" />
+                        d="M 280 440 L 300 440 L 300 400 L 350 400" /> <!--third and gate to 5th and gate-->
 
                         <path id="path13" fill="none" stroke="currentColor" stroke-width="3" 
-                        d="M 280 240 L 470 240" />
+                        d="M 280 240 L 470 240" />  <!--first and gate to 6th and gate-->
                         <path id="path14" fill="none" stroke="currentColor" stroke-width="3" 
-                        d="M 280 240 L 420 240 L 420 320 L 480 320" />
+                        d="M 280 240 L 420 240 L 420 320 L 480 320" /> <!--first and gate to 2nd xor gate-->
                         <path id="path15" fill="none" stroke="currentColor" stroke-width="3" 
-                        d="M 400 370 L 500 370" />
+                        d="M 400 370 L 500 370" /> <!--fifth and gate to 2nd xor gate-->
                         <path id="path20" fill="none" stroke="currentColor" stroke-width="3" 
-                        d="M 400 370 L 440 370 L 440 180 L 470 180" />
+                        d="M 400 370 L 440 370 L 440 180 L 470 180" /> <!--fifth and gate to 6th and gate-->
                         <path id="path16" fill="none" stroke="currentColor" stroke-width="3" 
-                        d="M 500 205 L 700 205" />
+                        d="M 500 205 L 700 205" /> <!--sixth and gate to c3-->
                         <path id="path17" fill="none" stroke="currentColor" stroke-width="3" 
-                        d="M 500 340 L 700 340" />
+                        d="M 500 340 L 700 340" /> <!--second xor gate to c2-->
                         <path id="path18" fill="none" stroke="currentColor" stroke-width="3" 
-                        d="M 400 460 L 700 460" />
+                        d="M 400 460 L 700 460" /> <!--first xor gate to c1-->
                         <path id="path19" fill="none" stroke="currentColor" stroke-width="3" 
-                        d="M 280 540 L 700 540" />
+                        d="M 280 540 L 700 540" /> <!--first and gate to c0-->
 
                                               
                         <g id="AND">
@@ -169,10 +169,10 @@
                         <text font-size="1em" x="15" y="420" fill="black">b0</text>
                         <text font-size="1em" x="15" y="540" fill="black">a0</text>
 
-                        <circle id="output3" cx="700" cy="205" r="15" class="color-green" />
-                        <circle id="output2" cx="700" cy="340" r="15" class="color-green" />
-                        <circle id="output1" cx="700" cy="460" r="15" class="color-green" />
-                        <circle id="output2" cx="700" cy="540" r="15" class="color-green" />
+                        <circle id="c3" cx="700" cy="205" r="15" class="color-green" />
+                        <circle id="c2" cx="700" cy="340" r="15" class="color-green" />
+                        <circle id="c1" cx="700" cy="460" r="15" class="color-green" />
+                        <circle id="c0" cx="700" cy="540" r="15" class="color-green" />
 
                         <text font-size="1em" x="695" y="180" fill="black">c3</text>
                         <text font-size="1em" x="695" y="320" fill="black">c2</text>
