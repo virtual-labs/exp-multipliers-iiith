@@ -38,8 +38,8 @@ const TEXTOUTPUT = [document.createElementNS(svgns, "text"), document.createElem
 const INPUTDOTS = [document.createElementNS(svgns, "circle"), document.createElementNS(svgns, "circle"), document.createElementNS(svgns, "circle"), document.createElementNS(svgns, "circle"), document.createElementNS(svgns, "circle"), document.createElementNS(svgns, "circle"), document.createElementNS(svgns, "circle"), document.createElementNS(svgns, "circle")];
 
 let timeline = gsap.timeline({ repeat: 0, repeatDelay: 0 });
-let decide = 0;
-let circuitStarted = 0;
+let decide = false;
+let circuitStarted = false;
 
 function demoWidth() {
     if (width < 1024) {
@@ -338,12 +338,12 @@ function changeSpeed(newSpeed) {
         timeline.resume();
         timeline.timeScale(newSpeed);
         OBSERV.innerHTML = newSpeed + "x speed";
-        decide = 1;
+        decide = true;
         STATUS.innerHTML = "Pause";
     }
 }
 function setSpeed(speed) {
-    if (circuitStarted !== 0) {
+    if (circuitStarted) {
 
 
         if (speed === "1") {
@@ -360,8 +360,8 @@ function setSpeed(speed) {
 
 }
 function restartCircuit() {
-    if (circuitStarted === 0) {
-        circuitStarted = 1;
+    if (!circuitStarted) {
+        circuitStarted = true;
     }
     timeline.seek(0);
     timeline.pause();
@@ -369,18 +369,18 @@ function restartCircuit() {
     reboot();
     currPos = 0;
     clearObservation();
-    decide = 0;
+    decide = false;
     STATUS.innerHTML = "Start";
     OBSERV.innerHTML = "Successfully restored";
     SPEED.selectedIndex = 0;
 }
 
 function simulationStatus() {
-    if (decide === 0) {
+    if (!decide) {
         startCircuit();
 
     }
-    else if (decide === 1) {
+    else if (decide) {
         stopCircuit();
 
     }
@@ -389,7 +389,7 @@ function stopCircuit() {
     if (timeline.time() !== 0 && timeline.progress() !== 1) {
         timeline.pause();
         OBSERV.innerHTML = "Simulation has been stopped.";
-        decide = 0;
+        decide = false;
         STATUS.innerHTML = "Start";
         SPEED.selectedIndex = 0;
     }
@@ -399,13 +399,13 @@ function stopCircuit() {
 }
 function startCircuit() {
     if(TEXTINPUT[0].textContent !== "2" && TEXTINPUT[1].textContent !== "2" && TEXTINPUT[2].textContent !== "2" && TEXTINPUT[3].textContent !== "2"){
-        if (circuitStarted === 0) {
-            circuitStarted = 1;
+        if (!circuitStarted) {
+            circuitStarted = true;
         }
         timeline.play();
         timeline.timeScale(1);
         OBSERV.innerHTML = "Simulation has started.";
-        decide = 1;
+        decide = true;
         STATUS.innerHTML = "Pause";
         SPEED.selectedIndex = 0;
         if (timeline.progress() === 1) {
