@@ -3,7 +3,7 @@ import { gates, testSimulation,checkConnections } from "./gate.js";
 
 // Helper functions
 export function computeXor(a, b) {
-    return a != b;
+    return a !== b;
 }
 export function computeAnd(a, b) {
     return a && b;
@@ -12,7 +12,7 @@ export function computeOr(a, b) {
     return a || b;
 }
 export function computeXnor(a, b) {
-    return a == b;
+    return a === b;
 }
 export function computeNand(a, b) {
     return !(a && b);
@@ -78,10 +78,12 @@ export function validateMultiplier(inputA1,inputB1,inputB0,inputA0,outputC3,outp
         outputString+=C1;
         outputString+=C0;
         let expectedString = computeMulitpier(binary)
-        dataTable += `<tr><th>${binary[3]}${binary[2]}</th><th>${binary[1]}${binary[0]}</th><td> ${expectedString} </td><td> ${outputString}</tr>`;
-
         if ( expectedString !== outputString) {
             circuitIsCorrect = false;
+            dataTable += `<tr><td>${binary[3]}${binary[2]}</td><td>${binary[1]}${binary[0]}</td><td> ${expectedString} </td><td class="failure-table"> ${outputString}</tr>`;
+        }
+        else{
+            dataTable += `<tr><td>${binary[3]}${binary[2]}</td><td>${binary[1]}${binary[0]}</td><td> ${expectedString} </td><td class="success-table"> ${outputString}</tr>`;
         }
     }
 

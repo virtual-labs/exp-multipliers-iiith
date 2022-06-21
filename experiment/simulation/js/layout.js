@@ -63,7 +63,7 @@ function changeTabs(e) {
     return;
   }
 
-  if (window.currentTab != null) {
+  if (window.currentTab !== null) {
     document.getElementById(window.currentTab).classList.remove("is-active");
   }
   window.currentTab = task;
@@ -85,8 +85,8 @@ window.changeTabs = changeTabs;
 
 function updateInstructions() {
   if (window.currentTab === "task1") {
-    document.getElementById("TaskTitle").innerHTML = "Half Adder";
-    document.getElementById("TaskDescription").innerHTML = "Implement a 1-bit half adder using logic gates.";
+    document.getElementById("task-title").innerHTML = "Half Adder";
+    document.getElementById("task-description").innerHTML = "Implement a 1-bit half adder using logic gates.";
   }
 }
 

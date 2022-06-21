@@ -107,25 +107,26 @@ function dotsAppear() {
 
 function computeAnd() {
     if (currPos === 0) {
-        if (TEXTINPUT[0].textContent == 0 || TEXTINPUT[2].textContent == 0) {
+        if (TEXTINPUT[0].textContent === "0" || TEXTINPUT[2].textContent === "0") {
             setter("0", INPUTDOTS[0]);
             setter("0", INPUTDOTS[2]);
         }
-        if (TEXTINPUT[0].textContent == 0 || TEXTINPUT[3].textContent == 0) {
+        if (TEXTINPUT[0].textContent === "0" || TEXTINPUT[3].textContent === "0") {
             setter("0", INPUTDOTS[4]);
             setter("0", INPUTDOTS[3]);
         }
-        if (TEXTINPUT[1].textContent == 0 || TEXTINPUT[2].textContent == 0) {
+        if (TEXTINPUT[1].textContent === "0" || TEXTINPUT[2].textContent === "0") {
             setter("0", INPUTDOTS[5]);
             setter("0", INPUTDOTS[6]);
         }
-        if (TEXTINPUT[1].textContent == 0 || TEXTINPUT[3].textContent == 0) {
+        if (TEXTINPUT[1].textContent === "0" || TEXTINPUT[3].textContent === "0") {
             setter("0", INPUTDOTS[7]);
             setter("0", INPUTDOTS[1]);
         }
         currPos = 1;
+        objectDisappear(INPUTDOTS[7]);
     }
-    else if (currPos == 1) {
+    else if (currPos === 1) {
         if (String(INPUTDOTS[4].style.fill) === ZERO || String(INPUTDOTS[6].style.fill) === ZERO) {
             setter("0", INPUTDOTS[4]);
             setter("0", INPUTDOTS[6]);
@@ -135,20 +136,23 @@ function computeAnd() {
             setter("1", INPUTDOTS[6]);
         }
         currPos++;
+        objectDisappear(INPUTDOTS[5]);
     }
-    else if (currPos == 2) {
+    else if (currPos === 2) {
         if (String(INPUTDOTS[4].style.fill) === ZERO || INPUTDOTS[0].style.fill === ZERO) {
 
             setter("0", INPUTDOTS[4]);
             setter("0", INPUTDOTS[0]);
         }
+        objectDisappear(INPUTDOTS[6]);
+        objectDisappear(INPUTDOTS[4]);
     }
 
 }
 
 function computeXor() {
-    if (currPos == 1) {
-        if (INPUTDOTS[3].style.fill != INPUTDOTS[5].style.fill) {
+    if (currPos === 1) {
+        if (INPUTDOTS[3].style.fill !== INPUTDOTS[5].style.fill) {
             setter("1", INPUTDOTS[3]);
             setter("1", INPUTDOTS[5]);
         }
@@ -158,8 +162,8 @@ function computeXor() {
         }
 
     }
-    if (currPos == 2) {
-        if (INPUTDOTS[6].style.fill != INPUTDOTS[2].style.fill) {
+    if (currPos === 2) {
+        if (INPUTDOTS[6].style.fill !== INPUTDOTS[2].style.fill) {
 
             setter("1", INPUTDOTS[6]);
             setter("1", INPUTDOTS[2]);
@@ -339,7 +343,7 @@ function changeSpeed(newSpeed) {
     }
 }
 function setSpeed(speed) {
-    if (circuitStarted != 0) {
+    if (circuitStarted !== 0) {
 
 
         if (speed === "1") {
@@ -409,16 +413,16 @@ function startCircuit() {
         }
     }
     else if (TEXTINPUT[0].textContent === "2" ){
-        OBSERV.innerHTML = "Please set the value of a1 to 0 or 1";
+        OBSERV.innerHTML = "Please set the value of A1 to 0 or 1";
     }
     else if (TEXTINPUT[1].textContent === "2" ){
-        OBSERV.innerHTML = "Please set the value of a0 to 0 or 1";
+        OBSERV.innerHTML = "Please set the value of A0 to 0 or 1";
     }
     else if (TEXTINPUT[2].textContent === "2" ){
-        OBSERV.innerHTML = "Please set the value of b1 to 0 or 1";
+        OBSERV.innerHTML = "Please set the value of B1 to 0 or 1";
     }
     else if (TEXTINPUT[3].textContent === "2" ){
-        OBSERV.innerHTML = "Please set the value of b0 to 0 or 1";
+        OBSERV.innerHTML = "Please set the value of B0 to 0 or 1";
     }
 }
 

@@ -297,7 +297,15 @@ svg.wire path {
   cursor: pointer;
 }
 
+.success-table{
+  font-size: 1rem;
+  color: rgb(31, 170, 31);
+}
 
+.failure-table{
+  font-size: 1rem;
+  color: rgb(228, 23, 23);
+}
 
 .success-message {
   font-size: 1.2rem;

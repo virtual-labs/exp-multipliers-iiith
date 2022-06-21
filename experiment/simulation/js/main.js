@@ -1,5 +1,6 @@
 import * as gatejs from "./gate.js";
 import { wireColours } from "./layout.js";
+// import {jsPlumbBrowserUI} from "https://cdnjs.cloudflare.com/ajax/libs/jsPlumb/2.15.6/js/jsplumb.min.js"
 
 "use strict";
 
@@ -8,7 +9,7 @@ let num_wires = 0;
 // Gets the coordinates of the mouse
 //Handle scrolling
 document.getScroll = function () {
-  if (window.pageYOffset != undefined) {
+  if (window.pageYOffset !== undefined) {
     return [pageXOffset, pageYOffset];
   } else {
     let sx,
@@ -176,14 +177,14 @@ export function initMultiplier() {
   const types = ["Input", "Input","Input", "Input", "Output", "Output","Output", "Output"];
   const names = ["A1", "B1", "B0", "A0","C3","C2","C1","C0"];
   const positions = [
-    { x: 40, y: 200 },
-    { x: 40, y: 350 },
+    { x: 40, y: 150 },
+    { x: 40, y: 300 },
     { x: 40, y: 450 },
-    { x: 40, y: 550 },
-    { x: 820, y: 200 },
-    { x: 820, y: 350 },
+    { x: 40, y: 600 },
+    { x: 820, y: 150 },
+    { x: 820, y: 300 },
     { x: 820, y: 450 },
-    { x: 820, y: 550 },
+    { x: 820, y: 600 },
   ];
   for (let i = 0; i < ids.length; i++) {
     let gate = new gatejs.Gate(types[i]);

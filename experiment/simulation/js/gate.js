@@ -97,7 +97,7 @@ export class Gate {
         el.style.left = x + "px";
         el.style.top = y + "px";
 
-        if (this.type != "Input" && this.type != "Output") {
+        if (this.type !== "Input" && this.type !== "Output") {
 
             el.addEventListener(
                 "contextmenu",
@@ -184,11 +184,11 @@ window.addGate = addGate;
 
 // Recursive function to generate the output of the circuit
 export function getResult(gate) {
-    if (gate.output != null) {
+    if (gate.output !== null) {
         return;
     }
     for (let i = 0; i < gate.inputs.length; i++) {
-        if (gate.inputs[i].output == null) {
+        if (gate.inputs[i].output === null) {
             getResult(gate.inputs[i]);
         }
     }
@@ -230,7 +230,7 @@ export function checkConnections() {
     for (let gateId in gates) {
         const gate = gates[gateId];
         const id = document.getElementById(gate.id);
-        if (gate.inputPoints.length != gate.inputs.length) {
+        if (gate.inputPoints.length !== gate.inputs.length) {
             printErrors("Highlighted component not connected properly\n",id);
             return false;
         } else if (gate.isConnected === false && gate.isOutput === false) {
