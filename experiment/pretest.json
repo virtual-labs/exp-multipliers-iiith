@@ -1,0 +1,65 @@
+{
+    "version": 2.0,
+    "questions": [
+        {
+            "question": "1. Mankar was performing 3-bit binary multiplication 101*110, his friend asked him what the multiplier is, help him in this task",
+            "answers": {
+                "a": "101",
+                "b": "110",
+                "c": "11011",
+                "d": "11110"
+            },
+            "correctAnswer": "b",
+            "explanations": {"b":"In multiplication the second term is called the multiplier"},
+            "difficulty": "beginner"
+        },
+        {
+            "question": "2. The Result obtained on binary multiplication of 1101 * 1011 ",
+            "answers": {
+                "a": "0101010",
+                "b": "1010111",
+                "c": "1000111",
+                "d": "1101010"
+            },
+            "correctAnswer": "c",
+            "explanations": {"c":"13 * 11 is 143"},
+            "difficulty": "beginner"
+        },
+        {
+            "question": "3. Underflow is a condition that happens when",
+            "answers": {
+                "a": "overflow is not happening",
+                "b": "the result that is smaller than the smallest number obtained",
+                "c": "We got a NaN on our computer screen",
+                "d": "None of the above"
+            },
+            "correctAnswer": "b",
+            "explanations": {"b":"Overflow is the result that is smaller than the smallest number obtained"},
+            "difficulty": "intermediate"
+        },
+        {
+            "question": "4. Binary Multiplication is used in ",
+            "answers": {
+                "a": "computers ",
+                "b": "mobile phones",
+                "c": "calculators",
+                "d": "all of these"
+            },
+            "correctAnswer": "d",
+            "explanations": {"d":"Binary multiplication is used in all these areas"},
+            "difficulty": "beginner"
+        },
+        {
+            "question": "5. We can perform binary multiplication is ____ ways",
+            "answers": {
+                "a": "3",
+                "b": "4",
+                "c": "2",
+                "d": "1"
+            },
+            "correctAnswer": "c",
+            "explanations": {"c":"Binary multiplication can be performed in 2 ways namely parallel and binary multiplier via shift method."},
+            "difficulty": "advanced"
+        }
+    ]
+}

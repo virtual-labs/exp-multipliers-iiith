@@ -1,17 +1,31 @@
-**Analog multiplier devices**
+**Binary Multiplier**
 
-Analog multiplication can be accomplished by using the Hall Effect. Integrated circuits analog multipliers are incorporated into many applications, such as a true RMS converter, but a number of general purpose analog multiplier building blocks are available such as the Linear Four Quadrant Multiplier. General-purpose devices will usually include attenuators or amplifiers on the inputs or outputs in order to allow the signal to be scaled within the voltage limits of the circuit. Although analog multiplier circuits are very similar to operational amplifiers, they are far more susceptible to noise and offset voltage-related problems as these errors may become multiplied. When dealing with high frequency signals, phase-related problems may be quite complex. For this reason, manufacturing wide-range general-purpose analog multipliers is far more difficult than ordinary operational amplifiers, and such devices are typically produced using specialist technologies and laser trimming, as are those used for high-performance amplifiers such as instrumentation amplifiers. This means they have a relatively high cost and so they are generally used only for circuits where they are indispensable.
+Binary numbers can be multiplied in the same way that decimal numbers can be multiplied. Starting with the least significant bit, the multiplicand is multiplied by each bit of the multiplier. Each of these multiplications yields a partial result. Partially successful products are moved one slot to the left. The total of the partial products yields the final product.
 
+**2 Bit Multiplier**
+Consider the multiplication of two 2-bit values in the following image to illustrate how a binary multiplier can be constructed with a combinational circuit. B1 and B0 are the multiplicand bits, A1 and A0 are the multiplier bits, and C3 C2 C1 C0 is the product. Multiplying B1 B0 by A0 yields the first partial product. When two bits, such as A0 and B0, are multiplied, the result is a 1 if both bits are 1; otherwise, the result is a 0. This is the same as the AND operation. As a result, AND gates can be used to implement the partial product, as illustrated in the diagram. Multiplying B1 B0 by A1 and shifting one position to the left yields the second partial product. The two partial products are added with two half-adder (HA) circuits.
 
-**Voltage-controlled amplifier versus analog multiplier**
+<img src="images/2bit1.png">
 
-If one input of an analog multiplier is held at a steady state voltage, a signal at the second input will be scaled in proportion to the level on the fixed input. In this case the analog multiplier may be considered to be a voltage controlled amplifier. Obvious applications would be for electronic volume control and automatic gain control. Although analog multipliers are often used for such applications, voltage-controlled amplifiers are not necessarily true analog multipliers. For example, an integrated circuit designed to be used as a volume control may have a signal input designed for 1 Vp-p, and a control input designed for 0-5 V dc; that is, the two inputs are not symmetrical and the control input will have a limited bandwidth. By contrast, in what is generally considered to be a true analog multiplier, the two signal inputs have identical characteristics. Applications specific to a true analog multiplier are those where both inputs are signals, for example in a frequency mixer or an analog circuit to implement a discrete Fourier transform. A four-quadrant multiplier is one where inputs and outputs may swing positive and negative. Many multipliers only work in 2 quadrants (one input may only have one polarity), or single quadrant (inputs and outputs have only one polarity, usually all positive).
+Circuit Diagram for 2 bit multiplier using half adders and AND gates
 
-Circuit Digram for 4 bits Shift register 
+<img src="images/2bit2.png">
 
-<img src="images/multi1.png">
+**4 Bit Multiplier**
 
+Using this multiplier we can multiply two 4 bit binary numbers as a result we can obtain maximum product as 225, i.e. 15 × 15. 15 is the maximum value of either multiplicand or multiplier.
 
-Circuit Digram for Multiplication
+Suppose multiplicand A3  A2  A1  A0 & multiplier B3  B2  B1  B0 & product as P7  P6  P5  P4  P3  P2  P1 P0 for 4×4 multiplier.
 
-<img src="images/multi2.png">
+In 4×4 multiplier, there are 4 partial products and we need to add these partial products to get the product of multiplier.
+
+4-bit full adders or single-bit adders can be used to combine them (half-adder & full-adder). When compared to 4-bit full adders, the design of single bit adders is extremely difficult. 
+
+<img src="images/4bitmultiplier.png">
+
+**Shift Multiplier**
+
+This algorithm is similar to how we do multiplication with pen and paper, this is used in computers where it is difficult to design a circuit for 32 bits multiplication, that is why for this task we use shift and add multiplier.
+It solves program recursively, by taking the bits from the LSB and moving towards MSB.
+
+<img src="images/shiftmultiplier.png">
