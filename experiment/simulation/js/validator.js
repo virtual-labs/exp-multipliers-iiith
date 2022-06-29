@@ -80,10 +80,10 @@ export function validateMultiplier(inputA1,inputB1,inputB0,inputA0,outputC3,outp
         let expectedString = computeMulitpier(binary)
         if ( expectedString !== outputString) {
             circuitIsCorrect = false;
-            dataTable += `<tr><td>${binary[3]}${binary[2]}</td><td>${binary[1]}${binary[0]}</td><td> ${expectedString} </td><td class="failure-table"> ${outputString}</tr>`;
+            dataTable += `<tr class="bold-table"><td>${binary[3]}${binary[2]}</td><td>${binary[1]}${binary[0]}</td><td> ${expectedString} </td><td class="failure-table"> ${outputString}</tr>`;
         }
         else{
-            dataTable += `<tr><td>${binary[3]}${binary[2]}</td><td>${binary[1]}${binary[0]}</td><td> ${expectedString} </td><td class="success-table"> ${outputString}</tr>`;
+            dataTable += `<tr class="bold-table"><td>${binary[3]}${binary[2]}</td><td>${binary[1]}${binary[0]}</td><td> ${expectedString} </td><td class="success-table"> ${outputString}</tr>`;
         }
     }
 

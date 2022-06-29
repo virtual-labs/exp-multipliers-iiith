@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/virtual-labs/virtual-style@0.0.7-b/css/style.min.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/virtual-labs/virtual-style@0.0.8-b/css/style.min.css">
     <link rel="stylesheet" href="css/main.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/MotionPathPlugin.min.js"></script>
@@ -34,13 +34,27 @@
                 </div>
             </div>
         </div>
-
-        <div class="columns is-centered">
+        <div class="columns is-centered is-flex">
+			<div class="column">
+				<div class="v-collapsible-instruction-container v-instruction-container">
+					<div class="v-collapsible is-size-5">Instructions<br>Simulation of a 2 bit multiplier built using logic gates.</div>
+					<div class="v-content" style="text-align: left; padding-left: 10%; padding-right: 10%;">
+						<ul style="list-style: disc;">
+                            <li>Start- Starts the simulation after the inputs are properly selected. Default speed is 1x.</li>
+                            <li>Select the speed through dropdown menu</li>
+                            <li>Reset - Resets the simulation</li>
+                            <li>Click on the green input bits to set their values.</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+        <!-- <div class="columns is-centered">
             <div class="column">
                 <div class="v-instruction-container instructions-box">
                     <div class="v-instruction-title" id="task-title">Two Bit Multiplier</div>
                     <div class="v-instruction-text" id="task-description">
-                        Simulation of a 2 bit multiplier built using logic gates.
+                        
                         <p></p>
                     </div>
                     <div>
@@ -52,7 +66,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
     </div>
     <div class="columns is-centered">
         <div class="column" >
@@ -201,6 +215,7 @@
             <li class="menu-option">Cancel</li>
         </ul>
     </div>
+	<script src="https://cdn.jsdelivr.net/gh/virtual-labs/virtual-style@0.0.8-b/js/script.js"></script>
     <script type="module" src="js/animation.js"></script>
 </body>
 
