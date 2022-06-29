@@ -75,20 +75,12 @@ function changeTabs(e) {
   refreshWorkingArea();
   initMultiplier();
   window.simulate = simulate;
-  updateInstructions();
   updateToolbar();
   clearObservations();
   resize();
 }
 
 window.changeTabs = changeTabs;
-
-function updateInstructions() {
-  if (window.currentTab === "task1") {
-    document.getElementById("task-title").innerHTML = "Half Adder";
-    document.getElementById("task-description").innerHTML = "Implement a 1-bit half adder using logic gates.";
-  }
-}
 
 // Toolbar
 
@@ -119,7 +111,7 @@ const circuitBoardTop = circuitBoard.offsetTop;
 const windowHeight = window.innerHeight;
 const width = window.innerWidth;
 if (width < 1024) {
-  circuitBoard.style.height = 600 + "px";
+  circuitBoard.style.height = "600px";
 } else {
   circuitBoard.style.height = windowHeight - circuitBoardTop - 20 + "px";
 }
