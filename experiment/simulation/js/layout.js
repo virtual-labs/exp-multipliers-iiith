@@ -85,8 +85,7 @@ window.changeTabs = changeTabs;
 // Toolbar
 
 function updateToolbar() {
-  let elem = "";
-  elem =
+  let elem =
     '<div class="component-button and" onclick="addGate(event)">AND</div><div class="component-button or" onclick="addGate(event)">OR</div><div class="component-button not" onclick="addGate(event)">NOT</div><div class="component-button nand" onclick="addGate(event)">NAND</div><div class="component-button nor" onclick="addGate(event)">NOR</div><div class="component-button xor" onclick="addGate(event)">XOR</div><div class="component-button xnor" onclick="addGate(event)">XNOR</div>'; 
   document.getElementById("toolbar").innerHTML = elem;
 }
@@ -94,8 +93,7 @@ function updateToolbar() {
 // Clear observations
 export function clearObservations() {
   document.getElementById("table-body").innerHTML = "";
-  let head = "";
-  head =
+  let head =
     '<tr><th colspan="2">Inputs</th><th colspan="1" rowspan="2">Expected Values</th><th colspan="1" rowspan="2">Observed Values</th></tr> <tr><th>B</th><th>A</th></tr>';
   document.getElementById("table-head").innerHTML = head;
   document.getElementById("result").innerHTML = "";

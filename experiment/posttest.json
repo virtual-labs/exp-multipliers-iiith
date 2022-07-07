@@ -10,7 +10,7 @@
                 "d": "4"
             },
             "correctAnswer": "b",
-            "explanations": {"b":"The number of output bits is 6, since the graetest possible product can be 49 which requires 6 bits for binary representation."},
+            "explanations": {"b":"The number of output bits is 6, since the greatest possible product can be 49 which requires 6 bits for binary representation."},
             "difficulty": "beginner"
         },
         {
@@ -58,7 +58,10 @@
                 "d": "All of the above"
             },
             "correctAnswer": "d",
-            "explanations": {"d":"NAND and NOR are universal gates so they can be used as well."},
+            "explanations": { "a":"6 AND gates and 2 XOR gates can be used to make 2 bit-multiplier",
+                "b":"2 half adders and 4 AND gates can be used to make 2 bit-multiplier",
+                "c":"NAND and NOR are universal gates so they can be used as well.",
+                "d":"Since all a,b,c are correct d is the correct answer"},
             "difficulty": "intermediate"
         }
     ]

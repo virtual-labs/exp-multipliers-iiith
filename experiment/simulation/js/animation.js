@@ -23,21 +23,36 @@ const svg = document.querySelector(".svg");
 const svgns = "http://www.w3.org/2000/svg";
 
 const EMPTY = "";
-const ZERO="rgb(238, 235, 34)"
-const STATUS = document.getElementById("play-or-pause");
-const OBSERV = document.getElementById("observations");
-const SPEED = document.getElementById("speed");
+const ZERO = "rgb(238, 235, 34)"
+const status = document.getElementById("play-or-pause");
+const observ = document.getElementById("observations");
+const speed = document.getElementById("speed");
 
 let currPos = 0;
 
 const OBJECTS = [document.getElementById("a1"), document.getElementById("a0"), document.getElementById("b1"), document.getElementById("b0"), document.getElementById("a1"), document.getElementById("a0"), document.getElementById("b1"), document.getElementById("b0"), document.getElementById("c3"), document.getElementById("c2"), document.getElementById("c1"), document.getElementById("c0")];
-const ARRAYA = [document.getElementById("a1"), document.getElementById("a0")];
-const ARRAYB = [document.getElementById("b1"), document.getElementById("b0")];
-const TEXTINPUT = [document.createElementNS(svgns, "text"), document.createElementNS(svgns, "text"), document.createElementNS(svgns, "text"), document.createElementNS(svgns, "text")];
-const TEXTOUTPUT = [document.createElementNS(svgns, "text"), document.createElementNS(svgns, "text"), document.createElementNS(svgns, "text"), document.createElementNS(svgns, "text")];
-const INPUTDOTS = [document.createElementNS(svgns, "circle"), document.createElementNS(svgns, "circle"), document.createElementNS(svgns, "circle"), document.createElementNS(svgns, "circle"), document.createElementNS(svgns, "circle"), document.createElementNS(svgns, "circle"), document.createElementNS(svgns, "circle"), document.createElementNS(svgns, "circle")];
-
-let timeline = gsap.timeline({ repeat: 0, repeatDelay: 0 });
+const TEXTINPUT = [
+    document.createElementNS(svgns, "text"), 
+    document.createElementNS(svgns, "text"), 
+    document.createElementNS(svgns, "text"), 
+    document.createElementNS(svgns, "text")
+];
+const TEXTOUTPUT = [
+    document.createElementNS(svgns, "text"), 
+    document.createElementNS(svgns, "text"), 
+    document.createElementNS(svgns, "text"), 
+    document.createElementNS(svgns, "text")
+];
+const INPUTDOTS = [
+    document.createElementNS(svgns, "circle"),
+    document.createElementNS(svgns, "circle"),
+    document.createElementNS(svgns, "circle"),
+    document.createElementNS(svgns, "circle"),
+    document.createElementNS(svgns, "circle"),
+    document.createElementNS(svgns, "circle"),
+    document.createElementNS(svgns, "circle"),
+    document.createElementNS(svgns, "circle")
+];
 let decide = false;
 let circuitStarted = false;
 
@@ -49,12 +64,7 @@ function demoWidth() {
     }
     sidePanels[0].style.height = circuitBoard.style.height;
 }
-// Instruction box
-function instructionBoxInit() {
-    instructionBox.addEventListener("click", () => {
-        instructionBox.classList.toggle("expand");
-    });
-}
+
 //initialise input text
 function textIOInit() {
     for (const text of TEXTINPUT) {
@@ -105,7 +115,7 @@ function dotsAppear() {
     }
 }
 
-function computeAnd() {
+function calculateAnd() {
     if (currPos === 0) {
         if (TEXTINPUT[0].textContent === "0" || TEXTINPUT[2].textContent === "0") {
             setter("0", INPUTDOTS[0]);
@@ -150,7 +160,7 @@ function computeAnd() {
 
 }
 
-function computeXor() {
+function calculateXOR() {
     if (currPos === 1) {
         if (INPUTDOTS[3].style.fill !== INPUTDOTS[5].style.fill) {
             setter("1", INPUTDOTS[3]);
@@ -206,7 +216,7 @@ function inputTextAppear() {
 }
 
 function clearObservation() {
-    OBSERV.innerHTML = EMPTY;
+    observ.innerHTML = EMPTY;
 }
 function allDisappear() {
     dotsDisappear();
@@ -306,10 +316,7 @@ function changeTo0(coordinateX, coordinateY, object, textObject) {
 }
 
 function reboot() {
-    for (const elements of ARRAYA) {
-        elements.style.fill = "#008000";
-    }
-    for (const elements of ARRAYB) {
+    for (const elements of OBJECTS) {
         elements.style.fill = "#008000";
     }
     for (const text of TEXTINPUT) {
@@ -318,8 +325,8 @@ function reboot() {
 
 }
 function display() {
-    OBSERV.innerHTML = "Simulation has finished. Press Reset to start again";
-    OBSERV.innerHTML += "<br />";
+    observ.innerHTML = "Simulation has finished. Press Reset to start again";
+    observ.innerHTML += "<br />";
 }
 function setter(value, component) {
     //toggles the text content a of input/output component b
@@ -331,33 +338,11 @@ function setter(value, component) {
         setColor(component);
     }
 }
-
-function changeSpeed(newSpeed) {
-
-    if (TEXTINPUT[0].textContent !== "2" && TEXTINPUT[1].textContent !== "2" && TEXTINPUT[2].textContent !== "2" && TEXTINPUT[3].textContent !== "2" && timeline.progress() !== 1) {
-        timeline.resume();
-        timeline.timeScale(newSpeed);
-        OBSERV.innerHTML = newSpeed + "x speed";
-        decide = true;
-        STATUS.innerHTML = "Pause";
-    }
-}
 function setSpeed(speed) {
     if (circuitStarted) {
-
-
-        if (speed === "1") {
-            startCircuit();
-        }
-        else if (speed === "2") {
-            changeSpeed(2);
-        }
-        else if (speed === "4") {
-            changeSpeed(4);
-        }
+        timeline.timeScale(parseInt(speed));
+        observ.innerHTML = `${speed}x speed`;
     }
-
-
 }
 function restartCircuit() {
     if (!circuitStarted) {
@@ -370,9 +355,9 @@ function restartCircuit() {
     currPos = 0;
     clearObservation();
     decide = false;
-    STATUS.innerHTML = "Start";
-    OBSERV.innerHTML = "Successfully restored";
-    SPEED.selectedIndex = 0;
+    status.innerHTML = "Start";
+    observ.innerHTML = "Successfully restored";
+    speed.selectedIndex = 0;
 }
 
 function simulationStatus() {
@@ -388,41 +373,41 @@ function simulationStatus() {
 function stopCircuit() {
     if (timeline.time() !== 0 && timeline.progress() !== 1) {
         timeline.pause();
-        OBSERV.innerHTML = "Simulation has been stopped.";
+        observ.innerHTML = "Simulation has been stopped.";
         decide = false;
-        STATUS.innerHTML = "Start";
-        SPEED.selectedIndex = 0;
+        status.innerHTML = "Start";
+        speed.selectedIndex = 0;
     }
     else if (timeline.progress() === 1) {
-        OBSERV.innerHTML = "Please Restart the simulation";
+        observ.innerHTML = "Please Restart the simulation";
     }
 }
 function startCircuit() {
-    if(TEXTINPUT[0].textContent !== "2" && TEXTINPUT[1].textContent !== "2" && TEXTINPUT[2].textContent !== "2" && TEXTINPUT[3].textContent !== "2"){
+    if (TEXTINPUT[0].textContent !== "2" && TEXTINPUT[1].textContent !== "2" && TEXTINPUT[2].textContent !== "2" && TEXTINPUT[3].textContent !== "2") {
         if (!circuitStarted) {
             circuitStarted = true;
         }
         timeline.play();
         timeline.timeScale(1);
-        OBSERV.innerHTML = "Simulation has started.";
+        observ.innerHTML = "Simulation has started.";
         decide = true;
-        STATUS.innerHTML = "Pause";
-        SPEED.selectedIndex = 0;
+        status.innerHTML = "Pause";
+        speed.selectedIndex = 0;
         if (timeline.progress() === 1) {
-            OBSERV.innerHTML = "Please Restart the simulation";
+            observ.innerHTML = "Please Restart the simulation";
         }
     }
-    else if (TEXTINPUT[0].textContent === "2" ){
-        OBSERV.innerHTML = "Please set the value of A1 to 0 or 1";
+    else if (TEXTINPUT[0].textContent === "2") {
+        observ.innerHTML = "Please set the value of A1 to 0 or 1";
     }
-    else if (TEXTINPUT[1].textContent === "2" ){
-        OBSERV.innerHTML = "Please set the value of A0 to 0 or 1";
+    else if (TEXTINPUT[1].textContent === "2") {
+        observ.innerHTML = "Please set the value of A0 to 0 or 1";
     }
-    else if (TEXTINPUT[2].textContent === "2" ){
-        OBSERV.innerHTML = "Please set the value of B1 to 0 or 1";
+    else if (TEXTINPUT[2].textContent === "2") {
+        observ.innerHTML = "Please set the value of B1 to 0 or 1";
     }
-    else if (TEXTINPUT[3].textContent === "2" ){
-        OBSERV.innerHTML = "Please set the value of B0 to 0 or 1";
+    else if (TEXTINPUT[3].textContent === "2") {
+        observ.innerHTML = "Please set the value of B0 to 0 or 1";
     }
 }
 
@@ -764,9 +749,9 @@ function simulator() {
 }
 
 //execution starts here
+let timeline = gsap.timeline({ repeat: 0, repeatDelay: 0 });
 gsap.registerPlugin(MotionPathPlugin);
 demoWidth();
-instructionBoxInit();
 textIOInit();
 outputCoordinates();
 inputDots();
@@ -775,13 +760,13 @@ outputDisappear();
 timeline.add(inputTextAppear, 0);
 timeline.add(dotsAppear, 0);
 timeline.add(simulator, 0);
-timeline.add(computeAnd, 5);
+timeline.add(calculateAnd, 5);
 timeline.add(simulator, 6);
-timeline.add(computeXor, 11);
-timeline.add(computeAnd, 11);
+timeline.add(calculateXOR, 11);
+timeline.add(calculateAnd, 11);
 timeline.add(simulator, 12);
-timeline.add(computeXor, 17);
-timeline.add(computeAnd, 17);
+timeline.add(calculateXOR, 17);
+timeline.add(calculateAnd, 17);
 timeline.add(simulator, 18);
 timeline.add(outputHandler, 22);
 timeline.add(outputSetter, 22);

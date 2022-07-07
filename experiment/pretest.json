@@ -10,7 +10,10 @@
                 "d": "11110"
             },
             "correctAnswer": "b",
-            "explanations": {"b":"In multiplication the second term is called the multiplier"},
+            "explanations": {
+                "b":"In multiplication the second term is called the multiplier",
+                "a":"In multiplication the first term is called the multiplicant"
+            },
             "difficulty": "beginner"
         },
         {
@@ -26,15 +29,15 @@
             "difficulty": "beginner"
         },
         {
-            "question": "3. Underflow is a condition that happens when",
+            "question": "3. Which of the following is the correct combination of gates for making a half adder",
             "answers": {
-                "a": "overflow is not happening",
-                "b": "the result that is smaller than the smallest number obtained",
-                "c": "We got a NaN on our computer screen",
+                "a": "4 AND gates",
+                "b": "1 XOR gate and 1 AND gate",
+                "c": "1 XOR gate",
                 "d": "None of the above"
             },
             "correctAnswer": "b",
-            "explanations": {"b":"Overflow is the result that is smaller than the smallest number obtained"},
+            "explanations": {"b":"For finding the sum of 2 bits, we need to XOR the 2 bits and for finding carry we need to AND the 2 bits."},
             "difficulty": "intermediate"
         },
         {
