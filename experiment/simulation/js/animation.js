@@ -30,20 +30,20 @@ const speed = document.getElementById("speed");
 
 let currPos = 0;
 
-const OBJECTS = [document.getElementById("a1"), document.getElementById("a0"), document.getElementById("b1"), document.getElementById("b0"), document.getElementById("a1"), document.getElementById("a0"), document.getElementById("b1"), document.getElementById("b0"), document.getElementById("c3"), document.getElementById("c2"), document.getElementById("c1"), document.getElementById("c0")];
-const TEXTINPUT = [
+const objects = [document.getElementById("a1"), document.getElementById("a0"), document.getElementById("b1"), document.getElementById("b0"), document.getElementById("a1"), document.getElementById("a0"), document.getElementById("b1"), document.getElementById("b0"), document.getElementById("c3"), document.getElementById("c2"), document.getElementById("c1"), document.getElementById("c0")];
+const textinput = [
     document.createElementNS(svgns, "text"), 
     document.createElementNS(svgns, "text"), 
     document.createElementNS(svgns, "text"), 
     document.createElementNS(svgns, "text")
 ];
-const TEXTOUTPUT = [
+const textoutput = [
     document.createElementNS(svgns, "text"), 
     document.createElementNS(svgns, "text"), 
     document.createElementNS(svgns, "text"), 
     document.createElementNS(svgns, "text")
 ];
-const INPUTDOTS = [
+const inputdots = [
     document.createElementNS(svgns, "circle"),
     document.createElementNS(svgns, "circle"),
     document.createElementNS(svgns, "circle"),
@@ -67,149 +67,149 @@ function demoWidth() {
 
 //initialise input text
 function textIOInit() {
-    for (const text of TEXTINPUT) {
+    for (const text of textinput) {
         text.textContent = 2;
     }
 }
 
 function outputCoordinates() {
     let xcor = 695;
-    setCoordinates(xcor, 210, TEXTOUTPUT[0]);
-    svg.append(TEXTOUTPUT[0]);
-    setCoordinates(xcor, 345, TEXTOUTPUT[1]);
-    svg.append(TEXTOUTPUT[1]);
-    setCoordinates(xcor, 465, TEXTOUTPUT[2]);
-    svg.append(TEXTOUTPUT[2]);
-    setCoordinates(xcor, 545, TEXTOUTPUT[3]);
-    svg.append(TEXTOUTPUT[3]);
+    setCoordinates(xcor, 210, textoutput[0]);
+    svg.append(textoutput[0]);
+    setCoordinates(xcor, 345, textoutput[1]);
+    svg.append(textoutput[1]);
+    setCoordinates(xcor, 465, textoutput[2]);
+    svg.append(textoutput[2]);
+    setCoordinates(xcor, 545, textoutput[3]);
+    svg.append(textoutput[3]);
 }
 
 
-function inputDots() {
+function inputdots() {
     //sets the coordinates of the input dots
-    fillInputDots(INPUTDOTS[0], 20, 220, 15, "#FF0000");
-    svg.append(INPUTDOTS[0]);
-    fillInputDots(INPUTDOTS[1], 20, 560, 15, "#FF0000");
-    svg.append(INPUTDOTS[1]);
-    fillInputDots(INPUTDOTS[2], 20, 340, 15, "#FF0000");
-    svg.append(INPUTDOTS[2]);
-    fillInputDots(INPUTDOTS[3], 20, 440, 15, "#FF0000");
-    svg.append(INPUTDOTS[3]);
-    fillInputDots(INPUTDOTS[4], 20, 220, 15, "#FF0000");
-    svg.append(INPUTDOTS[4]);
-    fillInputDots(INPUTDOTS[5], 20, 560, 15, "#FF0000");
-    svg.append(INPUTDOTS[5]);
-    fillInputDots(INPUTDOTS[6], 20, 340, 15, "#FF0000");
-    svg.append(INPUTDOTS[6]);
-    fillInputDots(INPUTDOTS[7], 20, 440, 15, "#FF0000");
-    svg.append(INPUTDOTS[7]);
+    fillInputDots(inputdots[0], 20, 220, 15, "#FF0000");
+    svg.append(inputdots[0]);
+    fillInputDots(inputdots[1], 20, 560, 15, "#FF0000");
+    svg.append(inputdots[1]);
+    fillInputDots(inputdots[2], 20, 340, 15, "#FF0000");
+    svg.append(inputdots[2]);
+    fillInputDots(inputdots[3], 20, 440, 15, "#FF0000");
+    svg.append(inputdots[3]);
+    fillInputDots(inputdots[4], 20, 220, 15, "#FF0000");
+    svg.append(inputdots[4]);
+    fillInputDots(inputdots[5], 20, 560, 15, "#FF0000");
+    svg.append(inputdots[5]);
+    fillInputDots(inputdots[6], 20, 340, 15, "#FF0000");
+    svg.append(inputdots[6]);
+    fillInputDots(inputdots[7], 20, 440, 15, "#FF0000");
+    svg.append(inputdots[7]);
 }
 function dotsDisappear() {
-    for (const inputDot of INPUTDOTS) {
+    for (const inputDot of inputdots) {
         objectDisappear(inputDot);
     }
 }
 function dotsAppear() {
-    for (const inputDot of INPUTDOTS) {
+    for (const inputDot of inputdots) {
         objectAppear(inputDot);
     }
 }
 
 function calculateAnd() {
     if (currPos === 0) {
-        if (TEXTINPUT[0].textContent === "0" || TEXTINPUT[2].textContent === "0") {
-            setter("0", INPUTDOTS[0]);
-            setter("0", INPUTDOTS[2]);
+        if (textinput[0].textContent === "0" || textinput[2].textContent === "0") {
+            setter("0", inputdots[0]);
+            setter("0", inputdots[2]);
         }
-        if (TEXTINPUT[0].textContent === "0" || TEXTINPUT[3].textContent === "0") {
-            setter("0", INPUTDOTS[4]);
-            setter("0", INPUTDOTS[3]);
+        if (textinput[0].textContent === "0" || textinput[3].textContent === "0") {
+            setter("0", inputdots[4]);
+            setter("0", inputdots[3]);
         }
-        if (TEXTINPUT[1].textContent === "0" || TEXTINPUT[2].textContent === "0") {
-            setter("0", INPUTDOTS[5]);
-            setter("0", INPUTDOTS[6]);
+        if (textinput[1].textContent === "0" || textinput[2].textContent === "0") {
+            setter("0", inputdots[5]);
+            setter("0", inputdots[6]);
         }
-        if (TEXTINPUT[1].textContent === "0" || TEXTINPUT[3].textContent === "0") {
-            setter("0", INPUTDOTS[7]);
-            setter("0", INPUTDOTS[1]);
+        if (textinput[1].textContent === "0" || textinput[3].textContent === "0") {
+            setter("0", inputdots[7]);
+            setter("0", inputdots[1]);
         }
         currPos = 1;
-        objectDisappear(INPUTDOTS[7]);
+        objectDisappear(inputdots[7]);
     }
     else if (currPos === 1) {
-        if (String(INPUTDOTS[4].style.fill) === ZERO || String(INPUTDOTS[6].style.fill) === ZERO) {
-            setter("0", INPUTDOTS[4]);
-            setter("0", INPUTDOTS[6]);
+        if (String(inputdots[4].style.fill) === ZERO || String(inputdots[6].style.fill) === ZERO) {
+            setter("0", inputdots[4]);
+            setter("0", inputdots[6]);
         }
         else {
-            setter("1", INPUTDOTS[4]);
-            setter("1", INPUTDOTS[6]);
+            setter("1", inputdots[4]);
+            setter("1", inputdots[6]);
         }
         currPos++;
-        objectDisappear(INPUTDOTS[5]);
+        objectDisappear(inputdots[5]);
     }
     else if (currPos === 2) {
-        if (String(INPUTDOTS[4].style.fill) === ZERO || INPUTDOTS[0].style.fill === ZERO) {
+        if (String(inputdots[4].style.fill) === ZERO || inputdots[0].style.fill === ZERO) {
 
-            setter("0", INPUTDOTS[4]);
-            setter("0", INPUTDOTS[0]);
+            setter("0", inputdots[4]);
+            setter("0", inputdots[0]);
         }
-        objectDisappear(INPUTDOTS[6]);
-        objectDisappear(INPUTDOTS[4]);
+        objectDisappear(inputdots[6]);
+        objectDisappear(inputdots[4]);
     }
 
 }
 
 function calculateXOR() {
     if (currPos === 1) {
-        if (INPUTDOTS[3].style.fill !== INPUTDOTS[5].style.fill) {
-            setter("1", INPUTDOTS[3]);
-            setter("1", INPUTDOTS[5]);
+        if (inputdots[3].style.fill !== inputdots[5].style.fill) {
+            setter("1", inputdots[3]);
+            setter("1", inputdots[5]);
         }
         else {
-            setter("0", INPUTDOTS[3]);
-            setter("0", INPUTDOTS[5]);
+            setter("0", inputdots[3]);
+            setter("0", inputdots[5]);
         }
 
     }
     if (currPos === 2) {
-        if (INPUTDOTS[6].style.fill !== INPUTDOTS[2].style.fill) {
+        if (inputdots[6].style.fill !== inputdots[2].style.fill) {
 
-            setter("1", INPUTDOTS[6]);
-            setter("1", INPUTDOTS[2]);
+            setter("1", inputdots[6]);
+            setter("1", inputdots[2]);
         }
         else {
-            setter("0", INPUTDOTS[6]);
-            setter("0", INPUTDOTS[2]);
+            setter("0", inputdots[6]);
+            setter("0", inputdots[2]);
         }
 
     }
 }
 function inputDotDisappear() {
-    for (const inputDot of INPUTDOTS) {
+    for (const inputDot of inputdots) {
         fillColor(inputDot, "#008000");
     }
 }
 
 // function to disappear the output text
 function outputDisappear() {
-    for (const text of TEXTOUTPUT) {
+    for (const text of textoutput) {
         objectDisappear(text);
     }
 }
 // function to appear the output text
 function outputVisible() {
-    for (const text of TEXTOUTPUT) {
+    for (const text of textoutput) {
         objectAppear(text);
     }
 }
 function inputTextDisappear() {
-    for (const text of TEXTINPUT) {
+    for (const text of textinput) {
         objectDisappear(text);
     }
 }
 function inputTextAppear() {
-    for (const text of TEXTINPUT) {
+    for (const text of textinput) {
         if (text.textContent !== "2")
             objectAppear(text);
     }
@@ -223,103 +223,103 @@ function allDisappear() {
     inputDotDisappear();
     inputTextDisappear();
     outputDisappear();
-    for (const object of OBJECTS) {
+    for (const object of objects) {
         fillColor(object, "#008000");
     }
 }
 function outputSetter() {
 
-    for (let index = 0; index < TEXTOUTPUT.length; index++) {
-        setter(TEXTOUTPUT[index].textContent, OBJECTS[index + 8]);
+    for (let index = 0; index < textoutput.length; index++) {
+        setter(textoutput[index].textContent, objects[index + 8]);
     }
 
 }
 function outputHandler() {
-    let a1 = parseInt(TEXTINPUT[0].textContent);
-    let a0 = parseInt(TEXTINPUT[1].textContent);
-    let b1 = parseInt(TEXTINPUT[2].textContent);
-    let b0 = parseInt(TEXTINPUT[3].textContent);
+    let a1 = parseInt(textinput[0].textContent);
+    let a0 = parseInt(textinput[1].textContent);
+    let b1 = parseInt(textinput[2].textContent);
+    let b0 = parseInt(textinput[3].textContent);
     let num1 = (a1 * 2) + a0;
     let num2 = (b1 * 2) + b0;
     let product = num1 * num2;
     let ans = product.toString(2).padStart(4, "0");
-    for (let i = 0; i < TEXTOUTPUT.length; i++) {
-        TEXTOUTPUT[i].textContent = (ans[i]);
+    for (let i = 0; i < textoutput.length; i++) {
+        textoutput[i].textContent = (ans[i]);
     }
 
 }
 function appendInput1() {
-    if (TEXTINPUT[0].textContent !== "0" && timeline.progress() === 0) {
+    if (textinput[0].textContent !== "0" && timeline.progress() === 0) {
         changeTo0(15, 225, 0, 0);
     }
-    else if (TEXTINPUT[0].textContent !== "1" && timeline.progress() === 0) {
+    else if (textinput[0].textContent !== "1" && timeline.progress() === 0) {
         changeTo1(15, 225, 0, 0);
     }
-    setter(TEXTINPUT[0].textContent, INPUTDOTS[0]);
-    setter(TEXTINPUT[0].textContent, INPUTDOTS[4]);
+    setter(textinput[0].textContent, inputdots[0]);
+    setter(textinput[0].textContent, inputdots[4]);
 }
 
 
 function appendInput2() {
-    if (TEXTINPUT[1].textContent !== "0" && timeline.progress() === 0) {
+    if (textinput[1].textContent !== "0" && timeline.progress() === 0) {
         changeTo0(15, 565, 1, 1);
     }
-    else if (TEXTINPUT[1].textContent !== "1" && timeline.progress() === 0) {
+    else if (textinput[1].textContent !== "1" && timeline.progress() === 0) {
         changeTo1(15, 565, 1, 1);
     }
-    setter(TEXTINPUT[1].textContent, INPUTDOTS[1]);
-    setter(TEXTINPUT[1].textContent, INPUTDOTS[5]);
+    setter(textinput[1].textContent, inputdots[1]);
+    setter(textinput[1].textContent, inputdots[5]);
 }
 function appendInput3() {
-    if (TEXTINPUT[2].textContent !== "0" && timeline.progress() === 0) {
+    if (textinput[2].textContent !== "0" && timeline.progress() === 0) {
         changeTo0(15, 345, 2, 2);
     }
-    else if (TEXTINPUT[1].textContent !== "1" && timeline.progress() === 0) {
+    else if (textinput[1].textContent !== "1" && timeline.progress() === 0) {
         changeTo1(15, 345, 2, 2);
     }
-    setter(TEXTINPUT[2].textContent, INPUTDOTS[2]);
-    setter(TEXTINPUT[2].textContent, INPUTDOTS[6]);
+    setter(textinput[2].textContent, inputdots[2]);
+    setter(textinput[2].textContent, inputdots[6]);
 }
 function appendInput4() {
-    if (TEXTINPUT[3].textContent !== "0" && timeline.progress() === 0) {
+    if (textinput[3].textContent !== "0" && timeline.progress() === 0) {
         changeTo0(15, 445, 3, 3);
     }
-    else if (TEXTINPUT[3].textContent !== "1" && timeline.progress() === 0) {
+    else if (textinput[3].textContent !== "1" && timeline.progress() === 0) {
         changeTo1(15, 445, 3, 3);
     }
-    setter(TEXTINPUT[3].textContent, INPUTDOTS[3]);
-    setter(TEXTINPUT[3].textContent, INPUTDOTS[7]);
+    setter(textinput[3].textContent, inputdots[3]);
+    setter(textinput[3].textContent, inputdots[7]);
 }
 
 function changeTo1(coordinateX, coordinateY, object, textObject) {
 
-    TEXTINPUT[textObject].textContent = 1;
-    svg.appendChild(TEXTINPUT[textObject]);
-    setCoordinates(coordinateX, coordinateY, TEXTINPUT[textObject]);
+    textinput[textObject].textContent = 1;
+    svg.appendChild(textinput[textObject]);
+    setCoordinates(coordinateX, coordinateY, textinput[textObject]);
 
-    fillColor(OBJECTS[object], "#29e");
-    fillColor(OBJECTS[object + 4], "#29e");
+    fillColor(objects[object], "#29e");
+    fillColor(objects[object + 4], "#29e");
     inputTextAppear();
     clearObservation();
 }
 
 function changeTo0(coordinateX, coordinateY, object, textObject) {
 
-    TEXTINPUT[textObject].textContent = 0;
-    svg.appendChild(TEXTINPUT[textObject]);
-    setCoordinates(coordinateX, coordinateY, TEXTINPUT[textObject]);
+    textinput[textObject].textContent = 0;
+    svg.appendChild(textinput[textObject]);
+    setCoordinates(coordinateX, coordinateY, textinput[textObject]);
 
-    fillColor(OBJECTS[object], "#eeeb22");
-    fillColor(OBJECTS[object + 4], "#eeeb22");
+    fillColor(objects[object], "#eeeb22");
+    fillColor(objects[object + 4], "#eeeb22");
     inputTextAppear();
     clearObservation();
 }
 
 function reboot() {
-    for (const elements of OBJECTS) {
+    for (const elements of objects) {
         elements.style.fill = "#008000";
     }
-    for (const text of TEXTINPUT) {
+    for (const text of textinput) {
         text.textContent = 2;
     }
 
@@ -383,7 +383,7 @@ function stopCircuit() {
     }
 }
 function startCircuit() {
-    if (TEXTINPUT[0].textContent !== "2" && TEXTINPUT[1].textContent !== "2" && TEXTINPUT[2].textContent !== "2" && TEXTINPUT[3].textContent !== "2") {
+    if (textinput[0].textContent !== "2" && textinput[1].textContent !== "2" && textinput[2].textContent !== "2" && textinput[3].textContent !== "2") {
         if (!circuitStarted) {
             circuitStarted = true;
         }
@@ -397,22 +397,22 @@ function startCircuit() {
             observ.innerHTML = "Please Restart the simulation";
         }
     }
-    else if (TEXTINPUT[0].textContent === "2") {
+    else if (textinput[0].textContent === "2") {
         observ.innerHTML = "Please set the value of A1 to 0 or 1";
     }
-    else if (TEXTINPUT[1].textContent === "2") {
+    else if (textinput[1].textContent === "2") {
         observ.innerHTML = "Please set the value of A0 to 0 or 1";
     }
-    else if (TEXTINPUT[2].textContent === "2") {
+    else if (textinput[2].textContent === "2") {
         observ.innerHTML = "Please set the value of B1 to 0 or 1";
     }
-    else if (TEXTINPUT[3].textContent === "2") {
+    else if (textinput[3].textContent === "2") {
         observ.innerHTML = "Please set the value of B0 to 0 or 1";
     }
 }
 
 function simulator() {
-    timeline.to(INPUTDOTS[0], {
+    timeline.to(inputdots[0], {
         motionPath: {
             path: "#path1",
             align: "#path1",
@@ -428,7 +428,7 @@ function simulator() {
         paused: false,
 
     }, 0);
-    timeline.to(INPUTDOTS[0], {
+    timeline.to(inputdots[0], {
         motionPath: {
             path: "#path13",
             align: "#path13",
@@ -445,7 +445,7 @@ function simulator() {
         paused: false,
 
     }, 0);
-    timeline.to(INPUTDOTS[0], {
+    timeline.to(inputdots[0], {
         motionPath: {
             path: "#path16",
             align: "#path16",
@@ -462,7 +462,7 @@ function simulator() {
         paused: false,
 
     }, 0);
-    timeline.to(INPUTDOTS[4], {
+    timeline.to(inputdots[4], {
         motionPath: {
             path: "#path2",
             align: "#path2",
@@ -478,7 +478,7 @@ function simulator() {
         paused: false,
 
     }, 0);
-    timeline.to(INPUTDOTS[4], {
+    timeline.to(inputdots[4], {
         motionPath: {
             path: "#path9",
             align: "#path9",
@@ -495,7 +495,7 @@ function simulator() {
         paused: false,
 
     }, 0);
-    timeline.to(INPUTDOTS[4], {
+    timeline.to(inputdots[4], {
         motionPath: {
             path: "#path20",
             align: "#path20",
@@ -512,7 +512,7 @@ function simulator() {
         paused: false,
 
     }, 0);
-    timeline.to(INPUTDOTS[1], {
+    timeline.to(inputdots[1], {
         motionPath: {
             path: "#path7",
             align: "#path7",
@@ -528,7 +528,7 @@ function simulator() {
         paused: false,
 
     }, 0);
-    timeline.to(INPUTDOTS[1], {
+    timeline.to(inputdots[1], {
         motionPath: {
             path: "#path19",
             align: "#path19",
@@ -545,7 +545,7 @@ function simulator() {
         paused: false,
 
     }, 0);
-    timeline.to(INPUTDOTS[5], {
+    timeline.to(inputdots[5], {
         motionPath: {
             path: "#path8",
             align: "#path8",
@@ -561,7 +561,7 @@ function simulator() {
         paused: false,
 
     }, 0);
-    timeline.to(INPUTDOTS[5], {
+    timeline.to(inputdots[5], {
         motionPath: {
             path: "#path11",
             align: "#path11",
@@ -578,7 +578,7 @@ function simulator() {
         paused: false,
 
     }, 0);
-    timeline.to(INPUTDOTS[2], {
+    timeline.to(inputdots[2], {
         motionPath: {
             path: "#path3",
             align: "#path3",
@@ -594,7 +594,7 @@ function simulator() {
         paused: false,
 
     }, 0);
-    timeline.to(INPUTDOTS[2], {
+    timeline.to(inputdots[2], {
         motionPath: {
             path: "#path14",
             align: "#path14",
@@ -611,7 +611,7 @@ function simulator() {
         paused: false,
 
     }, 0);
-    timeline.to(INPUTDOTS[2], {
+    timeline.to(inputdots[2], {
         motionPath: {
             path: "#path17",
             align: "#path17",
@@ -628,7 +628,7 @@ function simulator() {
         paused: false,
 
     }, 0);
-    timeline.to(INPUTDOTS[6], {
+    timeline.to(inputdots[6], {
         motionPath: {
             path: "#path4",
             align: "#path4",
@@ -644,7 +644,7 @@ function simulator() {
         paused: false,
 
     }, 0);
-    timeline.to(INPUTDOTS[6], {
+    timeline.to(inputdots[6], {
         motionPath: {
             path: "#path12",
             align: "#path12",
@@ -661,7 +661,7 @@ function simulator() {
         paused: false,
 
     }, 0);
-    timeline.to(INPUTDOTS[6], {
+    timeline.to(inputdots[6], {
         motionPath: {
             path: "#path15",
             align: "#path15",
@@ -679,7 +679,7 @@ function simulator() {
 
     }, 0);
 
-    timeline.to(INPUTDOTS[3], {
+    timeline.to(inputdots[3], {
         motionPath: {
             path: "#path5",
             align: "#path5",
@@ -695,7 +695,7 @@ function simulator() {
         paused: false,
 
     }, 0);
-    timeline.to(INPUTDOTS[3], {
+    timeline.to(inputdots[3], {
         motionPath: {
             path: "#path10",
             align: "#path10",
@@ -712,7 +712,7 @@ function simulator() {
         paused: false,
 
     }, 0);
-    timeline.to(INPUTDOTS[3], {
+    timeline.to(inputdots[3], {
         motionPath: {
             path: "#path18",
             align: "#path18",
@@ -729,7 +729,7 @@ function simulator() {
         paused: false,
 
     }, 0);
-    timeline.to(INPUTDOTS[7], {
+    timeline.to(inputdots[7], {
         motionPath: {
             path: "#path6",
             align: "#path6",
@@ -754,7 +754,7 @@ gsap.registerPlugin(MotionPathPlugin);
 demoWidth();
 textIOInit();
 outputCoordinates();
-inputDots();
+inputdots();
 outputDisappear();
 
 timeline.add(inputTextAppear, 0);
