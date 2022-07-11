@@ -1,0 +1,1 @@
+In electronics, an analog multiplier is a device which takes two analog signals and produces an output which is their product. Such circuits can be used to implement related functions such as squares (apply same signal to both inputs), and square roots. 
