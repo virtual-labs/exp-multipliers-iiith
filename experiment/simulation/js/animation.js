@@ -85,7 +85,7 @@ function outputCoordinates() {
 }
 
 
-function inputdots() {
+function initInputDots() {
     //sets the coordinates of the input dots
     fillInputDots(inputdots[0], 20, 220, 15, "#FF0000");
     svg.append(inputdots[0]);
@@ -754,7 +754,7 @@ gsap.registerPlugin(MotionPathPlugin);
 demoWidth();
 textIOInit();
 outputCoordinates();
-inputdots();
+initInputDots();
 outputDisappear();
 
 timeline.add(inputTextAppear, 0);
