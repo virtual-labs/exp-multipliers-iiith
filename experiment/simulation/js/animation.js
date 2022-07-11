@@ -18,7 +18,6 @@ const circuitBoardTop = circuitBoard.offsetTop;
 // Full height of window
 const windowHeight = window.innerHeight;
 const width = window.innerWidth;
-const instructionBox = document.getElementsByClassName("instructions-box")[0];
 const svg = document.querySelector(".svg");
 const svgns = "http://www.w3.org/2000/svg";
 
