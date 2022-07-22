@@ -39,7 +39,7 @@ export const setPosition = ({ top, left }) => {
   toggleMenu("show");
 };
 
-window.addEventListener("click", (e) => {
+window.addEventListener("click", () => {
   if (menuVisible) toggleMenu("hide");
   window.selectedComponent = null;
   window.componentType = null;
@@ -75,7 +75,6 @@ function changeTabs(e) {
   refreshWorkingArea();
   initMultiplier();
   window.simulate = simulate;
-  updateInstructions();
   updateToolbar();
   clearObservations();
   resize();
@@ -83,18 +82,10 @@ function changeTabs(e) {
 
 window.changeTabs = changeTabs;
 
-function updateInstructions() {
-  if (window.currentTab === "task1") {
-    document.getElementById("task-title").innerHTML = "Half Adder";
-    document.getElementById("task-description").innerHTML = "Implement a 1-bit half adder using logic gates.";
-  }
-}
-
 // Toolbar
 
 function updateToolbar() {
-  let elem = "";
-  elem =
+  let elem =
     '<div class="component-button and" onclick="addGate(event)">AND</div><div class="component-button or" onclick="addGate(event)">OR</div><div class="component-button not" onclick="addGate(event)">NOT</div><div class="component-button nand" onclick="addGate(event)">NAND</div><div class="component-button nor" onclick="addGate(event)">NOR</div><div class="component-button xor" onclick="addGate(event)">XOR</div><div class="component-button xnor" onclick="addGate(event)">XNOR</div>'; 
   document.getElementById("toolbar").innerHTML = elem;
 }
@@ -102,19 +93,11 @@ function updateToolbar() {
 // Clear observations
 export function clearObservations() {
   document.getElementById("table-body").innerHTML = "";
-  let head = "";
-  head =
+  let head =
     '<tr><th colspan="2">Inputs</th><th colspan="1" rowspan="2">Expected Values</th><th colspan="1" rowspan="2">Observed Values</th></tr> <tr><th>B</th><th>A</th></tr>';
   document.getElementById("table-head").innerHTML = head;
   document.getElementById("result").innerHTML = "";
 }
-
-// Instruction box
-const instructionBox = document.getElementsByClassName("instructions-box")[0];
-instructionBox.addEventListener("click", (e) => {
-  instructionBox.classList.toggle("expand");
-});
-
 
 // Making webpage responsive
 
@@ -126,7 +109,7 @@ const circuitBoardTop = circuitBoard.offsetTop;
 const windowHeight = window.innerHeight;
 const width = window.innerWidth;
 if (width < 1024) {
-  circuitBoard.style.height = 600 + "px";
+  circuitBoard.style.height = "600px";
 } else {
   circuitBoard.style.height = windowHeight - circuitBoardTop - 20 + "px";
 }
