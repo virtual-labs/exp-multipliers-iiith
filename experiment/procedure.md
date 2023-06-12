@@ -20,6 +20,6 @@
 
 ## Observations - 
 
-* Upon the completion of simultion the output bits will display the product of the numbers (A1A0) and (B1B0).
+* Upon the completion of simulation, the output bits will display the product of the numbers (A1A0) and (B1B0).
 * If the circuit has been made as descibed above a "Success" message will appear upon clicking "Submit".
 

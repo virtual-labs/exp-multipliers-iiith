@@ -12,7 +12,7 @@
             "correctAnswer": "b",
             "explanations": {
                 "b":"In multiplication the second term is called the multiplier",
-                "a":"In multiplication the first term is called the multiplicant",
+                "a":"In multiplication the first term is called the multiplicand",
                 "c":"The given problem involves a 3-bit binary multiplication, meaning the multiplier can only have a maximum of 3 bits. Since the provided multiplier has more than 3 bits, this option is incorrect.",
                 "d":"The given problem involves a 3-bit binary multiplication, meaning the multiplier can only have a maximum of 3 bits. Since the provided multiplier has more than 3 bits, this option is incorrect."
 
@@ -71,7 +71,7 @@
             "difficulty": "beginner"
         },
         {
-            "question": "5. We can perform binary multiplication is ____ ways",
+            "question": "5. We can perform binary multiplication in ____ ways",
             "answers": {
                 "a": "3",
                 "b": "4",
