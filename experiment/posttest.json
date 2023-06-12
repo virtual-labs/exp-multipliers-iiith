@@ -10,7 +10,12 @@
                 "d": "4"
             },
             "correctAnswer": "b",
-            "explanations": {"b":"The number of output bits is 6, since the greatest possible product can be 49 which requires 6 bits for binary representation."},
+            "explanations": {
+                "a":"The maximum product of two 3-bit numbers is larger than what can be represented using 5 bits. When multiplying two 3-bit numbers, the product can be as large as 49, which requires more than 5 bits to represent. Therefore, the number of output bits should be more than 5.",
+                "b":"The number of output bits is 6, since the greatest possible product can be 49 which requires 6 bits for binary representation.",
+                "c":"The maximum product of two 3-bit numbers does not require 7 bits to represent. It can be represented using fewer bits. Therefore, the number of output bits should be less than 7.",
+                "d":"the maximum product of two 3-bit numbers is larger than what can be represented using 4 bits. When multiplying two 3-bit numbers, the product can be as large as 49, which requires more than 4 bits to represent. Therefore, the number of output bits should be more than 4."
+            },
             "difficulty": "beginner"
         },
         {
@@ -22,7 +27,12 @@
                 "d": "Both b and c"
             },
             "correctAnswer": "c",
-            "explanations": {"c":"The number of AND gates is 6, the number of XOR gates is 2."},
+            "explanations": {
+                "a":"The multiplication of two bits requires a total of 2 logic gates: AND gates and XOR gates (or XNOR gates). Using only AND gates and OR gates would not provide the necessary logic operations to correctly multiply the two bits.",
+                "b":"While XOR gates are required to handle the exclusive OR operation in a multiplier, having 6 XOR gates would be excessive for a 2-bit multiplier.",
+                "c":"A 2-bit multiplier can indeed be implemented using 6 AND gates and 2 XOR gates. The AND gates are responsible for performing the logical AND operation on corresponding bits of the two multiplicands, while the XOR gates handle the exclusive OR operation in addition",
+                "d":"One/both of the options represent the wrong answer."
+            },
             "difficulty": "intermediate"
         },
         {
@@ -34,7 +44,12 @@
                 "d": "None of the above"
             },
             "correctAnswer": "b",
-            "explanations": {"b":"The number of half adders is 2, the number of AND gates is 4."},
+            "explanations": {
+                "a":"A half adder can only add two 1-bit numbers and produce a sum bit and a carry bit. It does not have the necessary components to perform multiplication",
+                "b":"The half adders can be used to perform the addition operation, while the AND gates can be used to multiply the individual bits of the two numbers.",
+                "c":"While XOR gates can be used for bit manipulation and arithmetic operations, they alone are not sufficient for multiplication.",
+                "d":"One of the options is a valid combination for creating a 2-bit multiplier."
+            },
             "difficulty": "advanced"
         },
         {
@@ -46,7 +61,12 @@
                 "d": "None of the above"
             },
             "correctAnswer": "b",
-            "explanations": {"b":"A 2 bit multiplier circuit built using half adders is a combinational circuit."},
+            "explanations": {
+                "a":"It is not a sequential circuit as it does not require memory elements or feedback loops",
+                "b":"Combinational circuits produce output based solely on the current input values, without any memory or feedback. In the case of a 2-bit multiplier circuit built using half adders, the output is determined by the input bits without any consideration of previous inputs or state.",
+                "c":"A clock signal is typically used in sequential circuits to synchronize the flow of data and control the timing of operations. This circuit does not use a clock as it produces immediate outputs based on the current inputs",
+                "d":"One of the previous options is the correct answer."
+            },
             "difficulty": "beginner"
         },
         {
