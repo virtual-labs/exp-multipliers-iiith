@@ -419,7 +419,7 @@ function simulator() {
             alignOrigin: [0.5, 0.5]
         },
 
-        duration: 4,
+        duration: 5,
         repeat: 0,
         repeatDelay: 3,
         yoyo: true,
@@ -435,8 +435,8 @@ function simulator() {
             alignOrigin: [0.5, 0.5]
         },
 
-        duration: 10,
-        delay: 6,
+        duration: 12,
+        delay: 5,
         repeat: 0,
         repeatDelay: 3,
         yoyo: true,
@@ -452,8 +452,8 @@ function simulator() {
             alignOrigin: [0.5, 0.5]
         },
 
-        duration: 4,
-        delay: 18,
+        duration: 6,
+        delay: 17,
         repeat: 0,
         repeatDelay: 3,
         yoyo: true,
@@ -469,7 +469,7 @@ function simulator() {
             alignOrigin: [0.5, 0.5]
         },
 
-        duration: 4,
+        duration: 5,
         repeat: 0,
         repeatDelay: 3,
         yoyo: true,
@@ -485,8 +485,8 @@ function simulator() {
             alignOrigin: [0.5, 0.5]
         },
 
-        duration: 4,
-        delay: 6,
+        duration: 6,
+        delay: 5,
         repeat: 0,
         repeatDelay: 3,
         yoyo: true,
@@ -502,8 +502,8 @@ function simulator() {
             alignOrigin: [0.5, 0.5]
         },
 
-        duration: 4,
-        delay: 12,
+        duration: 6,
+        delay: 11,
         repeat: 0,
         repeatDelay: 3,
         yoyo: true,
@@ -519,7 +519,7 @@ function simulator() {
             alignOrigin: [0.5, 0.5]
         },
 
-        duration: 4,
+        duration: 5,
         repeat: 0,
         repeatDelay: 3,
         yoyo: true,
@@ -535,8 +535,8 @@ function simulator() {
             alignOrigin: [0.5, 0.5]
         },
 
-        duration: 16,
-        delay: 6,
+        duration: 17,
+        delay: 5,
         repeat: 0,
         repeatDelay: 3,
         yoyo: true,
@@ -552,7 +552,7 @@ function simulator() {
             alignOrigin: [0.5, 0.5]
         },
 
-        duration: 4,
+        duration: 5,
         repeat: 0,
         repeatDelay: 3,
         yoyo: true,
@@ -568,8 +568,8 @@ function simulator() {
             alignOrigin: [0.5, 0.5]
         },
 
-        duration: 4,
-        delay: 6,
+        duration: 5,
+        delay: 5,
         repeat: 0,
         repeatDelay: 3,
         yoyo: true,
@@ -585,7 +585,7 @@ function simulator() {
             alignOrigin: [0.5, 0.5]
         },
 
-        duration: 4,
+        duration: 5,
         repeat: 0,
         repeatDelay: 3,
         yoyo: true,
@@ -601,8 +601,8 @@ function simulator() {
             alignOrigin: [0.5, 0.5]
         },
 
-        duration: 10,
-        delay: 6,
+        duration: 12,
+        delay: 5,
         repeat: 0,
         repeatDelay: 3,
         yoyo: true,
@@ -618,8 +618,8 @@ function simulator() {
             alignOrigin: [0.5, 0.5]
         },
 
-        duration: 4,
-        delay: 18,
+        duration: 5,
+        delay: 17,
         repeat: 0,
         repeatDelay: 3,
         yoyo: true,
@@ -635,7 +635,7 @@ function simulator() {
             alignOrigin: [0.5, 0.5]
         },
 
-        duration: 4,
+        duration: 5,
         repeat: 0,
         repeatDelay: 3,
         yoyo: true,
@@ -651,8 +651,8 @@ function simulator() {
             alignOrigin: [0.5, 0.5]
         },
 
-        duration: 4,
-        delay: 6,
+        duration: 6,
+        delay: 5,
         repeat: 0,
         repeatDelay: 3,
         yoyo: true,
@@ -668,8 +668,8 @@ function simulator() {
             alignOrigin: [0.5, 0.5]
         },
 
-        duration: 4,
-        delay: 12,
+        duration: 6,
+        delay: 11,
         repeat: 0,
         repeatDelay: 3,
         yoyo: true,
@@ -686,7 +686,7 @@ function simulator() {
             alignOrigin: [0.5, 0.5]
         },
 
-        duration: 4,
+        duration: 5,
         repeat: 0,
         repeatDelay: 3,
         yoyo: true,
@@ -702,8 +702,8 @@ function simulator() {
             alignOrigin: [0.5, 0.5]
         },
 
-        duration: 4,
-        delay: 6,
+        duration: 6,
+        delay: 5,
         repeat: 0,
         repeatDelay: 3,
         yoyo: true,
@@ -719,8 +719,8 @@ function simulator() {
             alignOrigin: [0.5, 0.5]
         },
 
-        duration: 10,
-        delay: 12,
+        duration: 11,
+        delay: 11,
         repeat: 0,
         repeatDelay: 3,
         yoyo: true,
@@ -736,7 +736,7 @@ function simulator() {
             alignOrigin: [0.5, 0.5]
         },
 
-        duration: 4,
+        duration: 5,
         repeat: 0,
         repeatDelay: 3,
         yoyo: true,
@@ -760,13 +760,13 @@ timeline.add(inputTextAppear, 0);
 timeline.add(dotsAppear, 0);
 timeline.add(simulator, 0);
 timeline.add(calculateAnd, 5);
-timeline.add(simulator, 6);
+timeline.add(simulator, 5);
 timeline.add(calculateXOR, 11);
 timeline.add(calculateAnd, 11);
-timeline.add(simulator, 12);
+timeline.add(simulator, 11);
 timeline.add(calculateXOR, 17);
 timeline.add(calculateAnd, 17);
-timeline.add(simulator, 18);
+timeline.add(simulator, 17);
 timeline.add(outputHandler, 22);
 timeline.add(outputSetter, 22);
 timeline.add(outputVisible, 22);
