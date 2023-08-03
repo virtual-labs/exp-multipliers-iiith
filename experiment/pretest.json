@@ -12,7 +12,10 @@
             "correctAnswer": "b",
             "explanations": {
                 "b":"In multiplication the second term is called the multiplier",
-                "a":"In multiplication the first term is called the multiplicant"
+                "a":"In multiplication the first term is called the multiplicand",
+                "c":"The given problem involves a 3-bit binary multiplication, meaning the multiplier can only have a maximum of 3 bits. Since the provided multiplier has more than 3 bits, this option is incorrect.",
+                "d":"The given problem involves a 3-bit binary multiplication, meaning the multiplier can only have a maximum of 3 bits. Since the provided multiplier has more than 3 bits, this option is incorrect."
+
             },
             "difficulty": "beginner"
         },
@@ -25,7 +28,13 @@
                 "d": "1101010"
             },
             "correctAnswer": "c",
-            "explanations": {"c":"13 * 11 is 143"},
+            "explanations": {
+                "a":"The binary multiplication of 1101 * 1011 results in 1000111, not 0101010.",
+                "b":"The binary multiplication of 1101 * 1011 results in 1000111, not 1010111.",
+                "c":"13 * 11 is 143",
+                "d":"The binary multiplication of 1101 * 1011 results in 1000111, not 1101010."
+                
+            },
             "difficulty": "beginner"
         },
         {
@@ -37,7 +46,12 @@
                 "d": "None of the above"
             },
             "correctAnswer": "b",
-            "explanations": {"b":"For finding the sum of 2 bits, we need to XOR the 2 bits and for finding carry we need to AND the 2 bits."},
+            "explanations": {
+                "a":"Using only AND gates would not be sufficient to create a half adder. AND gates can only generate the carry output but cannot produce the sum output.",
+                "b":"For finding the sum of 2 bits, we need to XOR the 2 bits and for finding carry we need to AND the 2 bits.",
+                "c":"Using only an XOR gate would not be sufficient to create a half adder. The XOR gate can produce the sum output, but it cannot generate the carry output.",
+                "d":"The correct combination of gates for making a half adder is indeed one of the above options."
+            },
             "difficulty": "intermediate"
         },
         {
@@ -49,11 +63,15 @@
                 "d": "all of these"
             },
             "correctAnswer": "d",
-            "explanations": {"d":"Binary multiplication is used in all these areas"},
+            "explanations": {
+                "a":"In a computer, all data and instructions are represented in binary form. Binary multiplication is essential for performing mathematical computations, such as multiplication of binary numbers, floating-point arithmetic, and various algorithms used in computer science and engineering.",
+                "b":"Mobile devices use binary representation for storing and processing data. Whether it's calculating values, performing mathematical operations in applications, or executing complex algorithms, binary multiplication is utilized in mobile phones.",
+                "c":"Calculators, whether physical or digital, employ binary multiplication to perform calculations.",
+                "d":"Binary multiplication is used in all these areas"},
             "difficulty": "beginner"
         },
         {
-            "question": "5. We can perform binary multiplication is ____ ways",
+            "question": "5. We can perform binary multiplication in ____ ways",
             "answers": {
                 "a": "3",
                 "b": "4",

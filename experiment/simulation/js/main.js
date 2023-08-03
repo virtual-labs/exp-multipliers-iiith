@@ -64,6 +64,9 @@ export const connectGate = function () {
       return false;
     } else if (start_uuid === "output" && end_uuid === "output") {
       return false;
+    } else if ((end_uuid==="input" && toEndpoint.connections.length > 0) || (start_uuid==="input" && fromEndpoint.connections.length>1)) {
+      // If it already has a connection, do not establish a new connection
+      return false;
     } else {
       jsPlumbInstance.connect({
         uuids: [fromEndpoint.uuid, toEndpoint.uuid],
@@ -75,10 +78,12 @@ export const connectGate = function () {
         let input = gatejs.gates[fromEndpoint.elementId]; // gatejs.gates is dict of gates
         input.isConnected = true;
         gatejs.gates[toEndpoint.elementId].addInput(input);
+        input.addOutput(gatejs.gates[toEndpoint.elementId]);
       } else if (end_uuid === "output") {
         let input = gatejs.gates[toEndpoint.elementId];
         input.isConnected = true;
         gatejs.gates[fromEndpoint.elementId].addInput(input);
+        input.addOutput(gatejs.gates[fromEndpoint.elementId]);
       }
     }
   });

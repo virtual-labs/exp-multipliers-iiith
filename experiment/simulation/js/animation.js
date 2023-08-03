@@ -324,7 +324,9 @@ function reboot() {
 
 }
 function display() {
-    observ.innerHTML = "Simulation has finished. Press Reset to start again";
+
+    observ.innerHTML = "Simulation has finished. Please click on Reset and repeat the instructions given to start again.";
+
     observ.innerHTML += "<br />";
 }
 function setter(value, component) {
@@ -372,7 +374,8 @@ function simulationStatus() {
 function stopCircuit() {
     if (timeline.time() !== 0 && timeline.progress() !== 1) {
         timeline.pause();
-        observ.innerHTML = "Simulation has been stopped.";
+
+        observ.innerHTML = "Simulation has been Paused. Please click on the 'Start' button to Resume.";
         decide = false;
         status.innerHTML = "Start";
         speed.selectedIndex = 0;
@@ -419,7 +422,7 @@ function simulator() {
             alignOrigin: [0.5, 0.5]
         },
 
-        duration: 4,
+        duration: 5,
         repeat: 0,
         repeatDelay: 3,
         yoyo: true,
@@ -435,8 +438,8 @@ function simulator() {
             alignOrigin: [0.5, 0.5]
         },
 
-        duration: 10,
-        delay: 6,
+        duration: 12,
+        delay: 5,
         repeat: 0,
         repeatDelay: 3,
         yoyo: true,
@@ -452,8 +455,8 @@ function simulator() {
             alignOrigin: [0.5, 0.5]
         },
 
-        duration: 4,
-        delay: 18,
+        duration: 6,
+        delay: 17,
         repeat: 0,
         repeatDelay: 3,
         yoyo: true,
@@ -468,8 +471,7 @@ function simulator() {
             autoRotate: true,
             alignOrigin: [0.5, 0.5]
         },
-
-        duration: 4,
+        duration: 5,
         repeat: 0,
         repeatDelay: 3,
         yoyo: true,
@@ -485,8 +487,8 @@ function simulator() {
             alignOrigin: [0.5, 0.5]
         },
 
-        duration: 4,
-        delay: 6,
+        duration: 6,
+        delay: 5,
         repeat: 0,
         repeatDelay: 3,
         yoyo: true,
@@ -502,8 +504,8 @@ function simulator() {
             alignOrigin: [0.5, 0.5]
         },
 
-        duration: 4,
-        delay: 12,
+        duration: 6,
+        delay: 11,
         repeat: 0,
         repeatDelay: 3,
         yoyo: true,
@@ -519,7 +521,7 @@ function simulator() {
             alignOrigin: [0.5, 0.5]
         },
 
-        duration: 4,
+        duration: 5,
         repeat: 0,
         repeatDelay: 3,
         yoyo: true,
@@ -535,8 +537,8 @@ function simulator() {
             alignOrigin: [0.5, 0.5]
         },
 
-        duration: 16,
-        delay: 6,
+        duration: 17,
+        delay: 5,
         repeat: 0,
         repeatDelay: 3,
         yoyo: true,
@@ -552,7 +554,7 @@ function simulator() {
             alignOrigin: [0.5, 0.5]
         },
 
-        duration: 4,
+        duration: 5,
         repeat: 0,
         repeatDelay: 3,
         yoyo: true,
@@ -568,8 +570,8 @@ function simulator() {
             alignOrigin: [0.5, 0.5]
         },
 
-        duration: 4,
-        delay: 6,
+        duration: 5,
+        delay: 5,
         repeat: 0,
         repeatDelay: 3,
         yoyo: true,
@@ -585,7 +587,7 @@ function simulator() {
             alignOrigin: [0.5, 0.5]
         },
 
-        duration: 4,
+        duration: 5,
         repeat: 0,
         repeatDelay: 3,
         yoyo: true,
@@ -601,8 +603,8 @@ function simulator() {
             alignOrigin: [0.5, 0.5]
         },
 
-        duration: 10,
-        delay: 6,
+        duration: 12,
+        delay: 5,
         repeat: 0,
         repeatDelay: 3,
         yoyo: true,
@@ -618,8 +620,8 @@ function simulator() {
             alignOrigin: [0.5, 0.5]
         },
 
-        duration: 4,
-        delay: 18,
+        duration: 5,
+        delay: 17,
         repeat: 0,
         repeatDelay: 3,
         yoyo: true,
@@ -635,7 +637,7 @@ function simulator() {
             alignOrigin: [0.5, 0.5]
         },
 
-        duration: 4,
+        duration: 5,
         repeat: 0,
         repeatDelay: 3,
         yoyo: true,
@@ -651,8 +653,8 @@ function simulator() {
             alignOrigin: [0.5, 0.5]
         },
 
-        duration: 4,
-        delay: 6,
+        duration: 6,
+        delay: 5,
         repeat: 0,
         repeatDelay: 3,
         yoyo: true,
@@ -668,8 +670,8 @@ function simulator() {
             alignOrigin: [0.5, 0.5]
         },
 
-        duration: 4,
-        delay: 12,
+        duration: 6,
+        delay: 11,
         repeat: 0,
         repeatDelay: 3,
         yoyo: true,
@@ -686,7 +688,7 @@ function simulator() {
             alignOrigin: [0.5, 0.5]
         },
 
-        duration: 4,
+        duration: 5,
         repeat: 0,
         repeatDelay: 3,
         yoyo: true,
@@ -702,8 +704,8 @@ function simulator() {
             alignOrigin: [0.5, 0.5]
         },
 
-        duration: 4,
-        delay: 6,
+        duration: 6,
+        delay: 5,
         repeat: 0,
         repeatDelay: 3,
         yoyo: true,
@@ -719,8 +721,8 @@ function simulator() {
             alignOrigin: [0.5, 0.5]
         },
 
-        duration: 10,
-        delay: 12,
+        duration: 11,
+        delay: 11,
         repeat: 0,
         repeatDelay: 3,
         yoyo: true,
@@ -736,7 +738,7 @@ function simulator() {
             alignOrigin: [0.5, 0.5]
         },
 
-        duration: 4,
+        duration: 5,
         repeat: 0,
         repeatDelay: 3,
         yoyo: true,
@@ -760,13 +762,13 @@ timeline.add(inputTextAppear, 0);
 timeline.add(dotsAppear, 0);
 timeline.add(simulator, 0);
 timeline.add(calculateAnd, 5);
-timeline.add(simulator, 6);
+timeline.add(simulator, 5);
 timeline.add(calculateXOR, 11);
 timeline.add(calculateAnd, 11);
-timeline.add(simulator, 12);
+timeline.add(simulator, 11);
 timeline.add(calculateXOR, 17);
 timeline.add(calculateAnd, 17);
-timeline.add(simulator, 18);
+timeline.add(simulator, 17);
 timeline.add(outputHandler, 22);
 timeline.add(outputSetter, 22);
 timeline.add(outputVisible, 22);
