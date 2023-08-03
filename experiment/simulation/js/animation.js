@@ -324,7 +324,9 @@ function reboot() {
 
 }
 function display() {
+
     observ.innerHTML = "Simulation has finished. Please click on Reset and repeat the instructions given to start again.";
+
     observ.innerHTML += "<br />";
 }
 function setter(value, component) {
@@ -372,6 +374,7 @@ function simulationStatus() {
 function stopCircuit() {
     if (timeline.time() !== 0 && timeline.progress() !== 1) {
         timeline.pause();
+
         observ.innerHTML = "Simulation has been Paused. Please click on the 'Start' button to Resume.";
         decide = false;
         status.innerHTML = "Start";
@@ -468,7 +471,6 @@ function simulator() {
             autoRotate: true,
             alignOrigin: [0.5, 0.5]
         },
-
         duration: 5,
         repeat: 0,
         repeatDelay: 3,
