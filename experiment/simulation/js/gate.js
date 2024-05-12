@@ -2,6 +2,7 @@ import { registerGate, jsPlumbInstance } from "./main.js";
 import { setPosition, clearObservations } from "./layout.js";
 import {
     validateMultiplier,
+    validateMultiplier4,
     computeAnd,
     computeOr,
     computeXor,
@@ -326,6 +327,11 @@ export function submitCircuit() {
         if(!checkConnections())
         return;
         validateMultiplier("Input-0", "Input-1", "Input-2", "Input-3","Output-4","Output-5","Output-6","Output-7");
+    }
+    else if (window.currentTab === "task2") {
+        if(!checkConnections())
+        return;
+        validateMultiplier4("Input-0", "Input-1", "Input-2", "Input-3","Input-4","Input-5","Input-6","Input-7","Output-8","Output-9","Output-10","Output-11","Output-12","Output-13","Output-14","Output-15");
     }
     // Refresh the input bit values to default 1 and output bit values to default empty black circles after submitting
     for (let gateId in gates) {
