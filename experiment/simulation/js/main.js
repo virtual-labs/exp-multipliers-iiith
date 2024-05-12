@@ -178,10 +178,12 @@ export function registerGate(id, gate) {
 
 // Initialise Half adder experiment by generating and adding gates and components to the circuit board at given positions
 export function initMultiplier() {
-  const ids = ["Input-0", "Input-1", "Input-2", "Input-3","Output-4","Output-5","Output-6","Output-7"]; // [A B Sum Carry Out]
-  const types = ["Input", "Input","Input", "Input", "Output", "Output","Output", "Output"];
-  const names = ["A1", "B1", "B0", "A0","C3","C2","C1","C0"];
-  const positions = [
+  let ids = [], types = [],names = [], positions = []
+  if(window.currentTab === "task1")
+{ ids = ["Input-0", "Input-1", "Input-2", "Input-3","Output-4","Output-5","Output-6","Output-7"]; // [A B Sum Carry Out]
+  types = ["Input", "Input","Input", "Input", "Output", "Output","Output", "Output"];
+  names = ["A1", "B1", "B0", "A0","C3","C2","C1","C0"];
+  positions = [
     { x: 40, y: 150 },
     { x: 40, y: 300 },
     { x: 40, y: 450 },
@@ -190,7 +192,29 @@ export function initMultiplier() {
     { x: 820, y: 300 },
     { x: 820, y: 450 },
     { x: 820, y: 600 },
-  ];
+  ];}
+  else if(window.currentTab === "task2")
+    {ids = ["Input-0", "Input-1", "Input-2", "Input-3","Input-4","Input-5","Input-6","Input-7","Output-8","Output-9","Output-10","Output-11","Output-12","Output-13","Output-14","Output-15"]; // [A B Sum Carry Out]
+    types = ["Input", "Input","Input", "Input","Input", "Input","Input", "Input", "Output", "Output","Output", "Output","Output", "Output","Output", "Output"];
+    names = ["A3", "A2", "A1", "A0","B3", "B2", "B1", "B0","C7","C6","C5","C4","C3","C2","C1","C0"];
+    positions = [
+      { x: 40, y: 50 },
+      { x: 40, y: 150 },
+      { x: 40, y: 250 },
+      { x: 40, y: 350 },
+      { x: 40, y: 450 },
+      { x: 40, y: 550 },
+      { x: 40, y: 650 },
+      { x: 40, y: 750 },
+      { x: 820, y: 50 },
+      { x: 820, y: 150 },
+      { x: 820, y: 250 },
+      { x: 820, y: 350 },
+      { x: 820, y: 450 },
+      { x: 820, y: 550 },
+      { x: 820, y: 650 },
+      { x: 820, y: 750 },    
+    ];}
   for (let i = 0; i < ids.length; i++) {
     let gate = new gatejs.Gate(types[i]);
     gate.setId(ids[i]);
