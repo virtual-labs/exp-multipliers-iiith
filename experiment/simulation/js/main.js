@@ -9,8 +9,8 @@ let num_wires = 0;
 // Gets the coordinates of the mouse
 //Handle scrolling
 document.getScroll = function () {
-  if (window.pageYOffset !== undefined) {
-    return [pageXOffset, pageYOffset];
+  if (window.scrollY !== undefined) {
+    return [scrollX, scrollY];
   } else {
     let sx,
       sy,
@@ -232,7 +232,13 @@ export function refreshWorkingArea() {
   window.numComponents = 0;
   gatejs.clearGates();
 }
-
+refresh.addEventListener("click",function(){
+  jsPlumbInstance.reset();
+  window.numComponents = 0;
+  gatejs.clearGates();
+ initMultiplier();
+ 
+})
 // Initialise Task 1 experiment when the page loads
 window.currentTab = "task1";
 connectGate();
