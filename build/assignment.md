@@ -1,1 +1,0 @@
-- Design the 4 bit multiplier circuit as given in the Theory section
