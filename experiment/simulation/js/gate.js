@@ -1,5 +1,6 @@
-import { registerGate, jsPlumbInstance } from "./main.js";
-import { setPosition, clearObservations } from "./layout.js";
+import { registerGate, jsPlumbInstance,setPosition } from "./main.js";
+import {clearObservations } from "./layout.js";
+
 import {
     validateMultiplier,
     validateMultiplier4,

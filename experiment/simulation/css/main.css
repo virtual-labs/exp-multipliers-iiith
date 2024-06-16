@@ -374,3 +374,23 @@ svg.wire path {
   font-size: 1em;
   fill: black;
 }
+.delete-connection-menu {
+  position: absolute;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 5px;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.delete-connection-button,
+.cancel-connection-button {
+  display: block;
+  width: 100%;
+  padding: 5px;
+  margin-bottom: 5px;
+  background-color: #eee;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  cursor: pointer;
+}

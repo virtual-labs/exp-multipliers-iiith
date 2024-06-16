@@ -1,0 +1,86 @@
+{
+    "version": 2.0,
+    "questions": [
+        {
+            "question": "1. Mankar was performing 3-bit binary multiplication 101*110, his friend asked him what the multiplier is, help him in this task",
+            "answers": {
+                "a": "101",
+                "b": "110",
+                "c": "11011",
+                "d": "11110"
+            },
+            "correctAnswer": "b",
+            "explanations": {
+                "b":"In multiplication the second term is called the multiplier",
+                "a":"In multiplication the first term is called the multiplicand",
+                "c":"The given problem involves a 3-bit binary multiplication, meaning the multiplier can only have a maximum of 3 bits. Since the provided multiplier has more than 3 bits, this option is incorrect.",
+                "d":"The given problem involves a 3-bit binary multiplication, meaning the multiplier can only have a maximum of 3 bits. Since the provided multiplier has more than 3 bits, this option is incorrect."
+
+            },
+            "difficulty": "beginner"
+        },
+        {
+            "question": "2. The Result obtained on binary multiplication of 1101 * 1011 ",
+            "answers": {
+                "a": "0101010",
+                "b": "1010111",
+                "c": "1000111",
+                "d": "1101010"
+            },
+            "correctAnswer": "c",
+            "explanations": {
+                "a":"The binary multiplication of 1101 * 1011 results in 1000111, not 0101010.",
+                "b":"The binary multiplication of 1101 * 1011 results in 1000111, not 1010111.",
+                "c":"13 * 11 is 143",
+                "d":"The binary multiplication of 1101 * 1011 results in 1000111, not 1101010."
+                
+            },
+            "difficulty": "beginner"
+        },
+        {
+            "question": "3. Which of the following is the correct combination of gates for making a half adder",
+            "answers": {
+                "a": "4 AND gates",
+                "b": "1 XOR gate and 1 AND gate",
+                "c": "1 XOR gate",
+                "d": "None of the above"
+            },
+            "correctAnswer": "b",
+            "explanations": {
+                "a":"Using only AND gates would not be sufficient to create a half adder. AND gates can only generate the carry output but cannot produce the sum output.",
+                "b":"For finding the sum of 2 bits, we need to XOR the 2 bits and for finding carry we need to AND the 2 bits.",
+                "c":"Using only an XOR gate would not be sufficient to create a half adder. The XOR gate can produce the sum output, but it cannot generate the carry output.",
+                "d":"The correct combination of gates for making a half adder is indeed one of the above options."
+            },
+            "difficulty": "intermediate"
+        },
+        {
+            "question": "4. Binary Multiplication is used in ",
+            "answers": {
+                "a": "computers ",
+                "b": "mobile phones",
+                "c": "calculators",
+                "d": "all of these"
+            },
+            "correctAnswer": "d",
+            "explanations": {
+                "a":"In a computer, all data and instructions are represented in binary form. Binary multiplication is essential for performing mathematical computations, such as multiplication of binary numbers, floating-point arithmetic, and various algorithms used in computer science and engineering.",
+                "b":"Mobile devices use binary representation for storing and processing data. Whether it's calculating values, performing mathematical operations in applications, or executing complex algorithms, binary multiplication is utilized in mobile phones.",
+                "c":"Calculators, whether physical or digital, employ binary multiplication to perform calculations.",
+                "d":"Binary multiplication is used in all these areas"},
+            "difficulty": "beginner"
+        },
+        {
+            "question": "5. We can perform binary multiplication in ____ ways",
+            "answers": {
+                "a": "3",
+                "b": "4",
+                "c": "2",
+                "d": "1"
+            },
+            "correctAnswer": "c",
+            "explanations": {"c":"Binary multiplication can be performed in 2 ways namely parallel and binary multiplier via shift method."},
+            "difficulty": "advanced"
+        }
+    ]
+}
