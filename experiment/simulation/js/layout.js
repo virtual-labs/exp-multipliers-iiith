@@ -1,4 +1,4 @@
-import { simulate, deleteElement } from "./gate.js";
+import { simulate } from "./gate.js";
 import {
   connectGate,
   unbindEvent,
@@ -24,37 +24,6 @@ export const wireColours = [
 ];
 
 // Contextmenu
-const menu = document.querySelector(".menu");
-const menuOption = document.querySelector(".menu-option");
-let menuVisible = false;
-
-const toggleMenu = (command) => {
-  menu.style.display = command === "show" ? "block" : "none";
-  menuVisible = !menuVisible;
-};
-
-export const setPosition = ({ top, left }) => {
-  menu.style.left = `${left}px`;
-  menu.style.top = `${top}px`;
-  toggleMenu("show");
-};
-
-window.addEventListener("click", () => {
-  if (menuVisible) toggleMenu("hide");
-  window.selectedComponent = null;
-  window.componentType = null;
-});
-
-menuOption.addEventListener("click", (e) => {
-  if (e.target.innerHTML === "Delete") {
-    if (window.componentType === "gate") {
-      deleteElement(window.selectedComponent);
-    }
-  }
-  window.selectedComponent = null;
-  window.componentType = null;
-});
-
 // Tabs
 
 function changeTabs(e) {

@@ -1,5 +1,6 @@
 import * as gatejs from "./gate.js";
 import { wireColours } from "./layout.js";
+import {deleteElement } from "./gate.js";
 // import {jsPlumbBrowserUI} from "https://cdnjs.cloudflare.com/ajax/libs/jsPlumb/2.15.6/js/jsplumb.min.js"
 
 "use strict";
@@ -9,8 +10,8 @@ let num_wires = 0;
 // Gets the coordinates of the mouse
 //Handle scrolling
 document.getScroll = function () {
-  if (window.pageYOffset !== undefined) {
-    return [pageXOffset, pageYOffset];
+  if (window.scrollY !== undefined) {
+    return [scrollX, scrollY];
   } else {
     let sx,
       sy,
@@ -68,10 +69,11 @@ export const connectGate = function () {
       // If it already has a connection, do not establish a new connection
       return false;
     } else {
-      jsPlumbInstance.connect({
+     jsPlumbInstance.connect({
         uuids: [fromEndpoint.uuid, toEndpoint.uuid],
         paintStyle: { stroke: wireColours[num_wires], strokeWidth: 4 },
       });
+   
       num_wires++;
       num_wires = num_wires % wireColours.length;
       if (start_uuid === "output") {
@@ -233,8 +235,72 @@ export function refreshWorkingArea() {
   gatejs.clearGates();
 }
 
+const menu = document.querySelector(".menu");
+const menuOption = document.querySelector(".menu-option");
+let menuVisible = true;
+console.log(menu);
+console.log(menuOption);
+console.log(menuVisible);
+
+const toggleMenu = (command) => {
+  menu.style.display = command === "show" ? "block" : "none";
+  menuVisible = !menuVisible;
+};
+console.log("toggle",toggleMenu);
+export const setPosition = ({ top, left }) => {
+  menu.style.left = `${left}px`;
+  menu.style.top = `${top}px`;
+  toggleMenu("show");
+  };
+console.log("setPosition",setPosition);
+window.addEventListener("click", () => {
+  console.log("menu is ", menuVisible);
+  if (menuVisible) toggleMenu("hide");
+  window.selectedComponent = null;
+  window.componentType = null;
+});
+menuOption.addEventListener("click", (e) => {
+  if (e.target.innerHTML === "Delete") {
+    if (window.componentType === "gate") {
+      deleteElement(window.selectedComponent);
+    }
+  }
+  window.selectedComponent = null;
+  window.componentType = null;
+});
+// menuOption.addEventListener("click", (e) => {
+//   console.log("i dont know ");
+  document.addEventListener('contextmenu', function(event) {
+ 
+    menu.style.display= "block";
+    menu.style.left = `${event.clientX}px`;
+    menu.style.top = `${event.clientY}px`;
+
+
+    // Prevent the default context menu from appearing
+    var elements = document.querySelectorAll(".jtk-connector.jtk-hover");
+    event.preventDefault();
+    menuOption.addEventListener("click", (e) => {
+      console.log("entering menu");
+      
+  if (e.target.innerHTML === "Delete") {
+    console.log("Elements to be deleted:", elements);
+  
+    elements.forEach(function(element) {
+         element.parentNode.removeChild(element);
+    });
+    menu.style.display= "none";
+  }});
+  });
+    // Get all elements with class 'jtk-connector jtk-hover'
+    
+
+  // window.selectedComponent = null;
+  // window.componentType = null;
+// });
+
 // Initialise Task 1 experiment when the page loads
 window.currentTab = "task1";
 connectGate();
 refreshWorkingArea();
-initMultiplier();
+initMultiplier(); 
