@@ -1,4 +1,4 @@
-import { simulate, deleteElement } from "./gate.js";
+import { simulate } from "./gate.js";
 import {
   connectGate,
   unbindEvent,
@@ -6,7 +6,7 @@ import {
   refreshWorkingArea,
 } from "./main.js";
 
-"use strict";
+("use strict");
 // Wires Colours
 export const wireColours = [
   "#ff0000",
@@ -24,37 +24,6 @@ export const wireColours = [
 ];
 
 // Contextmenu
-const menu = document.querySelector(".menu");
-const menuOption = document.querySelector(".menu-option");
-let menuVisible = false;
-
-const toggleMenu = (command) => {
-  menu.style.display = command === "show" ? "block" : "none";
-  menuVisible = !menuVisible;
-};
-
-export const setPosition = ({ top, left }) => {
-  menu.style.left = `${left}px`;
-  menu.style.top = `${top}px`;
-  toggleMenu("show");
-};
-
-window.addEventListener("click", () => {
-  if (menuVisible) toggleMenu("hide");
-  window.selectedComponent = null;
-  window.componentType = null;
-});
-
-menuOption.addEventListener("click", (e) => {
-  if (e.target.innerHTML === "Delete") {
-    if (window.componentType === "gate") {
-      deleteElement(window.selectedComponent);
-    }
-  }
-  window.selectedComponent = null;
-  window.componentType = null;
-});
-
 // Tabs
 
 function changeTabs(e) {
@@ -69,13 +38,41 @@ function changeTabs(e) {
   window.currentTab = task;
   document.getElementById(task).classList.add("is-active");
 
-  // Half adder
+  // Update instruction title and load appropriate components
+  const instructionTitle = document.getElementById("instruction-title");
+  switch (task) {
+    case "task1":
+      instructionTitle.innerHTML =
+        "2-Bit Multiplier Practice<br />Implement a 2-Bit Multiplier using 4 AND gates and 2 Half Adders";
+      loadTask1Components();
+      break;
+    case "task2":
+      instructionTitle.innerHTML =
+        "4-Bit Array Multiplier Practice<br />Implement a 4-Bit Array Multiplier using AND gates and Half Adders";
+      loadTask2Components();
+      break;
+    case "task3":
+      instructionTitle.innerHTML =
+        "4-Bit Advanced Multiplier Practice<br />Implement a 4-Bit Advanced Multiplier using AND gates, Half Adders, and Full Adders";
+      loadTask3Components();
+      break;
+    case "task4":
+      instructionTitle.innerHTML =
+        "Wallace Tree Multiplier Practice<br />Implement a Wallace Tree Multiplier using advanced techniques";
+      loadTask4Components();
+      break;
+    default:
+      instructionTitle.innerHTML =
+        "2-Bit Multiplier Practice<br />Implement a 2-Bit Multiplier using AND gates and Half Adders";
+      loadTask1Components();
+  }
+
+  // Reset circuit and reinitialize
   unbindEvent();
   connectGate();
   refreshWorkingArea();
   initMultiplier();
   window.simulate = simulate;
-  updateToolbar();
   clearObservations();
   resize();
 }
@@ -84,10 +81,76 @@ window.changeTabs = changeTabs;
 
 // Toolbar
 
+// Component loading functions for each task
+function loadTask1Components() {
+  const toolbar = document.getElementById("toolbar");
+  toolbar.innerHTML = `
+    <div class="component-button and" onclick="addGate(event)">AND</div>
+    <div class="component-button or" onclick="addGate(event)">OR</div>
+    <div class="component-button xor" onclick="addGate(event)">XOR</div>
+    <div class="component-button half-adder" onclick="addGate(event)">HALF ADDER</div>
+  `;
+}
+
+function loadTask2Components() {
+  const toolbar = document.getElementById("toolbar");
+  toolbar.innerHTML = `
+    <div class="component-button and" onclick="addGate(event)">AND</div>
+    <div class="component-button or" onclick="addGate(event)">OR</div>
+    <div class="component-button xor" onclick="addGate(event)">XOR</div>
+    <div class="component-button half-adder" onclick="addGate(event)">HALF ADDER</div>
+    <div class="component-button full-adder" onclick="addGate(event)">FULL ADDER</div>
+  `;
+}
+
+function loadTask3Components() {
+  const toolbar = document.getElementById("toolbar");
+  toolbar.innerHTML = `
+    <div class="component-button and" onclick="addGate(event)">AND</div>
+    <div class="component-button or" onclick="addGate(event)">OR</div>
+    <div class="component-button xor" onclick="addGate(event)">XOR</div>
+    <div class="component-button not" onclick="addGate(event)">NOT</div>
+    <div class="component-button half-adder" onclick="addGate(event)">HALF ADDER</div>
+    <div class="component-button full-adder" onclick="addGate(event)">FULL ADDER</div>
+  `;
+}
+
+function loadTask4Components() {
+  const toolbar = document.getElementById("toolbar");
+  toolbar.innerHTML = `
+    <div class="component-button and" onclick="addGate(event)">AND</div>
+    <div class="component-button or" onclick="addGate(event)">OR</div>
+    <div class="component-button xor" onclick="addGate(event)">XOR</div>
+    <div class="component-button not" onclick="addGate(event)">NOT</div>
+    <div class="component-button nand" onclick="addGate(event)">NAND</div>
+    <div class="component-button nor" onclick="addGate(event)">NOR</div>
+    <div class="component-button half-adder" onclick="addGate(event)">HALF ADDER</div>
+    <div class="component-button full-adder" onclick="addGate(event)">FULL ADDER</div>
+  `;
+}
+
 function updateToolbar() {
-  let elem =
-    '<div class="component-button and" onclick="addGate(event)">AND</div><div class="component-button or" onclick="addGate(event)">OR</div><div class="component-button not" onclick="addGate(event)">NOT</div><div class="component-button nand" onclick="addGate(event)">NAND</div><div class="component-button nor" onclick="addGate(event)">NOR</div><div class="component-button xor" onclick="addGate(event)">XOR</div><div class="component-button xnor" onclick="addGate(event)">XNOR</div>'; 
-  document.getElementById("toolbar").innerHTML = elem;
+  // Default to task1 components if no specific task is set
+  if (window.currentTab) {
+    switch (window.currentTab) {
+      case "task1":
+        loadTask1Components();
+        break;
+      case "task2":
+        loadTask2Components();
+        break;
+      case "task3":
+        loadTask3Components();
+        break;
+      case "task4":
+        loadTask4Components();
+        break;
+      default:
+        loadTask1Components();
+    }
+  } else {
+    loadTask1Components();
+  }
 }
 
 // Clear observations
@@ -124,3 +187,20 @@ function resize() {
 }
 
 resize();
+
+// Initialize the current tab and load default components
+window.currentTab = "task1";
+document.addEventListener("DOMContentLoaded", function () {
+  // Set initial tab state
+  if (!window.currentTab) {
+    window.currentTab = "task1";
+  }
+
+  // Load initial components for task1
+  loadTask1Components();
+
+  // Initialize multiplier
+  connectGate();
+  initMultiplier();
+  window.simulate = simulate;
+});

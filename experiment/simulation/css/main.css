@@ -1,21 +1,33 @@
-.window { z-index:20; }
-.jtk-connector { z-index:4; }
-.jtk-endpoint { z-index:5; }
-.jtk-overlay { z-index:6; }
+.window {
+  z-index: 20;
+}
+.jtk-connector {
+  z-index: 4;
+}
+.jtk-connector :hover {
+  z-index: 4;
+  stroke-width: 7;
+}
+.jtk-endpoint {
+  z-index: 5;
+}
+.jtk-overlay {
+  z-index: 6;
+}
 
 /* disabling text selection */
 body {
   -webkit-touch-callout: none; /* iOS Safari */
-    -webkit-user-select: none; /* Safari */
-     -khtml-user-select: none; /* Konqueror HTML */
-       -moz-user-select: none; /* Old versions of Firefox */
-        -ms-user-select: none; /* Internet Explorer/Edge */
-            user-select: none; /* Non-prefixed version, currently
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently
                                   supported by Chrome, Edge, Opera and Firefox */
 }
 
 text {
-  pointer-events:none;
+  pointer-events: none;
 }
 
 .drag-drop {
@@ -30,7 +42,7 @@ text {
   background-size: 100%;
 }
 
-.logic-gate{
+.logic-gate {
   background-color: #29e;
   background-repeat: no-repeat;
   background-position: center;
@@ -82,6 +94,24 @@ text {
   text-align: center;
 }
 
+.halfadder {
+  background-color: #29e;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.halfadder:after {
+  content: "1-bit Half Adder";
+  margin: auto;
+  padding: 1.2rem 0rem;
+  font-weight: bold;
+  font-size: 1rem;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  text-align: center;
+}
+
 .container {
   margin-top: 1%;
 }
@@ -90,48 +120,45 @@ text {
   text-align: center;
 }
 
-.color-white{
+.color-white {
   fill: white;
-  stroke:rgb(68, 68, 119);
-  stroke-width:3;
-  fill-opacity:1;
-  stroke-opacity:1;
+  stroke: rgb(68, 68, 119);
+  stroke-width: 3;
+  fill-opacity: 1;
+  stroke-opacity: 1;
 }
 
-.color-blue{
-  
-  fill:#29e;
-  stroke:rgb(68, 68, 119);
-  stroke-width:3;
-  fill-opacity:1;
-  stroke-opacity:1;
+.color-blue {
+  fill: #29e;
+  stroke: rgb(68, 68, 119);
+  stroke-width: 3;
+  fill-opacity: 1;
+  stroke-opacity: 1;
 }
 
-.color-green{
-  
-  fill:green;
-  stroke:rgb(68, 68, 119);
-  stroke-width:3;
-  fill-opacity:1;
-  stroke-opacity:1;
-  r:15;
+.color-green {
+  fill: green;
+  stroke: rgb(68, 68, 119);
+  stroke-width: 3;
+  fill-opacity: 1;
+  stroke-opacity: 1;
+  r: 15;
 }
 
-.color-yellow{
-  
-  fill:#eeeb22;
-  stroke:rgb(68, 68, 119);
-  stroke-width:3;
-  fill-opacity:1;
-  stroke-opacity:1;
+.color-yellow {
+  fill: #eeeb22;
+  stroke: rgb(68, 68, 119);
+  stroke-width: 3;
+  fill-opacity: 1;
+  stroke-opacity: 1;
 }
 
 .high {
   text-align: center;
   display: inline-block;
   position: absolute;
-  width: 30px;
-  height: 30px;
+  width: 25px;
+  height: 25px;
   border-radius: 50%;
   border: 0.2rem solid rgb(98, 178, 235);
   z-index: 1;
@@ -144,8 +171,8 @@ text {
   text-align: center;
   display: inline-block;
   position: absolute;
-  width: 30px;
-  height: 30px;
+  width: 25px;
+  height: 25px;
   border-radius: 50%;
   border: 0.2rem solid rgb(236, 234, 90);
   z-index: 1;
@@ -159,7 +186,7 @@ text {
   justify-content: center;
   align-items: center;
   display: flex;
-  font-size: 1.2rem;
+  font-size: 1rem;
   text-decoration: none;
   color: black;
   height: 100%;
@@ -177,15 +204,14 @@ text {
   position: absolute;
   top: -30px;
   align-items: center;
-  font-size: 1.3rem;
+  font-size: 1rem;
 }
-
 
 .output {
   display: inline-block;
   position: absolute;
-  width: 30px;
-  height: 30px;
+  width: 25px;
+  height: 25px;
   border-radius: 50%;
   border: 0.2rem solid rgb(20, 21, 22);
   z-index: 1;
@@ -217,7 +243,7 @@ text {
 
 #working-area {
   position: absolute;
-  width: 95%;
+  width: 90%;
   height: 95%;
   margin: 2%;
 }
@@ -239,7 +265,7 @@ svg.wire path {
 
 .menu {
   width: 120px;
-  z-index: 1;
+  z-index: 8;
   box-shadow: 0 4px 5px 3px rgba(0, 0, 0, 0.2);
   background-color: #fff;
   position: fixed;
@@ -265,7 +291,7 @@ svg.wire path {
   cursor: pointer;
 }
 
-.component-button{
+.component-button {
   width: 80px;
   height: 80px;
   border-radius: 0.75em;
@@ -298,19 +324,19 @@ svg.wire path {
   cursor: pointer;
 }
 
-.success-table{
+.success-table {
   font-size: 1rem;
   color: rgb(31, 170, 31);
   /* font-weight: bold; */
 }
 
-.failure-table{
+.failure-table {
   font-size: 1rem;
   color: rgb(228, 23, 23);
   /* font-weight: bold; */
 }
 
-.bold-table{
+.bold-table {
   font-weight: bold;
 }
 
@@ -331,7 +357,7 @@ svg.wire path {
 .instructions-box {
   max-height: 70px;
   overflow: hidden;
-  transition: all .5s ease;
+  transition: all 0.5s ease;
 }
 
 .instructions-box.expand {
@@ -339,37 +365,57 @@ svg.wire path {
 }
 
 .v-instruction-container {
-  border:.2rem solid #97d23d;
+  border: 0.2rem solid #97d23d;
   justify-content: flex-start;
 }
 .highlight {
-  border:3px solid red;
-  box-shadow: 0 0 10px #719ECE;
+  border: 3px solid red;
+  box-shadow: 0 0 10px #719ece;
 }
-.speed-box{
-  border:1px solid black;
-  color:black;
-  background-color:white;
-  text-align:center;
-  font-size:1.0rem;
-  border-radius:1em;
-  padding:.5em 1.0em;
-  cursor:pointer;
+.speed-box {
+  border: 1px solid black;
+  color: black;
+  background-color: white;
+  text-align: center;
+  font-size: 1rem;
+  border-radius: 1em;
+  padding: 0.5em 1em;
+  cursor: pointer;
 }
 
-.wire-demo{
+.wire-demo {
   stroke-width: 3px;
   fill: none;
   stroke: black;
 }
 
-.gate-demo{
+.gate-demo {
   stroke-width: 3px;
   fill: #29e;
   stroke: black;
 }
 
-.text-demo{
+.text-demo {
   font-size: 1em;
   fill: black;
+}
+.delete-connection-menu {
+  position: absolute;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 5px;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.delete-connection-button,
+.cancel-connection-button {
+  display: block;
+  width: 100%;
+  padding: 5px;
+  margin-bottom: 5px;
+  background-color: #eee;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  cursor: pointer;
 }
