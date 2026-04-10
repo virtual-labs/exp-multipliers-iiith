@@ -1,0 +1,824 @@
+<!DOCTYPE html><html lang="en"><head>
+      <!--Google Tag Manager-->
+      <script class="gtm">
+        var dataLayer = [{
+        'labName': 'Virtual Lab',
+        'discipline': 'Test',
+        'college': 'IIITH',
+        'phase': 'Testing',
+        'expName': 'MULTIPLIERS',
+        'expShortName': 'multipliers'
+        }];
+    
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&amp;l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-5NMQ9NQ');
+      </script>
+      <!--End Google Tag Manager-->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="" name="description">
+    <meta content="" name="author">
+    
+    	<meta name="experiment-short-name" content="multipliers">
+    	<meta name="developer-institute" content="IIITH">
+    	<meta name="learning-unit" content="MULTIPLIERS">
+    	<meta name="task-name" content="Theory">
+    
+    <!-- For iPhone -->
+    <meta name="msapplication-TileColor" content="#4076e0">
+    <!-- Chrome, Firefox OS and Opera -->
+    <meta name="theme-color" content="#4076e0">
+    <!-- Windows Phone -->
+    <meta name="msapplication-navbutton-color" content="#4076e0">
+    <title>Virtual Labs</title>
+    <link rel="shortcut icon" href="./assets/images/favicon.ico">
+    <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/4.0.0/github-markdown.min.css" integrity="sha512-Oy18vBnbSJkXTndr2n6lDMO5NN31UljR8e/ICzVPrGpSud4Gkckb8yUpqhKuUNoE+o9gAb4O/rAxxw1ojyUVzg==" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&amp;family=Raleway&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./assets/css/github-markdown.min.css">
+    <link rel="stylesheet" href="./assets/css/vlabs-style.css">
+    <link rel="stylesheet" href="./assets/css/toast.css">
+    <link rel="stylesheet" href="./assets/katex_assets/katex.min.css">
+    
+    <script src="./assets/js/jquery-3.4.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <style>
+      h1 {
+      font-size: 1.8rem;
+      }
+      h2 {
+      font-size: 1.4rem;
+      }
+      h3 {
+      font-size: 1.2rem;
+      }
+
+      h2, h3 {
+      font-weight: 800;
+      }
+    </style>
+    
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"></head>
+  <body class="p-0 container-fluid vlabs-page d-flex flex-column justify-content-between">
+      <!--Google Tag Manager (noscript)-->
+      <noscript class="gtm">
+        <iframe height="0" src="https://www.googletagmanager.com/ns.html?id=GTM-5NMQ9NQ" style="display:none;visibility:hidden" width="0">
+        </iframe>
+      </noscript>
+      <!--End Google Tag Manager (noscript)-->
+  
+      <header class="vlabs-header sticky-top bg-white">
+        <nav class="p-0 navbar navbar-light d-flex align-items-stretch">
+          
+          <button class="navbar-toggler px-4" type="button" onclick="toggle()">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+      
+          <div class="d-flex justify-content-center">        
+            <a href="https://vlab.co.in" class="navbar-brand">
+              <img src="./assets/images/vlabs-color-small-moe.jpg" alt="vlabs logo" class="vlabs-logo">
+            </a>
+          </div>
+          
+          <div id="headerNavbar" class="d-none border-top flex-grow-1 d-lg-flex align-items-center justify-content-end">
+            <div class="svc-rating-display">
+                <rating-display spreadsheetid="1x12nhpp0QvnsA6x-O1sV4IA9SAbfVsq_wiexWkutOmU" sheetname="Experiment-Database" columnname="Experiment Short Name" columnvalue="multipliers" imagesdirectory="/plugins/svc-rating/images/">
+                </rating-display>
+            </div>      <div class="svc-rating-submit">
+                <rating-submit title="Rate" this="" experiment="">
+                </rating-submit>
+            </div>      <bug-report id="bug-report" title="[BUG REPORT] MULTIPLIERS" page-type="text" context-info="{&quot;organisation&quot;:&quot;Virtual Labs&quot;,&quot;developer_institute&quot;:&quot;IIITH&quot;,&quot;expname&quot;:&quot;MULTIPLIERS&quot;,&quot;labname&quot;:&quot;Virtual Lab&quot;,&quot;phase&quot;:&quot;Testing&quot;}" checkbox-json="{&quot;text&quot;:[&quot;Insufficient Content&quot;],&quot;video&quot;:[&quot;Insufficient Content&quot;],&quot;assesment&quot;:[&quot;Incorrect Options&quot;,&quot;Incorrect Answer&quot;,&quot;Incorrect Question&quot;],&quot;assessment&quot;:[&quot;Incorrect Options&quot;,&quot;Incorrect Answer&quot;,&quot;Incorrect Question&quot;],&quot;simulation&quot;:[&quot;Simulation Not Working&quot;,&quot;Incorrect Results/Observations&quot;,&quot;Insufficient/Incorrect Instructions&quot;],&quot;DEFAULT&quot;:[&quot;Page Not Loading&quot;,&quot;Content Not Visible&quot;,&quot;Incorrect Content&quot;]}" button_style="border: none; color: #fff; background-color: #288ec8; text-align: center; font-size: 1.05rem; border-radius: 1em;padding: 0.6em 1.2em; margin: 0 10px" position="override" custom_button_class="v-button"></bug-report>
+          </div>
+        </nav>
+      </header>
+      <div class="container-fluid flex-fill d-flex flex-column vlabs-page-main">
+        <div class="row d-flex justify-content-between">
+          <div class="flex-column">
+          <div class="row py-4 px-4 breadcrumbs">
+          	<div class="title is-4 tools">Tools</div>
+          	<span class="mx-2">
+          		<i aria-hidden="true" class="fa fa-angle-right"></i>
+          	</span>
+          	<a href="performance-report.html" class="my-2 mx-3" target="_blank">
+          		<button class="v-button">Performance Tool</button>
+          	</a>
+          	<a href="validator-report.html" class="my-2 mx-3" target="_blank">
+          		<button class="v-button">Validation Tool</button>
+          	</a>
+          </div>
+          </div>
+        </div>
+        <div class="row flex-grow-1 d-flex flex-nowrap flex-column flex-lg-row">
+          <div class="modal fade popupmenu" id="popupMenu" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                  <div class="modal-content">
+                      <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalLabel">
+                              <a href="https://vlab.co.in" class="navbar-brand">
+                                  <img src="./assets/images/vlabs-color-small-moe.jpg" alt="vlabs logo" class="vlabs-logo">
+                              </a>
+                          </h5>
+                          <button type="button" class="btn-close align-self-center" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <div class="modal-body nav-menu">
+                              <div>
+                                  <div class="d-flex nav-menu-body">
+                                      <a href="index.html" class="p-2 ">
+                                      Aim
+                                      </a>
+                                      
+                                  </div>
+                                  <div id="t-" class="collapse">
+                                      <div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+                                      </div>
+                                  </div>
+                              </div>
+                              <div>
+                                  <div class="d-flex nav-menu-body">
+                                      <a href="theory.html" class="p-2  current-item ">
+                                      Theory
+                                      </a>
+                                      
+                                  </div>
+                                  <div id="t-" class="collapse">
+                                      <div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+                                      </div>
+                                  </div>
+                              </div>
+                              <div>
+                                  <div class="d-flex nav-menu-body">
+                                      <a href="objective.html" class="p-2 ">
+                                      Objective
+                                      </a>
+                                      
+                                  </div>
+                                  <div id="t-" class="collapse">
+                                      <div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+                                      </div>
+                                  </div>
+                              </div>
+                              <div>
+                                  <div class="d-flex nav-menu-body">
+                                      <a href="procedure.html" class="p-2 ">
+                                      Procedure
+                                      </a>
+                                      
+                                  </div>
+                                  <div id="t-" class="collapse">
+                                      <div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+                                      </div>
+                                  </div>
+                              </div>
+                              <div>
+                                  <div class="d-flex nav-menu-body">
+                                      <a href="pretest.html" class="p-2 ">
+                                      Pretest
+                                      </a>
+                                      
+                                  </div>
+                                  <div id="t-" class="collapse">
+                                      <div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+                                      </div>
+                                  </div>
+                              </div>
+                              <div>
+                                  <div class="d-flex nav-menu-body">
+                                      <a href="demo.html" class="p-2 ">
+                                      Demo
+                                      </a>
+                                      
+                                  </div>
+                                  <div id="t-" class="collapse">
+                                      <div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+                                      </div>
+                                  </div>
+                              </div>
+                              <div>
+                                  <div class="d-flex nav-menu-body">
+                                      <a href="practice.html" class="p-2 ">
+                                      Practice
+                                      </a>
+                                      
+                                  </div>
+                                  <div id="t-" class="collapse">
+                                      <div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+                                      </div>
+                                  </div>
+                              </div>
+                              <div>
+                                  <div class="d-flex nav-menu-body">
+                                      <a href="posttest.html" class="p-2 ">
+                                      Posttest
+                                      </a>
+                                      
+                                  </div>
+                                  <div id="t-" class="collapse">
+                                      <div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+                                      </div>
+                                  </div>
+                              </div>
+                              <div>
+                                  <div class="d-flex nav-menu-body">
+                                      <a href="assignment.html" class="p-2 ">
+                                      Assignment
+                                      </a>
+                                      
+                                  </div>
+                                  <div id="t-" class="collapse">
+                                      <div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+                                      </div>
+                                  </div>
+                              </div>
+                              <div>
+                                  <div class="d-flex nav-menu-body">
+                                      <a href="references.html" class="p-2 ">
+                                      References
+                                      </a>
+                                      
+                                  </div>
+                                  <div id="t-" class="collapse">
+                                      <div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+                                      </div>
+                                  </div>
+                              </div>
+                              <div>
+                                  <div class="d-flex nav-menu-body">
+                                      <a href="contributors.html" class="p-2 ">
+                                      Contributors
+                                      </a>
+                                      
+                                  </div>
+                                  <div id="t-" class="collapse">
+                                      <div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+                                      </div>
+                                  </div>
+                              </div>
+                              <div>
+                                  <div class="d-flex nav-menu-body">
+                                      <a href="feedback.html" class="p-2 ">
+                                      Feedback
+                                      </a>
+                                      
+                                  </div>
+                                  <div id="t-" class="collapse">
+                                      <div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+                                      </div>
+                                  </div>
+                              </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="nav flex-column sidebar nav-menu flex-shrink-0 px-lg-4 align-items-center align-items-lg-start hidden d-none d-lg-flex" id="menu">
+                <div>
+                    <div class="d-flex nav-menu-body">
+                        <a href="index.html" class="p-2 ">
+                        Aim
+                        </a>
+                        
+                    </div>
+                    <div id="t-" class="collapse">
+                        <div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="d-flex nav-menu-body">
+                        <a href="theory.html" class="p-2  current-item ">
+                        Theory
+                        </a>
+                        
+                    </div>
+                    <div id="t-" class="collapse">
+                        <div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="d-flex nav-menu-body">
+                        <a href="objective.html" class="p-2 ">
+                        Objective
+                        </a>
+                        
+                    </div>
+                    <div id="t-" class="collapse">
+                        <div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="d-flex nav-menu-body">
+                        <a href="procedure.html" class="p-2 ">
+                        Procedure
+                        </a>
+                        
+                    </div>
+                    <div id="t-" class="collapse">
+                        <div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="d-flex nav-menu-body">
+                        <a href="pretest.html" class="p-2 ">
+                        Pretest
+                        </a>
+                        
+                    </div>
+                    <div id="t-" class="collapse">
+                        <div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="d-flex nav-menu-body">
+                        <a href="demo.html" class="p-2 ">
+                        Demo
+                        </a>
+                        
+                    </div>
+                    <div id="t-" class="collapse">
+                        <div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="d-flex nav-menu-body">
+                        <a href="practice.html" class="p-2 ">
+                        Practice
+                        </a>
+                        
+                    </div>
+                    <div id="t-" class="collapse">
+                        <div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="d-flex nav-menu-body">
+                        <a href="posttest.html" class="p-2 ">
+                        Posttest
+                        </a>
+                        
+                    </div>
+                    <div id="t-" class="collapse">
+                        <div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="d-flex nav-menu-body">
+                        <a href="assignment.html" class="p-2 ">
+                        Assignment
+                        </a>
+                        
+                    </div>
+                    <div id="t-" class="collapse">
+                        <div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="d-flex nav-menu-body">
+                        <a href="references.html" class="p-2 ">
+                        References
+                        </a>
+                        
+                    </div>
+                    <div id="t-" class="collapse">
+                        <div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="d-flex nav-menu-body">
+                        <a href="contributors.html" class="p-2 ">
+                        Contributors
+                        </a>
+                        
+                    </div>
+                    <div id="t-" class="collapse">
+                        <div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="d-flex nav-menu-body">
+                        <a href="feedback.html" class="p-2 ">
+                        Feedback
+                        </a>
+                        
+                    </div>
+                    <div id="t-" class="collapse">
+                        <div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+                        </div>
+                    </div>
+                </div>
+          </div>          <div class="vlabs-page-content px-5 pb-4 flex-grow-1 markdown-body">
+            <div class="text-center fix-spacing">
+              <h2 id="multipliers">Multipliers</h2>
+          
+            </div>
+              <h3 id="binary-multiplication-fundamentals">Binary Multiplication Fundamentals</h3>
+          <p>Binary numbers can be multiplied using the same principles as decimal multiplication. The process involves generating partial products by multiplying the multiplicand by each bit of the multiplier, then summing these partial products to obtain the final result. This forms the foundation for all digital multiplier circuits used in modern processors, digital signal processors (DSPs), and specialized arithmetic units.</p>
+          <h4 id="basic-multiplication-process">Basic Multiplication Process</h4>
+          <p><strong>Step 1</strong>: Start with the least significant bit of the multiplier</p>
+          <p><strong>Step 2</strong>: Generate partial products by multiplying the multiplicand with each multiplier bit</p>
+          <p><strong>Step 3</strong>: Shift each partial product one position to the left relative to the previous one</p>
+          <p><strong>Step 4</strong>: Add all partial products to obtain the final result</p>
+          <h4 id="classification-of-digital-multipliers">Classification of Digital Multipliers</h4>
+          <p>Digital multipliers can be categorized based on their implementation approach and optimization goals:</p>
+          <p><strong>Array Multipliers</strong>:</p>
+          <ul>
+          <li>Simple structure using AND gates and adders arranged in a rectangular array</li>
+          <li>Predictable timing and straightforward implementation</li>
+          <li>Used in basic microcontrollers and educational applications</li>
+          </ul>
+          <p><strong>Tree Multipliers</strong>:</p>
+          <ul>
+          <li>More efficient designs like Wallace tree and Dadda multipliers that reduce delay</li>
+          <li>Parallel processing of partial products for high-speed applications</li>
+          <li>Commonly found in high-performance processors and graphics units</li>
+          </ul>
+          <p><strong>Sequential Multipliers</strong>:</p>
+          <ul>
+          <li>Booth's algorithm and modified Booth algorithm for signed multiplication</li>
+          <li>Reduced hardware complexity with iterative processing</li>
+          <li>Ideal for area-constrained implementations</li>
+          </ul>
+          <p><strong>Advanced Multipliers</strong>:</p>
+          <ul>
+          <li>Specialized designs with optimization techniques</li>
+          <li>Custom logic configurations for specific applications</li>
+          <li>Demonstrate various trade-offs in digital circuit design</li>
+          </ul>
+          <h3 id="2-bit-binary-multiplier">2-Bit Binary Multiplier</h3>
+          <img src="images/2bit1.png">
+          
+          <p>A 2-bit multiplier demonstrates the fundamental concepts of digital multiplication. Consider two 2-bit binary numbers: multiplicand B₁B₀ and multiplier A₁A₀, producing a 4-bit product C₃C₂C₁C₀.</p>
+          <h4 id="circuit-implementation">Circuit Implementation</h4>
+          <p>The multiplication B₁B₀ × A₁A₀ generates two partial products:</p>
+          <p><strong>First Partial Product</strong>: B₁B₀ × A₀</p>
+          <p><strong>Second Partial Product</strong>: B₁B₀ × A₁ (shifted left by one position)</p>
+          <p>Since multiplication of two binary bits results in 1 only when both bits are 1, AND gates are used to generate the partial products. The partial products are then added using half-adder circuits.</p>
+          <h4 id="logic-equations">Logic Equations</h4>
+          <p><strong>Partial Products</strong>:</p>
+          <ul>
+          <li>P₀₀ = B₀ · A₀</li>
+          <li>P₀₁ = B₁ · A₀</li>
+          <li>P₁₀ = B₀ · A₁</li>
+          <li>P₁₁ = B₁ · A₁</li>
+          </ul>
+          <p><strong>Final Product</strong>:</p>
+          <ul>
+          <li>C₀ = P₀₀</li>
+          <li>C₁ = Sum output of HA₁ (P₀₁ + P₁₀)</li>
+          <li>C₂ = Sum output of HA₂ (Carry from HA₁ + P₁₁)</li>
+          <li>C₃ = Carry output of HA₂</li>
+          </ul>
+          <h4 id="key-features">Key Features</h4>
+          <ul>
+          <li>Uses 4 AND gates for partial product generation</li>
+          <li>Employs 2 half-adders for partial product summation</li>
+          <li>Simple and educational design</li>
+          <li>Foundation for larger multiplier circuits</li>
+          <li>Demonstrates basic multiplication principles</li>
+          </ul>
+          <img src="images/2bit2.png">
+          
+          <p>Circuit Diagram for 2-bit multiplier using half adders and AND gates</p>
+          <h3 id="4-bit-array-multiplier">4-Bit Array Multiplier</h3>
+          <img src="images/4bitmultiplier.png">
+          
+          <p>The 4-bit array multiplier extends the 2-bit concept to handle larger numbers. It can multiply two 4-bit binary numbers (maximum value 15 each) to produce an 8-bit product (maximum value 255).</p>
+          <h4 id="circuit-architecture">Circuit Architecture</h4>
+          <p><strong>Inputs</strong>: Multiplicand A₃A₂A₁A₀ and Multiplier B₃B₂B₁B₀</p>
+          <p><strong>Output</strong>: 8-bit Product P₇P₆P₅P₄P₃P₂P₁P₀</p>
+          <p>The circuit generates 4 partial products, each requiring proper alignment and summation.</p>
+          <h4 id="partial-products-structure">Partial Products Structure</h4>
+          <ul>
+          <li><strong>Row 0</strong>: A₃B₀, A₂B₀, A₁B₀, A₀B₀</li>
+          <li><strong>Row 1</strong>: A₃B₁, A₂B₁, A₁B₁, A₀B₁ (shifted left by 1)</li>
+          <li><strong>Row 2</strong>: A₃B₂, A₂B₂, A₁B₂, A₀B₂ (shifted left by 2)</li>
+          <li><strong>Row 3</strong>: A₃B₃, A₂B₃, A₁B₃, A₀B₃ (shifted left by 3)</li>
+          </ul>
+          <h4 id="important-design-considerations">Important Design Considerations</h4>
+          <p><strong>Carry Propagation</strong>: The carry outputs (Cout) from the first two 4-bit adders must be properly connected to the carry inputs (Cin) of the subsequent adders to ensure correct addition of all partial products.</p>
+          <p><strong>Adder Selection</strong>: While 4-bit full adders can be used, implementing with individual single-bit adders (half-adders and full-adders) provides better understanding of the circuit operation and more efficient hardware utilization.</p>
+          <h4 id="logic-implementation">Logic Implementation</h4>
+          <ul>
+          <li><strong>16 AND gates</strong> for partial product generation (4×4 matrix)</li>
+          <li><strong>Multiple adder stages</strong> for partial product summation</li>
+          <li><strong>Systematic carry propagation</strong> between adder stages</li>
+          <li><strong>Optimized critical path</strong> for timing performance</li>
+          </ul>
+          <h4 id="applications">Applications</h4>
+          <ul>
+          <li><strong>Embedded processors</strong>: Basic arithmetic operations</li>
+          <li><strong>Digital signal processing</strong>: Convolution and filtering</li>
+          <li><strong>Microcontrollers</strong>: Mathematical computations</li>
+          <li><strong>FPGA implementations</strong>: Custom arithmetic units</li>
+          </ul>
+          <h3 id="sequential-shift-and-add-multiplier">Sequential Shift-and-Add Multiplier</h3>
+          <p>The shift-and-add algorithm implements multiplication using a sequential approach, similar to manual binary multiplication. This method is particularly useful when hardware resources are limited or when implementing multiplication in software.</p>
+          <h4 id="algorithm-description">Algorithm Description</h4>
+          <p><strong>Initialization</strong>:</p>
+          <ul>
+          <li>Load multiplicand and multiplier into registers</li>
+          <li>Clear the product accumulator</li>
+          <li>Set bit counter to the multiplier width</li>
+          </ul>
+          <p><strong>Iterative Process</strong>:</p>
+          <ol>
+          <li><strong>Examine LSB</strong> of multiplier</li>
+          <li><strong>If LSB = 1</strong>: Add multiplicand to partial product</li>
+          <li><strong>If LSB = 0</strong>: No addition required</li>
+          <li><strong>Shift</strong> multiplicand left by one position</li>
+          <li><strong>Shift</strong> multiplier right by one position</li>
+          <li><strong>Decrement</strong> bit counter</li>
+          <li><strong>Repeat</strong> until all bits are processed</li>
+          </ol>
+          <h4 id="control-flow-structure">Control Flow Structure</h4>
+          <p><strong>Start</strong> → <strong>Initialize Registers</strong> → <strong>Check Multiplier LSB</strong> → <strong>Conditional Add</strong> → <strong>Shift Operations</strong> → <strong>Counter Check</strong> → <strong>Result Output</strong></p>
+          <h4 id="key-features-1">Key Features</h4>
+          <ul>
+          <li><strong>Sequential processing</strong>: One bit per clock cycle</li>
+          <li><strong>Resource efficient</strong>: Requires only one adder</li>
+          <li><strong>Flexible implementation</strong>: Suitable for various bit widths</li>
+          <li><strong>Clear algorithm</strong>: Easy to understand and implement</li>
+          <li><strong>Software friendly</strong>: Can be implemented in microprocessors</li>
+          </ul>
+          <h4 id="advantages-and-disadvantages">Advantages and Disadvantages</h4>
+          <p><strong>Advantages</strong>:</p>
+          <ul>
+          <li>Minimal hardware requirements</li>
+          <li>Scalable to any bit width</li>
+          <li>Easy to control and debug</li>
+          <li>Lower power consumption</li>
+          </ul>
+          <p><strong>Disadvantages</strong>:</p>
+          <ul>
+          <li>Slower than parallel methods</li>
+          <li>Requires multiple clock cycles</li>
+          <li>Not suitable for high-speed applications</li>
+          <li>More complex control logic</li>
+          </ul>
+          <h4 id="applications-1">Applications</h4>
+          <ul>
+          <li><strong>Microcontroller implementations</strong>: Resource-constrained systems</li>
+          <li><strong>Software multiplication</strong>: Processor algorithms</li>
+          <li><strong>Educational purposes</strong>: Understanding multiplication concepts</li>
+          <li><strong>Low-power designs</strong>: Battery-operated devices</li>
+          </ul>
+          <h3 id="advanced-multiplier-architectures">Advanced Multiplier Architectures</h3>
+          <h4 id="4-bit-advanced-multiplier">4-Bit Advanced Multiplier</h4>
+          <p>The 4-bit advanced multiplier builds upon the basic array multiplier concept while incorporating optimization techniques and additional logic gates for improved performance and educational value.</p>
+          <img src="images/4bit_advanced.png">
+          
+          <p><strong>Key Features</strong>:</p>
+          <ul>
+          <li><strong>Enhanced gate library</strong>: Utilizes NOT, XOR, and OR gates alongside basic AND gates</li>
+          <li><strong>Optimization opportunities</strong>: Students can explore different implementation strategies</li>
+          <li><strong>Signal inversion</strong>: NOT gates enable advanced logic optimizations</li>
+          <li><strong>Custom adder configurations</strong>: XOR and OR gates allow for alternative adder implementations</li>
+          </ul>
+          <p><strong>Design Principles</strong>:</p>
+          <ul>
+          <li><strong>Partial product generation</strong>: Same 16 AND gates as array multiplier</li>
+          <li><strong>Flexible addition network</strong>: Multiple gate types enable various summation strategies</li>
+          <li><strong>Logic optimization</strong>: Students can implement area or speed optimizations</li>
+          <li><strong>Educational focus</strong>: Demonstrates impact of gate selection on circuit characteristics</li>
+          </ul>
+          <p><strong>Optimization Strategies</strong>:</p>
+          <ul>
+          <li><strong>Gate substitution</strong>: Replace compound logic with simpler gate combinations</li>
+          <li><strong>Signal conditioning</strong>: Use NOT gates for active-low logic interfaces</li>
+          <li><strong>Custom carry logic</strong>: Implement specialized carry generation using XOR/OR gates</li>
+          <li><strong>Area-speed trade-offs</strong>: Balance between hardware complexity and performance</li>
+          </ul>
+          <h4 id="wallace-tree-multiplier">Wallace Tree Multiplier</h4>
+          <p>Wallace tree multipliers represent a significant advancement in high-speed multiplication, utilizing a tree structure to minimize the critical path delay through parallel processing of partial products.</p>
+          <img src="images/wallace_tree.png">
+          
+          <p><strong>Algorithm Description</strong>:</p>
+          <p>The Wallace tree algorithm systematically reduces partial products using a series of compression stages:</p>
+          <p><strong>Stage 1</strong>: Group partial products into sets of three
+          <strong>Stage 2</strong>: Use Full Adders (3:2 compressors) to reduce each group of three to two
+          <strong>Stage 3</strong>: Group remaining pairs with Half Adders (2:2 compressors)<br><strong>Stage 4</strong>: Repeat until only two operands remain
+          <strong>Stage 5</strong>: Add final two operands with fast adder</p>
+          <p><strong>Tree Structure Benefits</strong>:</p>
+          <ul>
+          <li><strong>Parallel processing</strong>: Multiple partial products processed simultaneously</li>
+          <li><strong>Reduced delay</strong>: Logarithmic depth instead of linear accumulation</li>
+          <li><strong>Scalability</strong>: Efficient for large bit-width multiplications</li>
+          <li><strong>High throughput</strong>: Optimal for high-frequency applications</li>
+          </ul>
+          <p><strong>Implementation Details</strong>:</p>
+          <ul>
+          <li><strong>3:2 Compression</strong>: Full adders reduce three partial product bits to sum and carry</li>
+          <li><strong>2:2 Compression</strong>: Half adders handle pairs of partial product bits</li>
+          <li><strong>Carry-save addition</strong>: Intermediate results maintain separate sum and carry</li>
+          <li><strong>Final addition</strong>: Fast carry-propagate adder completes the multiplication</li>
+          </ul>
+          <p><strong>Design Considerations</strong>:</p>
+          <ul>
+          <li><strong>Tree depth</strong>: Determines critical path delay (typically log₁.₅(n) stages)</li>
+          <li><strong>Hardware complexity</strong>: More complex than array multipliers but faster</li>
+          <li><strong>Routing complexity</strong>: Irregular structure requires careful layout planning</li>
+          <li><strong>Power consumption</strong>: Higher due to increased switching activity</li>
+          </ul>
+          <h4 id="booths-algorithm">Booth's Algorithm</h4>
+          <p>Booth's algorithm provides an efficient method for signed binary multiplication by examining groups of multiplier bits and performing conditional operations based on bit patterns.</p>
+          <p><strong>Algorithm Principles</strong>:</p>
+          <p>Booth's algorithm is based on the observation that multiplication by a sequence of 1's can be replaced by subtraction and addition operations:</p>
+          <p><strong>Bit Pattern Analysis</strong>:</p>
+          <ul>
+          <li><strong>00 or 11</strong>: No operation required</li>
+          <li><strong>01</strong>: Add multiplicand to partial product</li>
+          <li><strong>10</strong>: Subtract multiplicand from partial product</li>
+          </ul>
+          <p><strong>Sign Extension</strong>: Proper handling of negative numbers using two's complement arithmetic</p>
+          <p><strong>Radix-2 Booth Algorithm</strong>:</p>
+          <ol>
+          <li><strong>Initialize</strong>: Set partial product to 0, extend multiplier with additional bit (0)</li>
+          <li><strong>Examine</strong>: Look at current and previous multiplier bits</li>
+          <li><strong>Conditional Operation</strong>:<ul>
+          <li>01: Add multiplicand</li>
+          <li>10: Subtract multiplicand</li>
+          <li>00/11: No operation</li>
+          </ul>
+          </li>
+          <li><strong>Shift</strong>: Arithmetic right shift of partial product and multiplier</li>
+          <li><strong>Repeat</strong>: Continue for all multiplier bits</li>
+          </ol>
+          <p><strong>Modified Booth Algorithm (Radix-4)</strong>:</p>
+          <p>The modified Booth algorithm examines two bits at a time, reducing the number of partial products by half:</p>
+          <p><strong>Bit Pattern Operations</strong>:</p>
+          <ul>
+          <li><strong>000, 111</strong>: 0 × multiplicand</li>
+          <li><strong>001, 010</strong>: +1 × multiplicand</li>
+          <li><strong>011</strong>: +2 × multiplicand</li>
+          <li><strong>100</strong>: -2 × multiplicand</li>
+          <li><strong>101, 110</strong>: -1 × multiplicand</li>
+          </ul>
+          <p><strong>Advantages</strong>:</p>
+          <ul>
+          <li><strong>Reduced partial products</strong>: Half the number compared to standard multiplication</li>
+          <li><strong>Signed arithmetic</strong>: Native support for negative numbers</li>
+          <li><strong>Regular structure</strong>: Suitable for parallel implementation</li>
+          <li><strong>Processor friendly</strong>: Widely used in commercial processors</li>
+          </ul>
+          <p><strong>Applications</strong>:</p>
+          <ul>
+          <li><strong>Microprocessor ALUs</strong>: Standard implementation in modern CPUs</li>
+          <li><strong>DSP processors</strong>: Essential for signal processing applications</li>
+          <li><strong>Embedded systems</strong>: Efficient signed multiplication in resource-constrained environments</li>
+          <li><strong>FPGA implementations</strong>: Regular structure suitable for FPGA architectures</li>
+          </ul>
+          <h3 id="design-considerations">Design Considerations</h3>
+          <h4 id="timing-analysis">Timing Analysis</h4>
+          <ul>
+          <li><strong>Critical Path</strong>: The longest delay path determines the maximum operating frequency</li>
+          <li><strong>Carry Propagation</strong>: Dominant factor in array multiplier timing</li>
+          <li><strong>Tree Depth</strong>: Key parameter in Wallace tree multiplier performance</li>
+          </ul>
+          <h4 id="power-optimization">Power Optimization</h4>
+          <ul>
+          <li><strong>Clock Gating</strong>: Disable unused circuit portions</li>
+          <li><strong>Voltage Scaling</strong>: Reduce supply voltage for lower power</li>
+          <li><strong>Architecture Selection</strong>: Choose appropriate multiplier type for power requirements</li>
+          </ul>
+          <h4 id="area-time-trade-offs">Area-Time Trade-offs</h4>
+          <ul>
+          <li><strong>Parallel vs. Sequential</strong>: Balance between speed and hardware cost</li>
+          <li><strong>Bit Width Considerations</strong>: Larger multipliers require exponentially more resources</li>
+          <li><strong>Application Requirements</strong>: Match multiplier design to system needs</li>
+          </ul>
+          <h3 id="real-world-applications">Real-World Applications</h3>
+          <h4 id="processor-arithmetic-logic-units-alus">Processor Arithmetic Logic Units (ALUs)</h4>
+          <p>Modern microprocessors incorporate sophisticated multiplier units as core components of their ALUs. These multipliers handle:</p>
+          <ul>
+          <li><strong>Integer multiplication</strong>: Basic arithmetic operations for software execution</li>
+          <li><strong>Address calculation</strong>: Memory addressing and pointer arithmetic</li>
+          <li><strong>Loop counters</strong>: Efficient iteration control in software loops</li>
+          <li><strong>Mathematical libraries</strong>: Foundation for complex mathematical functions</li>
+          </ul>
+          <h4 id="digital-signal-processing-dsp">Digital Signal Processing (DSP)</h4>
+          <p>DSP applications heavily rely on multiplication operations for:</p>
+          <ul>
+          <li><strong>Convolution</strong>: Core operation in digital filtering and signal processing</li>
+          <li><strong>FFT algorithms</strong>: Fast Fourier Transform implementations for frequency analysis</li>
+          <li><strong>Image processing</strong>: Pixel manipulation, filtering, and enhancement operations</li>
+          <li><strong>Audio processing</strong>: Digital audio effects, compression, and synthesis</li>
+          </ul>
+          <h4 id="graphics-processing-units-gpus">Graphics Processing Units (GPUs)</h4>
+          <p>GPU architectures incorporate thousands of multiplier units for:</p>
+          <ul>
+          <li><strong>3D graphics rendering</strong>: Matrix transformations and geometric calculations</li>
+          <li><strong>Shader processing</strong>: Pixel and vertex shader arithmetic operations</li>
+          <li><strong>Machine learning</strong>: Neural network training and inference acceleration</li>
+          <li><strong>Parallel computing</strong>: High-throughput scientific and engineering computations</li>
+          </ul>
+          <h4 id="cryptography-and-security">Cryptography and Security</h4>
+          <p>Multipliers play crucial roles in cryptographic systems:</p>
+          <ul>
+          <li><strong>RSA encryption</strong>: Large integer multiplication for public-key cryptography</li>
+          <li><strong>Elliptic curve cryptography</strong>: Field multiplication operations</li>
+          <li><strong>Hash functions</strong>: Cryptographic hash computation algorithms</li>
+          <li><strong>Digital signatures</strong>: Authentication and integrity verification systems</li>
+          </ul>
+          <h4 id="machine-learning-and-ai">Machine Learning and AI</h4>
+          <p>Modern AI accelerators depend on efficient multiplication:</p>
+          <ul>
+          <li><strong>Neural network training</strong>: Backpropagation and weight update calculations</li>
+          <li><strong>Matrix operations</strong>: Core linear algebra operations in deep learning</li>
+          <li><strong>Inference engines</strong>: Real-time AI inference in edge devices</li>
+          <li><strong>Tensor processing</strong>: High-dimensional array operations in AI frameworks</li>
+          </ul>
+          <h4 id="communication-systems">Communication Systems</h4>
+          <p>Digital communication relies on multipliers for:</p>
+          <ul>
+          <li><strong>Modulation/Demodulation</strong>: Signal processing in wireless communication</li>
+          <li><strong>Error correction</strong>: Reed-Solomon and other error correction algorithms</li>
+          <li><strong>Channel coding</strong>: Forward error correction and signal enhancement</li>
+          <li><strong>Protocol processing</strong>: Network packet processing and routing calculations</li>
+          </ul>
+          
+          </div>
+          <div class="bug-report-mobile">
+              <bug-report id="bug-report" title="[BUG REPORT] MULTIPLIERS" page-type="text" context-info="{&quot;organisation&quot;:&quot;Virtual Labs&quot;,&quot;developer_institute&quot;:&quot;IIITH&quot;,&quot;expname&quot;:&quot;MULTIPLIERS&quot;,&quot;labname&quot;:&quot;Virtual Lab&quot;,&quot;phase&quot;:&quot;Testing&quot;}" checkbox-json="{&quot;text&quot;:[&quot;Insufficient Content&quot;],&quot;video&quot;:[&quot;Insufficient Content&quot;],&quot;assesment&quot;:[&quot;Incorrect Options&quot;,&quot;Incorrect Answer&quot;,&quot;Incorrect Question&quot;],&quot;assessment&quot;:[&quot;Incorrect Options&quot;,&quot;Incorrect Answer&quot;,&quot;Incorrect Question&quot;],&quot;simulation&quot;:[&quot;Simulation Not Working&quot;,&quot;Incorrect Results/Observations&quot;,&quot;Insufficient/Incorrect Instructions&quot;],&quot;DEFAULT&quot;:[&quot;Page Not Loading&quot;,&quot;Content Not Visible&quot;,&quot;Incorrect Content&quot;]}" position="override" button_style="
+                          position: fixed; 
+                          bottom: 20px;
+                          right: 20px;
+                          z-index: 1;
+                          font-size: 0;
+                          padding: 25px;
+                          border-radius: 50%;
+                          border: none;
+                          background-color: #0fc0ff;
+                          background-image: url(data:image/png;base64,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);
+                          background-repeat: no-repeat;
+                          background-position: center;
+                          background-size: 30px;
+                          filter: invert(1);">
+              </bug-report>
+          </div>        </div>
+      </div>
+      <footer class="text-light pt-2 vlabs-footer d-flex flex-column">
+        <div class="row px-5 mx-0">
+          <div class="col d-flex flex-column">
+            <span class="font-weight-bold vlabs-footer-sect-name pb-2 mb-3">Community Links</span>
+            <a href="https://www.sakshat.ac.in/" class="text-light">Sakshat Portal</a>
+            <a href="http://outreach.vlabs.ac.in/" class="text-light">Outreach Portal</a>
+            <a href="https://vlab.co.in/faq" class="text-light">FAQ: Virtual Labs</a>
+          </div>
+          <div class="col d-flex flex-column">
+            <span class="font-weight-bold vlabs-footer-sect-name pb-2 mb-3">Contact Us</span>
+            <span> Phone: General Information: 011-26582050 </span>
+            <span> Email: support@vlabs.ac.in </span>
+          </div>
+          <div class="col d-flex flex-column">
+            <span class="font-weight-bold vlabs-footer-sect-name pb-2 mb-3">Follow Us</span>
+            <div class="social-links">
+      	<a class="p-2 mt-1 mr-2 d-inline-flex justify-content-center align-items-center" style="background: #55acee;" href="https://twitter.com/TheVirtualLabs">
+      	  <i class="fab fa-twitter"></i>
+      	</a>
+      	<a class="p-2 mt-1 mr-2 d-inline-flex justify-content-center align-items-center" style="background: #3b5998;" href="https://www.facebook.com/Virtual-Labs-IIT-Delhi-301510159983871/">
+      	  <i class="fab fa-facebook"></i>
+      	</a>
+      	<a class="p-2 mt-1 mr-2 d-inline-flex justify-content-center align-items-center" style="background: #e52d27;" href="https://www.youtube.com/watch?v=asxRaOgk6a0">
+      	  <i class="fab fa-youtube"></i>
+      	</a>
+      	<a class="p-2 mt-1 mr-2 d-inline-flex justify-content-center align-items-center" style="background: #2867B2;" href="https://in.linkedin.com/in/virtual-labs-008ba9136">
+      	  <i class="fab fa-linkedin"></i>
+      	</a>
+            </div>
+          </div>
+        </div>
+        <div class="m-0 py-2 text-center" style="font-family: &quot;Open Sans&quot;, sans-serif; background: #212121;">
+          <a class="text-primary font-weight-bold" href="https://www.gnu.org/licenses/agpl-3.0.en.html"> AGPL 3.0 </a>
+          &nbsp;&amp;&nbsp;
+          <a class="text-primary font-weight-bold" href="https://creativecommons.org/licenses/by-nc-sa/4.0/"> Creative Commons (CC BY-NC-SA 4.0) </a>
+        </div>
+      </footer>
+    <script src="./assets/js/toggleSidebar.js"></script>
+    <script src="./assets/js/event-handler.js"></script>
+
+
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register("sw.js");
+        });
+      }
+    </script>
+  
+
+<script type="module" src="https://cdn.vlabs.ac.in/bug-report/vlabs-bug-report.js"></script><script type="module" src="/exp-multipliers-iiith/plugins/svc-rating/index.js"></script><script type="module" src="/exp-multipliers-iiith/plugins/svc-rating/config.js"></script><script type="module" src="https://apis.google.com/js/api.js"></script></body></html>
