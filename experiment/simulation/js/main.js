@@ -1,5 +1,5 @@
 import * as gatejs from "./gate.js";
-import { wireColours } from "./layout.js";
+import { wireColours, clearObservations } from "./layout.js";
 import { deleteElement } from "./gate.js";
 // import {jsPlumbBrowserUI} from "https://cdnjs.cloudflare.com/ajax/libs/jsPlumb/2.15.6/js/jsplumb.min.js"
 
@@ -61,24 +61,78 @@ jsPlumbInstance.bind("connection", function (info) {
   }
 });
 
+// Returns the output endpoint and the input endpoint of a wire, whichever way it was drawn
+function splitEndpoints(epA, epB) {
+  return epA.uuid.startsWith("output") ? [epA, epB] : [epB, epA];
+}
+
+// Records a new wire in the circuit model. The number in the uuid of the output endpoint tells which
+// output of the driver the wire starts from (0: the output, or the Sum of an adder; 1: the Carry of an adder).
+function linkEndpoints(fromEndpoint, toEndpoint) {
+  const [outEp, inEp] = splitEndpoints(fromEndpoint, toEndpoint);
+  const driver = gatejs.gates[outEp.elementId];
+  const sink = gatejs.gates[inEp.elementId];
+  if (!driver || !sink) {
+    return;
+  }
+  driver.isConnected = true;
+  driver.addOutput(sink);
+  sink.addInput(driver, Number(outEp.uuid.split(":")[1]));
+}
+
+// Removes a deleted wire from the circuit model
+function unlinkEndpoints(epA, epB) {
+  if (!epA || !epB || !epA.uuid || !epB.uuid) {
+    return;
+  }
+  const [outEp, inEp] = splitEndpoints(epA, epB);
+  if (!outEp.uuid.startsWith("output") || !inEp.uuid.startsWith("input")) {
+    return;
+  }
+  const driver = gatejs.gates[outEp.elementId];
+  const sink = gatejs.gates[inEp.elementId];
+  if (!driver || !sink) {
+    return;
+  }
+  const pin = Number(outEp.uuid.split(":")[1]);
+  const index = sink.inputs.findIndex(
+    (pair) => pair[0] === driver && pair[1] === pin
+  );
+  if (index !== -1) {
+    sink.inputs.splice(index, 1);
+  }
+  const outIndex = driver.outputs.indexOf(sink);
+  if (outIndex !== -1) {
+    driver.outputs.splice(outIndex, 1);
+  }
+  driver.isConnected = driver.outputs.length > 0;
+}
+
+// Keep the circuit model in sync when a wire is deleted
+function bindDetach() {
+  jsPlumbInstance.unbind("connection:detach");
+  jsPlumbInstance.bind("connection:detach", function (info) {
+    unlinkEndpoints(info.sourceEndpoint, info.targetEndpoint);
+  });
+}
+bindDetach();
+
 // This is an event listener for establishing connections between gates
 // to check whether connection is valid/not
 export const connectGate = function () {
+  bindDetach();
+  jsPlumbInstance.unbind("beforeDrop");
   jsPlumbInstance.bind("beforeDrop", function (data) {
-    //from end point kis gate se wire shuru hui
-    // to endpoint kis gate pe wire khatam hui
     const fromEndpoint = data.connection.endpoints[0];
     const toEndpoint = data.dropEndpoint;
-    //start uuid hame uuid dega of start gate
-    //edn uuis hame uuid dega of end gate
-    //uuid="input/output"+"0/1"+"gate-id"
+    // uuid = "input/output" + ":" + pin number + ":" + gate id
     const start_uuid = fromEndpoint.uuid.split(":")[0];
     const end_uuid = toEndpoint.uuid.split(":")[0];
 
     if (fromEndpoint.elementId === toEndpoint.elementId) {
       return false;
     }
-    // 3 condiitons below meant to check whether connection is valid or not
+    // the conditions below check whether the connection is valid or not
     if (start_uuid === "input" && end_uuid === "input") {
       return false;
     } else if (start_uuid === "output" && end_uuid === "output") {
@@ -89,26 +143,16 @@ export const connectGate = function () {
     ) {
       // If it already has a connection, do not establish a new connection
       return false;
-    } else {
-      jsPlumbInstance.connect({
-        uuids: [fromEndpoint.uuid, toEndpoint.uuid],
-        paintStyle: { stroke: wireColours[num_wires], strokeWidth: 4 },
-      });
-
-      num_wires++;
-      num_wires = num_wires % wireColours.length;
-      if (start_uuid === "output") {
-        let input = gatejs.gates[fromEndpoint.elementId]; // gatejs.gates is dict of gates
-        input.isConnected = true;
-        gatejs.gates[toEndpoint.elementId].addInput(input);
-        input.addOutput(gatejs.gates[toEndpoint.elementId]);
-      } else if (end_uuid === "output") {
-        let input = gatejs.gates[toEndpoint.elementId];
-        input.isConnected = true;
-        gatejs.gates[fromEndpoint.elementId].addInput(input);
-        input.addOutput(gatejs.gates[fromEndpoint.elementId]);
-      }
     }
+    jsPlumbInstance.connect({
+      uuids: [fromEndpoint.uuid, toEndpoint.uuid],
+      paintStyle: { stroke: wireColours[num_wires], strokeWidth: 4 },
+    });
+    num_wires++;
+    num_wires = num_wires % wireColours.length;
+    linkEndpoints(fromEndpoint, toEndpoint);
+    // the wire has been drawn above, so the drop itself is cancelled
+    return false;
   });
 };
 
@@ -573,37 +617,35 @@ export function refreshWorkingArea() {
 }
 
 const menu = document.querySelector(".menu");
-const menuOption = document.querySelector(".menu-option");
-let menuVisible = true;
-console.log(menu);
-console.log(menuOption);
-console.log(menuVisible);
+const menuOptions = document.querySelectorAll(".menu-option");
 
-const toggleMenu = (command) => {
-  menu.style.display = command === "show" ? "block" : "none";
-  menuVisible = !menuVisible;
-};
-console.log("toggle", toggleMenu);
 export const setPosition = ({ top, left }) => {
   menu.style.left = `${left}px`;
   menu.style.top = `${top}px`;
-  toggleMenu("show");
+  menu.style.display = "block";
 };
-console.log("setPosition", setPosition);
 window.addEventListener("click", () => {
-  console.log("menu is ", menuVisible);
-  if (menuVisible) toggleMenu("hide");
+  menu.style.display = "none";
   window.selectedComponent = null;
   window.componentType = null;
+  window.contextMenuTarget = null;
+  window.isConnectionContext = false;
 });
-menuOption.addEventListener("click", (e) => {
-  if (e.target.innerHTML === "Delete") {
-    if (window.componentType === "gate") {
-      deleteElement(window.selectedComponent);
+menuOptions.forEach((menuOption) => {
+  menuOption.addEventListener("click", (e) => {
+    if (e.target.innerHTML === "Delete") {
+      if (window.isConnectionContext && window.contextMenuTarget) {
+        deleteConnection();
+      } else if (window.componentType === "gate") {
+        deleteElement(window.selectedComponent);
+      }
     }
-  }
-  window.selectedComponent = null;
-  window.componentType = null;
+    window.selectedComponent = null;
+    window.componentType = null;
+    window.contextMenuTarget = null;
+    window.isConnectionContext = false;
+    menu.style.display = "none";
+  });
 });
 
 // Add context menu only to the circuit board area
@@ -625,114 +667,31 @@ if (circuitBoard) {
     if (isComponent || isConnection) {
       event.preventDefault(); // Prevent the default context menu from appearing
 
-      // Store the target element and check if it's a connection
+      // Store the target element and check if it is a connection
       window.contextMenuTarget = event.target;
-      window.isConnectionContext =
-        event.target.closest(".jtk-connector") !== null;
+      window.isConnectionContext = isConnection !== null;
 
       menu.style.display = "block";
       menu.style.left = `${event.clientX}px`;
       menu.style.top = `${event.clientY}px`;
-
-      // Handle menu option clicks
-      const handleMenuClick = (e) => {
-        if (e.target.innerHTML === "Delete") {
-          if (window.isConnectionContext && window.contextMenuTarget) {
-            // Delete connector/connection
-            deleteConnection();
-          } else {
-            // Delete component
-            var elements = document.querySelectorAll(
-              ".jtk-connector.jtk-hover"
-            );
-            console.log("Elements to be deleted:", elements);
-            elements.forEach(function (element) {
-              element.parentNode.removeChild(element);
-            });
-          }
-        }
-        menu.style.display = "none";
-        // Remove this specific event listener after use
-        menuOption.removeEventListener("click", handleMenuClick);
-      };
-
-      menuOption.addEventListener("click", handleMenuClick);
     }
   });
 }
 
-// Function to delete connection/connector
+// Function to delete the connection that was right clicked
 function deleteConnection() {
-  console.log("Deleting wire connections");
-  let connectionDeleted = false;
-
-  // Try to delete connection that was right-clicked
-  if (window.isConnectionContext && window.contextMenuTarget) {
-    const connectorElement = window.contextMenuTarget.closest(".jtk-connector");
-
-    if (connectorElement) {
-      // Try to find the connection by its DOM element
-      try {
-        // Method 1: Try JSPlumb's select and check entries
-        if (jsPlumbInstance.select) {
-          // Get all connections and find the one with this canvas
-          const allConnections = jsPlumbInstance.select();
-
-          // Use the entries array to find matching connection
-          if (allConnections.entries && allConnections.entries.length > 0) {
-            for (let i = 0; i < allConnections.entries.length; i++) {
-              const connection = allConnections.entries[i];
-              if (
-                connection.connector &&
-                connection.connector.canvas === connectorElement
-              ) {
-                console.log("Found matching connection, deleting...");
-                jsPlumbInstance.deleteConnection(connection);
-                connectionDeleted = true;
-                console.log(
-                  "Deleting specific connection via JSPlumb deleteConnection"
-                );
-                break;
-              }
-            }
-          }
-        }
-
-        // Method 2: Try iterating through all connections
-        if (!connectionDeleted && jsPlumbInstance.connections) {
-          for (let i = 0; i < jsPlumbInstance.connections.length; i++) {
-            const connection = jsPlumbInstance.connections[i];
-            if (
-              connection.connector &&
-              connection.connector.canvas === connectorElement
-            ) {
-              console.log("Found connection in connections array, deleting...");
-              jsPlumbInstance.deleteConnection(connection);
-              connectionDeleted = true;
-              break;
-            }
-          }
-        }
-
-        // Method 3: Remove DOM element if JSPlumb methods didn't work
-        if (!connectionDeleted && connectorElement.parentNode) {
-          console.log("Removing connector element from DOM");
-          connectorElement.parentNode.removeChild(connectorElement);
-          connectionDeleted = true;
-        }
-      } catch (error) {
-        console.error("Error deleting connection:", error);
-      }
-    }
+  const connectorElement =
+    window.contextMenuTarget && window.contextMenuTarget.closest(".jtk-connector");
+  if (!connectorElement) {
+    return;
   }
-
-  if (!connectionDeleted) {
-    console.log("No connections found to delete");
+  const connection = jsPlumbInstance
+    .getConnections()
+    .find((c) => c.connector && c.connector.canvas === connectorElement);
+  if (connection) {
+    // this also updates the circuit model (see bindDetach)
+    jsPlumbInstance.deleteConnection(connection);
   }
-
-  // Reset context menu variables
-  window.contextMenuTarget = null;
-  window.isConnectionContext = false;
 }
 
 // Initialise Task 1 experiment when the page loads
@@ -755,7 +714,9 @@ document.addEventListener("DOMContentLoaded", function () {
   if (resetButton) {
     resetButton.addEventListener("click", function () {
       refreshWorkingArea();
+      connectGate();
       initMultiplier();
+      clearObservations();
     });
   }
 });

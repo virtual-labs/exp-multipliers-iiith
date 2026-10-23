@@ -88,6 +88,8 @@ Circuit Diagram for 2-bit multiplier using half adders and AND gates
 
 <img src="images/4bitmultiplier.png">
 
+_Figure: A 4-bit array multiplier made of three 4-bit adders, one for each added row of partial products (there C7 to C0 are the bits of the product). In the Practice the same sum is made with single-bit Half Adders and Full Adders, see the Procedure._
+
 The 4-bit array multiplier extends the 2-bit concept to handle larger numbers. It can multiply two 4-bit binary numbers (maximum value 15 each) to produce an 8-bit product (maximum value 255).
 
 #### Circuit Architecture
@@ -107,16 +109,16 @@ The circuit generates 4 partial products, each requiring proper alignment and su
 
 #### Important Design Considerations
 
-**Carry Propagation**: The carry outputs (Cout) from the first two 4-bit adders must be properly connected to the carry inputs (Cin) of the subsequent adders to ensure correct addition of all partial products.
+**Carry Propagation**: The carry output of every adder must be connected to the adder of the next higher weight (to the carry input Cin of the next 4-bit adder in the figure above, or to an input of an adder of the next column when single-bit adders are used). A missing carry gives a wrong product for all the inputs that produce it.
 
-**Adder Selection**: While 4-bit full adders can be used, implementing with individual single-bit adders (half-adders and full-adders) provides better understanding of the circuit operation and more efficient hardware utilization.
+**Adder Selection**: While 4-bit adders can be used, implementing the multiplier with individual single-bit adders (half adders and full adders) shows better how the partial products of each column are added. The 4 x 4 multiplier of the Practice needs 16 AND gates, 8 full adders and 4 half adders.
 
 #### Logic Implementation
 
 - **16 AND gates** for partial product generation (4×4 matrix)
 - **Multiple adder stages** for partial product summation
 - **Systematic carry propagation** between adder stages
-- **Optimized critical path** for timing performance
+- **Regular structure**, but the carry has to ripple through the adders, which determines the delay
 
 #### Applications
 
@@ -188,8 +190,6 @@ The shift-and-add algorithm implements multiplication using a sequential approac
 
 The 4-bit advanced multiplier builds upon the basic array multiplier concept while incorporating optimization techniques and additional logic gates for improved performance and educational value.
 
-<img src="images/4bit_advanced.png">
-
 **Key Features**:
 
 - **Enhanced gate library**: Utilizes NOT, XOR, and OR gates alongside basic AND gates
@@ -215,7 +215,7 @@ The 4-bit advanced multiplier builds upon the basic array multiplier concept whi
 
 Wallace tree multipliers represent a significant advancement in high-speed multiplication, utilizing a tree structure to minimize the critical path delay through parallel processing of partial products.
 
-<img src="images/wallace_tree.png">
+The reduction of a 4 x 4 multiplier is given step by step, with the adders to connect, in the Procedure (Task 4). It needs 3 reduction stages and a final ripple carry adder.
 
 **Algorithm Description**:
 
@@ -376,3 +376,9 @@ Digital communication relies on multipliers for:
 - **Error correction**: Reed-Solomon and other error correction algorithms
 - **Channel coding**: Forward error correction and signal enhancement
 - **Protocol processing**: Network packet processing and routing calculations
+
+### Notes on the Simulation
+
+- The adders of the simulation are single-bit adders. The **Sum** output is the upper one and the **Carry** output is the lower one. A half adder has two inputs and a full adder has three.
+- The Submit button checks the product for all the combinations of the inputs, 16 for the 2-bit multiplier and 256 for the 4-bit multipliers. It does not check the structure of the circuit, so the advanced and the Wallace tree tasks accept any correct 4 x 4 multiplier built from the components of their palette.
+- On the board the inputs are called A and B and the outputs C, with the index 0 for the least significant bit (the 4-bit product is C7 to C0 in the simulation and P7 to P0 in some figures).

@@ -7,8 +7,8 @@ Through this interactive experiment, you will:
 - **Understand the fundamentals** of binary multiplication in digital circuits
 - **Design and analyze** basic multiplier circuits for binary number multiplication
 - **Construct array multipliers** using AND gates and adder circuits
-- **Build Wallace tree multipliers** for efficient high-speed multiplication
-- **Implement Booth's algorithm** for signed multiplication with reduced partial products
+- **Build a Wallace tree multiplier** for efficient high-speed multiplication
+- **Understand Booth's algorithm** for signed multiplication with reduced partial products (in the theory)
 - **Explore optimization techniques** such as carry-save adders and parallel processing
 - **Understand real-world applications** of multipliers in processors, DSP units, and digital systems
 
