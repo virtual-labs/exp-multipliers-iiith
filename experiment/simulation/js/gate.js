@@ -44,9 +44,10 @@ export class Gate {
   setId(id) {
     this.id = id;
   }
-  // Adds input to the gate
-  addInput(gate) {
-    this.inputs.push(gate);
+  // Adds input to the gate. The input is the output pin of another gate: pin 0 is the main output
+  // (the Sum of an adder), pin 1 is the Carry output of an adder.
+  addInput(gate, pin = 0) {
+    this.inputs.push([gate, pin]);
   }
 
   addOutput(gate) {
@@ -56,10 +57,16 @@ export class Gate {
   // Removes input from the gate
   removeInput(gate) {
     for (let i = this.inputs.length - 1; i >= 0; i--) {
-      if (this.inputs[i] === gate) {
+      if (this.inputs[i][0] === gate) {
         this.inputs.splice(i, 1);
       }
     }
+  }
+
+  // The value that the wire number i of this gate carries
+  inputValue(i) {
+    const [driver, pin] = this.inputs[i];
+    return pin === 1 ? driver.carryOutput : driver.output;
   }
 
   removeOutput(gate) {
@@ -87,7 +94,7 @@ export class Gate {
 
     switch (this.type) {
       case "Input":
-        component = `<div class="high" id="${this.id}"><a ondblclick="setInput(event)">1</a><p> ${this.name}  </p></div>`;
+        component = `<div class="high" id="${this.id}"><a onclick="setInput(event)" title="Click to toggle between 0 and 1">1</a><p> ${this.name}  </p></div>`;
         this.output = true;
         this.isInput = true;
         break;
@@ -189,52 +196,42 @@ export class Gate {
   generateOutput() {
     switch (this.type) {
       case "AND":
-        this.output = computeAnd(this.inputs[0].output, this.inputs[1].output);
+        this.output = computeAnd(this.inputValue(0), this.inputValue(1));
         break;
       case "OR":
-        this.output = computeOr(this.inputs[0].output, this.inputs[1].output);
+        this.output = computeOr(this.inputValue(0), this.inputValue(1));
         break;
       case "NOT":
-        this.output = !this.inputs[0].output;
+        this.output = !this.inputValue(0);
         break;
       case "NAND":
-        this.output = computeNand(this.inputs[0].output, this.inputs[1].output);
+        this.output = computeNand(this.inputValue(0), this.inputValue(1));
         break;
       case "NOR":
-        this.output = computeNor(this.inputs[0].output, this.inputs[1].output);
+        this.output = computeNor(this.inputValue(0), this.inputValue(1));
         break;
       case "XOR":
-        this.output = computeXor(this.inputs[0].output, this.inputs[1].output);
+        this.output = computeXor(this.inputValue(0), this.inputValue(1));
         break;
       case "XNOR":
-        this.output = computeXnor(this.inputs[0].output, this.inputs[1].output);
+        this.output = computeXnor(this.inputValue(0), this.inputValue(1));
         break;
       case "HALF ADDER":
-        // Half Adder: Sum = A XOR B, Carry = A AND B
-        // For simplicity, we'll use sum as primary output
-        this.output = computeXor(this.inputs[0].output, this.inputs[1].output);
-        this.carryOutput = computeAnd(
-          this.inputs[0].output,
-          this.inputs[1].output
-        );
+        // Half Adder: Sum = A XOR B (the output), Carry = A AND B (carryOutput)
+        this.output = computeXor(this.inputValue(0), this.inputValue(1));
+        this.carryOutput = computeAnd(this.inputValue(0), this.inputValue(1));
         break;
-      case "FULL ADDER":
+      case "FULL ADDER": {
         // Full Adder: Sum = A XOR B XOR Cin, Carry = (A AND B) OR (Cin AND (A XOR B))
-        // For simplicity, we'll use sum as primary output
-        const tempXor = computeXor(
-          this.inputs[0].output,
-          this.inputs[1].output
-        );
-        this.output = computeXor(tempXor, this.inputs[2].output);
-        const tempAnd1 = computeAnd(
-          this.inputs[0].output,
-          this.inputs[1].output
-        );
-        const tempAnd2 = computeAnd(this.inputs[2].output, tempXor);
+        const tempXor = computeXor(this.inputValue(0), this.inputValue(1));
+        this.output = computeXor(tempXor, this.inputValue(2));
+        const tempAnd1 = computeAnd(this.inputValue(0), this.inputValue(1));
+        const tempAnd2 = computeAnd(this.inputValue(2), tempXor);
         this.carryOutput = computeOr(tempAnd1, tempAnd2);
         break;
+      }
       case "Output":
-        this.output = this.inputs[0].output;
+        this.output = this.inputValue(0);
         break;
     }
   }
@@ -265,8 +262,8 @@ export function getResult(gate) {
     return;
   }
   for (let i = 0; i < gate.inputs.length; i++) {
-    if (gate.inputs[i].output === null) {
-      getResult(gate.inputs[i]);
+    if (gate.inputs[i][0].output === null) {
+      getResult(gate.inputs[i][0]);
     }
   }
   gate.generateOutput();
@@ -274,7 +271,23 @@ export function getResult(gate) {
 }
 
 // Set the Input values of the input bits on double click
+// Position of the last mouse/touch press, used to tell a click apart from the end of a drag
+let pressPosition = { x: 0, y: 0 };
+document.addEventListener(
+  "pointerdown",
+  function (event) {
+    pressPosition = { x: event.clientX, y: event.clientY };
+  },
+  true
+);
+
 function setInput(event) {
+  // ignore the click that ends a drag of the input bit
+  if (
+    Math.hypot(event.clientX - pressPosition.x, event.clientY - pressPosition.y) > 5
+  ) {
+    return;
+  }
   let parentElement = event.target.parentElement;
   let element = event.target;
   let type = parentElement.className.split(" ")[0];
@@ -356,7 +369,12 @@ export function simulate() {
   const result = document.getElementById("result");
   result.innerHTML += message;
   result.className = "success-message";
-  setTimeout(clearObservations, 2000);
+  // the message goes away by itself, but a truth table from Submit must stay on the screen
+  setTimeout(function () {
+    if (result.innerHTML === message) {
+      result.innerHTML = "";
+    }
+  }, 2000);
 }
 
 window.simulate = simulate;
@@ -388,11 +406,12 @@ export function submitCircuit() {
   clearObservations();
   if (window.currentTab === "task1") {
     if (!checkConnections()) return;
+    // the parameters are A1, B1, B0, A0: on the board A1 is Input-0, A0 is Input-1, B1 is Input-2, B0 is Input-3
     validateMultiplier(
       "Input-0",
-      "Input-1",
       "Input-2",
       "Input-3",
+      "Input-1",
       "Output-4",
       "Output-5",
       "Output-6",
@@ -484,7 +503,7 @@ export function deleteElement(gateid) {
   jsPlumbInstance.removeAllEndpoints(document.getElementById(gate.id));
   jsPlumbInstance._removeElement(document.getElementById(gate.id));
   for (let elem in gates) {
-    if (gates[elem].inputs.includes(gate)) {
+    if (gates[elem].inputs.some((pair) => pair[0] === gate)) {
       gates[elem].removeInput(gate);
     }
     if (gates[elem].outputs.includes(gate)) {
