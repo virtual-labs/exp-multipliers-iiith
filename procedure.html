@@ -1,0 +1,824 @@
+<!DOCTYPE html><html lang="en"><head>
+      <!--Google Tag Manager-->
+      <script class="gtm">
+        var dataLayer = [{
+        'labName': 'Virtual Lab',
+        'discipline': 'Test',
+        'college': 'IIITH',
+        'phase': 'Testing',
+        'expName': 'MULTIPLIERS',
+        'expShortName': 'multipliers'
+        }];
+    
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&amp;l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-5NMQ9NQ');
+      </script>
+      <!--End Google Tag Manager-->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="" name="description">
+    <meta content="" name="author">
+    
+    	<meta name="experiment-short-name" content="multipliers">
+    	<meta name="developer-institute" content="IIITH">
+    	<meta name="learning-unit" content="MULTIPLIERS">
+    	<meta name="task-name" content="Procedure">
+    
+    <!-- For iPhone -->
+    <meta name="msapplication-TileColor" content="#4076e0">
+    <!-- Chrome, Firefox OS and Opera -->
+    <meta name="theme-color" content="#4076e0">
+    <!-- Windows Phone -->
+    <meta name="msapplication-navbutton-color" content="#4076e0">
+    <title>Virtual Labs</title>
+    <link rel="shortcut icon" href="./assets/images/favicon.ico">
+    <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/4.0.0/github-markdown.min.css" integrity="sha512-Oy18vBnbSJkXTndr2n6lDMO5NN31UljR8e/ICzVPrGpSud4Gkckb8yUpqhKuUNoE+o9gAb4O/rAxxw1ojyUVzg==" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&amp;family=Raleway&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./assets/css/github-markdown.min.css">
+    <link rel="stylesheet" href="./assets/css/vlabs-style.css">
+    <link rel="stylesheet" href="./assets/css/toast.css">
+    <link rel="stylesheet" href="./assets/katex_assets/katex.min.css">
+    
+    <script src="./assets/js/jquery-3.4.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <style>
+      h1 {
+      font-size: 1.8rem;
+      }
+      h2 {
+      font-size: 1.4rem;
+      }
+      h3 {
+      font-size: 1.2rem;
+      }
+
+      h2, h3 {
+      font-weight: 800;
+      }
+    </style>
+    
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"></head>
+  <body class="p-0 container-fluid vlabs-page d-flex flex-column justify-content-between">
+      <!--Google Tag Manager (noscript)-->
+      <noscript class="gtm">
+        <iframe height="0" src="https://www.googletagmanager.com/ns.html?id=GTM-5NMQ9NQ" style="display:none;visibility:hidden" width="0">
+        </iframe>
+      </noscript>
+      <!--End Google Tag Manager (noscript)-->
+  
+      <header class="vlabs-header sticky-top bg-white">
+        <nav class="p-0 navbar navbar-light d-flex align-items-stretch">
+          
+          <button class="navbar-toggler px-4" type="button" onclick="toggle()">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+      
+          <div class="d-flex justify-content-center">        
+            <a href="https://vlab.co.in" class="navbar-brand">
+              <img src="./assets/images/vlabs-color-small-moe.jpg" alt="vlabs logo" class="vlabs-logo">
+            </a>
+          </div>
+          
+          <div id="headerNavbar" class="d-none border-top flex-grow-1 d-lg-flex align-items-center justify-content-end">
+            <div class="svc-rating-display">
+                <rating-display spreadsheetid="1x12nhpp0QvnsA6x-O1sV4IA9SAbfVsq_wiexWkutOmU" sheetname="Experiment-Database" columnname="Experiment Short Name" columnvalue="multipliers" imagesdirectory="/plugins/svc-rating/images/">
+                </rating-display>
+            </div>      <div class="svc-rating-submit">
+                <rating-submit title="Rate" this="" experiment="">
+                </rating-submit>
+            </div>      <bug-report id="bug-report" title="[BUG REPORT] MULTIPLIERS" page-type="text" context-info="{&quot;organisation&quot;:&quot;Virtual Labs&quot;,&quot;developer_institute&quot;:&quot;IIITH&quot;,&quot;expname&quot;:&quot;MULTIPLIERS&quot;,&quot;labname&quot;:&quot;Virtual Lab&quot;,&quot;phase&quot;:&quot;Testing&quot;}" checkbox-json="{&quot;text&quot;:[&quot;Insufficient Content&quot;],&quot;video&quot;:[&quot;Insufficient Content&quot;],&quot;assesment&quot;:[&quot;Incorrect Options&quot;,&quot;Incorrect Answer&quot;,&quot;Incorrect Question&quot;],&quot;assessment&quot;:[&quot;Incorrect Options&quot;,&quot;Incorrect Answer&quot;,&quot;Incorrect Question&quot;],&quot;simulation&quot;:[&quot;Simulation Not Working&quot;,&quot;Incorrect Results/Observations&quot;,&quot;Insufficient/Incorrect Instructions&quot;],&quot;DEFAULT&quot;:[&quot;Page Not Loading&quot;,&quot;Content Not Visible&quot;,&quot;Incorrect Content&quot;]}" button_style="border: none; color: #fff; background-color: #288ec8; text-align: center; font-size: 1.05rem; border-radius: 1em;padding: 0.6em 1.2em; margin: 0 10px" position="override" custom_button_class="v-button"></bug-report>
+          </div>
+        </nav>
+      </header>
+      <div class="container-fluid flex-fill d-flex flex-column vlabs-page-main">
+        <div class="row d-flex justify-content-between">
+          <div class="flex-column">
+          <div class="row py-4 px-4 breadcrumbs">
+          	<div class="title is-4 tools">Tools</div>
+          	<span class="mx-2">
+          		<i aria-hidden="true" class="fa fa-angle-right"></i>
+          	</span>
+          	<a href="performance-report.html" class="my-2 mx-3" target="_blank">
+          		<button class="v-button">Performance Tool</button>
+          	</a>
+          	<a href="validator-report.html" class="my-2 mx-3" target="_blank">
+          		<button class="v-button">Validation Tool</button>
+          	</a>
+          </div>
+          </div>
+        </div>
+        <div class="row flex-grow-1 d-flex flex-nowrap flex-column flex-lg-row">
+          <div class="modal fade popupmenu" id="popupMenu" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                  <div class="modal-content">
+                      <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalLabel">
+                              <a href="https://vlab.co.in" class="navbar-brand">
+                                  <img src="./assets/images/vlabs-color-small-moe.jpg" alt="vlabs logo" class="vlabs-logo">
+                              </a>
+                          </h5>
+                          <button type="button" class="btn-close align-self-center" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <div class="modal-body nav-menu">
+                              <div>
+                                  <div class="d-flex nav-menu-body">
+                                      <a href="index.html" class="p-2 ">
+                                      Aim
+                                      </a>
+                                      
+                                  </div>
+                                  <div id="t-" class="collapse">
+                                      <div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+                                      </div>
+                                  </div>
+                              </div>
+                              <div>
+                                  <div class="d-flex nav-menu-body">
+                                      <a href="theory.html" class="p-2 ">
+                                      Theory
+                                      </a>
+                                      
+                                  </div>
+                                  <div id="t-" class="collapse">
+                                      <div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+                                      </div>
+                                  </div>
+                              </div>
+                              <div>
+                                  <div class="d-flex nav-menu-body">
+                                      <a href="objective.html" class="p-2 ">
+                                      Objective
+                                      </a>
+                                      
+                                  </div>
+                                  <div id="t-" class="collapse">
+                                      <div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+                                      </div>
+                                  </div>
+                              </div>
+                              <div>
+                                  <div class="d-flex nav-menu-body">
+                                      <a href="procedure.html" class="p-2  current-item ">
+                                      Procedure
+                                      </a>
+                                      
+                                  </div>
+                                  <div id="t-" class="collapse">
+                                      <div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+                                      </div>
+                                  </div>
+                              </div>
+                              <div>
+                                  <div class="d-flex nav-menu-body">
+                                      <a href="pretest.html" class="p-2 ">
+                                      Pretest
+                                      </a>
+                                      
+                                  </div>
+                                  <div id="t-" class="collapse">
+                                      <div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+                                      </div>
+                                  </div>
+                              </div>
+                              <div>
+                                  <div class="d-flex nav-menu-body">
+                                      <a href="demo.html" class="p-2 ">
+                                      Demo
+                                      </a>
+                                      
+                                  </div>
+                                  <div id="t-" class="collapse">
+                                      <div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+                                      </div>
+                                  </div>
+                              </div>
+                              <div>
+                                  <div class="d-flex nav-menu-body">
+                                      <a href="practice.html" class="p-2 ">
+                                      Practice
+                                      </a>
+                                      
+                                  </div>
+                                  <div id="t-" class="collapse">
+                                      <div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+                                      </div>
+                                  </div>
+                              </div>
+                              <div>
+                                  <div class="d-flex nav-menu-body">
+                                      <a href="posttest.html" class="p-2 ">
+                                      Posttest
+                                      </a>
+                                      
+                                  </div>
+                                  <div id="t-" class="collapse">
+                                      <div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+                                      </div>
+                                  </div>
+                              </div>
+                              <div>
+                                  <div class="d-flex nav-menu-body">
+                                      <a href="assignment.html" class="p-2 ">
+                                      Assignment
+                                      </a>
+                                      
+                                  </div>
+                                  <div id="t-" class="collapse">
+                                      <div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+                                      </div>
+                                  </div>
+                              </div>
+                              <div>
+                                  <div class="d-flex nav-menu-body">
+                                      <a href="references.html" class="p-2 ">
+                                      References
+                                      </a>
+                                      
+                                  </div>
+                                  <div id="t-" class="collapse">
+                                      <div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+                                      </div>
+                                  </div>
+                              </div>
+                              <div>
+                                  <div class="d-flex nav-menu-body">
+                                      <a href="contributors.html" class="p-2 ">
+                                      Contributors
+                                      </a>
+                                      
+                                  </div>
+                                  <div id="t-" class="collapse">
+                                      <div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+                                      </div>
+                                  </div>
+                              </div>
+                              <div>
+                                  <div class="d-flex nav-menu-body">
+                                      <a href="feedback.html" class="p-2 ">
+                                      Feedback
+                                      </a>
+                                      
+                                  </div>
+                                  <div id="t-" class="collapse">
+                                      <div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+                                      </div>
+                                  </div>
+                              </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="nav flex-column sidebar nav-menu flex-shrink-0 px-lg-4 align-items-center align-items-lg-start hidden d-none d-lg-flex" id="menu">
+                <div>
+                    <div class="d-flex nav-menu-body">
+                        <a href="index.html" class="p-2 ">
+                        Aim
+                        </a>
+                        
+                    </div>
+                    <div id="t-" class="collapse">
+                        <div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="d-flex nav-menu-body">
+                        <a href="theory.html" class="p-2 ">
+                        Theory
+                        </a>
+                        
+                    </div>
+                    <div id="t-" class="collapse">
+                        <div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="d-flex nav-menu-body">
+                        <a href="objective.html" class="p-2 ">
+                        Objective
+                        </a>
+                        
+                    </div>
+                    <div id="t-" class="collapse">
+                        <div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="d-flex nav-menu-body">
+                        <a href="procedure.html" class="p-2  current-item ">
+                        Procedure
+                        </a>
+                        
+                    </div>
+                    <div id="t-" class="collapse">
+                        <div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="d-flex nav-menu-body">
+                        <a href="pretest.html" class="p-2 ">
+                        Pretest
+                        </a>
+                        
+                    </div>
+                    <div id="t-" class="collapse">
+                        <div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="d-flex nav-menu-body">
+                        <a href="demo.html" class="p-2 ">
+                        Demo
+                        </a>
+                        
+                    </div>
+                    <div id="t-" class="collapse">
+                        <div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="d-flex nav-menu-body">
+                        <a href="practice.html" class="p-2 ">
+                        Practice
+                        </a>
+                        
+                    </div>
+                    <div id="t-" class="collapse">
+                        <div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="d-flex nav-menu-body">
+                        <a href="posttest.html" class="p-2 ">
+                        Posttest
+                        </a>
+                        
+                    </div>
+                    <div id="t-" class="collapse">
+                        <div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="d-flex nav-menu-body">
+                        <a href="assignment.html" class="p-2 ">
+                        Assignment
+                        </a>
+                        
+                    </div>
+                    <div id="t-" class="collapse">
+                        <div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="d-flex nav-menu-body">
+                        <a href="references.html" class="p-2 ">
+                        References
+                        </a>
+                        
+                    </div>
+                    <div id="t-" class="collapse">
+                        <div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="d-flex nav-menu-body">
+                        <a href="contributors.html" class="p-2 ">
+                        Contributors
+                        </a>
+                        
+                    </div>
+                    <div id="t-" class="collapse">
+                        <div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="d-flex nav-menu-body">
+                        <a href="feedback.html" class="p-2 ">
+                        Feedback
+                        </a>
+                        
+                    </div>
+                    <div id="t-" class="collapse">
+                        <div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+                        </div>
+                    </div>
+                </div>
+          </div>          <div class="vlabs-page-content px-5 pb-4 flex-grow-1 markdown-body">
+            <div class="text-center fix-spacing">
+              <h2 id="multipliers">Multipliers</h2>
+          
+            </div>
+              <h3 id="demo">Demo</h3>
+          <p>The Demo shows the 2-bit multiplier, built from AND gates, XOR gates and AND gates (the half adders).</p>
+          <ol>
+          <li>The demo starts with A1A0 = 11 and B1B0 = 10 (3 × 2). Click on an input bit to change its value between 0 and 1.</li>
+          <li>Click on <strong>Start</strong>. The input values travel through the circuit, gate by gate, and the output bits C3C2C1C0 show the product. The same button pauses and resumes the run, and the speed can be changed (1x, 2x, 4x) while it runs.</li>
+          <li>When the run has finished, change the inputs and click on <strong>Start</strong> again. <strong>Reset</strong> brings the circuit back to its starting values.</li>
+          </ol>
+          <p>For example, for A = 11 (3) and B = 10 (2) the product is C3C2C1C0 = 0110 (6).</p>
+          <h3 id="practice">Practice</h3>
+          <p>The Practice page has four tasks, one for each tab. In every task the input bits and the output bits are already on the circuit board, and you build the multiplier between them. Submit checks the product for <strong>every</strong> combination of the inputs (16 combinations for the 2-bit multiplier and 256 for the 4-bit multipliers) and shows the expected and the observed product for each of them. It checks the product, not the structure of the circuit.</p>
+          <h4 id="general-instructions">General instructions</h4>
+          <ul>
+          <li>Click on a component in the <strong>Components</strong> panel to add it to the board, drag it to move it, and connect components by dragging from one endpoint (the dots) to another. A wire can be dragged from an output point to an input point or the other way round. An output point can drive several inputs; an input point takes one wire only.</li>
+          <li>A <strong>Half Adder</strong> has the inputs A and B (upper and lower) and two outputs: the <strong>Sum</strong> (upper) and the <strong>Carry</strong> (lower). A <strong>Full Adder</strong> has three inputs and the same two outputs, Sum (upper) and Carry (lower).</li>
+          <li>To delete a wire or a component, right click on it and select <strong>Delete</strong>.</li>
+          <li>Click on an input bit to toggle it between 1 and 0 (the input bits start with the value 1). Click on <strong>Simulate</strong> to see the output bits for the input values that are set. Submit shows its own truth table.</li>
+          <li>Click on <strong>Submit</strong> to check the circuit. A "Success" or "Fail" message and a table with the expected and the observed product are shown. The circuit must be completely connected, otherwise the component that is not connected properly is highlighted.</li>
+          </ul>
+          <h4 id="task-1-2-bit-binary-multiplier">Task 1: 2-Bit Binary Multiplier</h4>
+          <img src="images/2bit1.png" alt="Partial products of a 2-bit multiplication">
+          
+          <p><em>Figure 1: The partial products of the multiplication of the 2-bit numbers A1A0 and B1B0. Reference: Theory section</em></p>
+          <p><strong>Components required:</strong> 4 AND gates and 2 Half Adders. On the board the inputs are A1, A0, B1, B0 and the outputs C3, C2, C1, C0.</p>
+          <p><strong>Circuit connections:</strong></p>
+          <ol>
+          <li>Drag the first AND gate and connect its inputs to A0 and B0. This is the partial product P00 = A0·B0.</li>
+          <li>Drag the second AND gate and connect its inputs to A0 and B1 (P01 = A0·B1).</li>
+          <li>Drag the third AND gate and connect its inputs to A1 and B0 (P10 = A1·B0).</li>
+          <li>Drag the fourth AND gate and connect its inputs to A1 and B1 (P11 = A1·B1).</li>
+          <li>Drag the first Half Adder (HA1) and connect its inputs to the outputs of the second AND gate (P01) and the third AND gate (P10). Connect its <strong>Sum</strong> output to the output bit C1.</li>
+          <li>Drag the second Half Adder (HA2) and connect its inputs to the <strong>Carry</strong> output of HA1 and to the output of the fourth AND gate (P11). Connect its <strong>Sum</strong> output to C2 and its <strong>Carry</strong> output to C3.</li>
+          <li>Connect the output of the first AND gate (P00) to the output bit C0.</li>
+          <li>Set the input values and click on "Simulate", then on "Submit".</li>
+          </ol>
+          <h4 id="observations">Observations</h4>
+          <ul>
+          <li>The output C3C2C1C0 is the 4-bit product of the 2-bit numbers A1A0 and B1B0.</li>
+          <li>For example, for A1A0 = 11 (3) and B1B0 = 10 (2), C3C2C1C0 = 0110 (6).</li>
+          <li>If the circuit has been constructed as described above, a "Success" message is displayed upon clicking "Submit".</li>
+          </ul>
+          <h4 id="task-2-4-bit-array-multiplier">Task 2: 4-Bit Array Multiplier</h4>
+          <p>The product of the 4-bit numbers A3A2A1A0 and B3B2B1B0 is the sum of 16 partial products Pij = Ai·Bj, where Pij has the weight 2^(i+j). On the board the inputs are A3 to A0 and B3 to B0, and the outputs are C7 to C0.</p>
+          <p><strong>Components required:</strong> 16 AND gates, 8 Full Adders and 4 Half Adders.</p>
+          <p><strong>Circuit connections:</strong></p>
+          <ol>
+          <li>Drag 16 AND gates and connect the inputs of each one to Ai and Bj, to generate the partial products Pij = Ai·Bj for i, j = 0 to 3.</li>
+          <li>Add the partial products column by column, starting with the column of weight 1 (P00 is alone in the column of weight 0 and goes straight to C0). Use the adders of the following table. K is the Carry output of an adder and S is its Sum output, and the number is the number of the adder; for example K1 is the Carry of HA1. The Sum output of the adders marked with a C goes to the output bit with that name.</li>
+          </ol>
+          <table>
+          <thead>
+          <tr>
+          <th>Weight</th>
+          <th>Adder</th>
+          <th>Inputs</th>
+          <th>Sum goes to</th>
+          <th>Carry goes to</th>
+          </tr>
+          </thead>
+          <tbody><tr>
+          <td>0</td>
+          <td>-</td>
+          <td>P00</td>
+          <td>C0</td>
+          <td>-</td>
+          </tr>
+          <tr>
+          <td>1</td>
+          <td>HA1</td>
+          <td>P01, P10</td>
+          <td>C1</td>
+          <td>K1 (weight 2)</td>
+          </tr>
+          <tr>
+          <td>2</td>
+          <td>FA2</td>
+          <td>P02, P11, P20</td>
+          <td>S2 (to HA3)</td>
+          <td>K2 (weight 3)</td>
+          </tr>
+          <tr>
+          <td>2</td>
+          <td>HA3</td>
+          <td>K1, S2</td>
+          <td>C2</td>
+          <td>K3 (weight 3)</td>
+          </tr>
+          <tr>
+          <td>3</td>
+          <td>FA4</td>
+          <td>P03, P12, P21</td>
+          <td>S4 (to HA6)</td>
+          <td>K4 (weight 4)</td>
+          </tr>
+          <tr>
+          <td>3</td>
+          <td>FA5</td>
+          <td>P30, K2, K3</td>
+          <td>S5 (to HA6)</td>
+          <td>K5 (weight 4)</td>
+          </tr>
+          <tr>
+          <td>3</td>
+          <td>HA6</td>
+          <td>S4, S5</td>
+          <td>C3</td>
+          <td>K6 (weight 4)</td>
+          </tr>
+          <tr>
+          <td>4</td>
+          <td>FA7</td>
+          <td>P13, P22, P31</td>
+          <td>S7 (to HA9)</td>
+          <td>K7 (weight 5)</td>
+          </tr>
+          <tr>
+          <td>4</td>
+          <td>FA8</td>
+          <td>K4, K5, K6</td>
+          <td>S8 (to HA9)</td>
+          <td>K8 (weight 5)</td>
+          </tr>
+          <tr>
+          <td>4</td>
+          <td>HA9</td>
+          <td>S7, S8</td>
+          <td>C4</td>
+          <td>K9 (weight 5)</td>
+          </tr>
+          <tr>
+          <td>5</td>
+          <td>FA10</td>
+          <td>P23, P32, K7</td>
+          <td>S10 (to FA11)</td>
+          <td>K10 (weight 6)</td>
+          </tr>
+          <tr>
+          <td>5</td>
+          <td>FA11</td>
+          <td>K8, K9, S10</td>
+          <td>C5</td>
+          <td>K11 (weight 6)</td>
+          </tr>
+          <tr>
+          <td>6</td>
+          <td>FA12</td>
+          <td>P33, K10, K11</td>
+          <td>C6</td>
+          <td>K12 (weight 7)</td>
+          </tr>
+          <tr>
+          <td>7</td>
+          <td>-</td>
+          <td>K12</td>
+          <td>C7</td>
+          <td>-</td>
+          </tr>
+          </tbody></table>
+          <ol start="3">
+          <li>Set the input values, click on "Simulate" and observe C7C6C5C4C3C2C1C0, then click on "Submit".</li>
+          </ol>
+          <h4 id="observations-1">Observations</h4>
+          <ul>
+          <li>The output C7C6C5C4C3C2C1C0 is the 8-bit product of the two 4-bit numbers.</li>
+          <li>Maximum product: 15 × 15 = 225 = 11100001₂.</li>
+          <li>Every carry has to be connected to the adder of the next weight, otherwise the product is wrong for the inputs that produce a carry.</li>
+          <li>If the circuit has been constructed correctly, a "Success" message is displayed upon clicking "Submit".</li>
+          </ul>
+          <h4 id="task-3-4-bit-advanced-multiplier">Task 3: 4-Bit Advanced Multiplier</h4>
+          <p>This task has the same 16 AND gates and the same column-wise addition as the array multiplier, and the same board. In addition to the Half Adders and Full Adders, the palette has the gates NOT, OR and XOR, so that you can build the adders yourself:</p>
+          <ul>
+          <li>Half Adder: Sum = A XOR B, Carry = A AND B.</li>
+          <li>Full Adder: Sum = A XOR B XOR Cin, Carry = (A AND B) OR (Cin AND (A XOR B)).</li>
+          </ul>
+          <p><strong>Circuit connections:</strong></p>
+          <ol>
+          <li>Generate the 16 partial products with AND gates, as in Task 2.</li>
+          <li>Add them column by column as in the table of Task 2, using Half Adders and Full Adders, or building some or all of them from XOR, AND and OR gates.</li>
+          <li>Connect the Sum outputs of the last adders of every column to C0 to C7, set the input values, click on "Simulate" and "Submit".</li>
+          </ol>
+          <h4 id="observations-2">Observations</h4>
+          <ul>
+          <li>The product is the same as for the array multiplier, so the truth table is the same.</li>
+          <li>The adders built from gates need more components than the adder blocks, which shows the cost of a full adder in gates: 2 XOR, 2 AND and 1 OR.</li>
+          <li>If the circuit has been constructed correctly, a "Success" message is displayed upon clicking "Submit".</li>
+          </ul>
+          <h4 id="task-4-wallace-tree-multiplier">Task 4: Wallace Tree Multiplier</h4>
+          <p>In a Wallace tree the partial products of each column are first reduced by <strong>Full Adders</strong> used as 3:2 compressors (three bits of one weight give one Sum bit of the same weight and one Carry bit of the next weight), stage after stage, until at most two bits are left in each column. Then the two remaining rows are added with a ripple carry adder. The palette has the AND, OR, XOR, NOT, NAND and NOR gates, the Half Adder and the Full Adder.</p>
+          <p><strong>Components required:</strong> 16 AND gates, 8 Full Adders and 4 Half Adders.</p>
+          <p><strong>Circuit connections:</strong></p>
+          <ol>
+          <li>Generate the 16 partial products Pij = Ai·Bj with AND gates, as in Task 2. P00 goes to C0.</li>
+          <li>Reduce the columns with the Full Adders of the following stages. S is the Sum output and K the Carry output of the adder with that number.</li>
+          </ol>
+          <table>
+          <thead>
+          <tr>
+          <th>Stage</th>
+          <th>Adder</th>
+          <th>Inputs</th>
+          <th>Sum is in weight</th>
+          <th>Carry goes to weight</th>
+          </tr>
+          </thead>
+          <tbody><tr>
+          <td>1</td>
+          <td>FA1</td>
+          <td>P02, P11, P20</td>
+          <td>2</td>
+          <td>3</td>
+          </tr>
+          <tr>
+          <td>1</td>
+          <td>FA2</td>
+          <td>P03, P12, P21</td>
+          <td>3</td>
+          <td>4</td>
+          </tr>
+          <tr>
+          <td>1</td>
+          <td>FA3</td>
+          <td>P13, P22, P31</td>
+          <td>4</td>
+          <td>5</td>
+          </tr>
+          <tr>
+          <td>2</td>
+          <td>FA4</td>
+          <td>K1, S2, P30</td>
+          <td>3</td>
+          <td>4</td>
+          </tr>
+          <tr>
+          <td>2</td>
+          <td>FA5</td>
+          <td>K3, P23, P32</td>
+          <td>5</td>
+          <td>6</td>
+          </tr>
+          <tr>
+          <td>3</td>
+          <td>FA6</td>
+          <td>K4, K2, S3</td>
+          <td>4</td>
+          <td>5</td>
+          </tr>
+          </tbody></table>
+          <ol start="3">
+          <li>Now every weight has at most two bits. Add the two rows with the ripple carry adder, from the lowest weight to the highest:</li>
+          </ol>
+          <table>
+          <thead>
+          <tr>
+          <th>Weight</th>
+          <th>Adder</th>
+          <th>Inputs</th>
+          <th>Sum goes to</th>
+          <th>Carry goes to</th>
+          </tr>
+          </thead>
+          <tbody><tr>
+          <td>1</td>
+          <td>HA7</td>
+          <td>P01, P10</td>
+          <td>C1</td>
+          <td>K7 (weight 2)</td>
+          </tr>
+          <tr>
+          <td>2</td>
+          <td>HA8</td>
+          <td>S1, K7</td>
+          <td>C2</td>
+          <td>K8 (weight 3)</td>
+          </tr>
+          <tr>
+          <td>3</td>
+          <td>HA9</td>
+          <td>S4, K8</td>
+          <td>C3</td>
+          <td>K9 (weight 4)</td>
+          </tr>
+          <tr>
+          <td>4</td>
+          <td>HA10</td>
+          <td>S6, K9</td>
+          <td>C4</td>
+          <td>K10 (weight 5)</td>
+          </tr>
+          <tr>
+          <td>5</td>
+          <td>FA11</td>
+          <td>K6, S5, K10</td>
+          <td>C5</td>
+          <td>K11 (weight 6)</td>
+          </tr>
+          <tr>
+          <td>6</td>
+          <td>FA12</td>
+          <td>K5, P33, K11</td>
+          <td>C6</td>
+          <td>K12 (weight 7)</td>
+          </tr>
+          <tr>
+          <td>7</td>
+          <td>-</td>
+          <td>K12</td>
+          <td>C7</td>
+          <td>-</td>
+          </tr>
+          </tbody></table>
+          <ol start="4">
+          <li>Set the input values, click on "Simulate" and observe C7C6C5C4C3C2C1C0, then click on "Submit".</li>
+          </ol>
+          <h4 id="observations-3">Observations</h4>
+          <ul>
+          <li>The partial products of all the columns are reduced at the same time in the stages, so the number of stages (3 here) grows only with the logarithm of the number of rows, instead of with the number of rows as in the array multiplier.</li>
+          <li>The final ripple carry adder still limits the speed. In large multipliers a faster adder is used for the last step.</li>
+          <li>The product is the same as for the array multiplier, so the truth table is the same.</li>
+          <li>If the circuit has been constructed correctly, a "Success" message is displayed upon clicking "Submit".</li>
+          </ul>
+          <h4 id="troubleshooting">Troubleshooting</h4>
+          <ul>
+          <li><strong>"Highlighted component not connected properly"</strong>: every input of every component has to be connected, and every component output has to drive something (an adder with an unused Carry output is fine as long as its Sum is used, but a component with no connected output at all is not).</li>
+          <li><strong>Only some rows of the table fail</strong>: usually a Carry output has been connected to the wrong adder, or the Sum of an adder has been used where its Carry is needed. The adders show the Sum on the upper output and the Carry on the lower one.</li>
+          </ul>
+          
+          </div>
+          <div class="bug-report-mobile">
+              <bug-report id="bug-report" title="[BUG REPORT] MULTIPLIERS" page-type="text" context-info="{&quot;organisation&quot;:&quot;Virtual Labs&quot;,&quot;developer_institute&quot;:&quot;IIITH&quot;,&quot;expname&quot;:&quot;MULTIPLIERS&quot;,&quot;labname&quot;:&quot;Virtual Lab&quot;,&quot;phase&quot;:&quot;Testing&quot;}" checkbox-json="{&quot;text&quot;:[&quot;Insufficient Content&quot;],&quot;video&quot;:[&quot;Insufficient Content&quot;],&quot;assesment&quot;:[&quot;Incorrect Options&quot;,&quot;Incorrect Answer&quot;,&quot;Incorrect Question&quot;],&quot;assessment&quot;:[&quot;Incorrect Options&quot;,&quot;Incorrect Answer&quot;,&quot;Incorrect Question&quot;],&quot;simulation&quot;:[&quot;Simulation Not Working&quot;,&quot;Incorrect Results/Observations&quot;,&quot;Insufficient/Incorrect Instructions&quot;],&quot;DEFAULT&quot;:[&quot;Page Not Loading&quot;,&quot;Content Not Visible&quot;,&quot;Incorrect Content&quot;]}" position="override" button_style="
+                          position: fixed; 
+                          bottom: 20px;
+                          right: 20px;
+                          z-index: 1;
+                          font-size: 0;
+                          padding: 25px;
+                          border-radius: 50%;
+                          border: none;
+                          background-color: #0fc0ff;
+                          background-image: url(data:image/png;base64,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);
+                          background-repeat: no-repeat;
+                          background-position: center;
+                          background-size: 30px;
+                          filter: invert(1);">
+              </bug-report>
+          </div>        </div>
+      </div>
+      <footer class="text-light pt-2 vlabs-footer d-flex flex-column">
+        <div class="row px-5 mx-0">
+          <div class="col d-flex flex-column">
+            <span class="font-weight-bold vlabs-footer-sect-name pb-2 mb-3">Community Links</span>
+            <a href="https://www.sakshat.ac.in/" class="text-light">Sakshat Portal</a>
+            <a href="http://outreach.vlabs.ac.in/" class="text-light">Outreach Portal</a>
+            <a href="https://vlab.co.in/faq" class="text-light">FAQ: Virtual Labs</a>
+          </div>
+          <div class="col d-flex flex-column">
+            <span class="font-weight-bold vlabs-footer-sect-name pb-2 mb-3">Contact Us</span>
+            <span> Phone: General Information: 011-26582050 </span>
+            <span> Email: support@vlabs.ac.in </span>
+          </div>
+          <div class="col d-flex flex-column">
+            <span class="font-weight-bold vlabs-footer-sect-name pb-2 mb-3">Follow Us</span>
+            <div class="social-links">
+      	<a class="p-2 mt-1 mr-2 d-inline-flex justify-content-center align-items-center" style="background: #55acee;" href="https://twitter.com/TheVirtualLabs">
+      	  <i class="fab fa-twitter"></i>
+      	</a>
+      	<a class="p-2 mt-1 mr-2 d-inline-flex justify-content-center align-items-center" style="background: #3b5998;" href="https://www.facebook.com/Virtual-Labs-IIT-Delhi-301510159983871/">
+      	  <i class="fab fa-facebook"></i>
+      	</a>
+      	<a class="p-2 mt-1 mr-2 d-inline-flex justify-content-center align-items-center" style="background: #e52d27;" href="https://www.youtube.com/watch?v=asxRaOgk6a0">
+      	  <i class="fab fa-youtube"></i>
+      	</a>
+      	<a class="p-2 mt-1 mr-2 d-inline-flex justify-content-center align-items-center" style="background: #2867B2;" href="https://in.linkedin.com/in/virtual-labs-008ba9136">
+      	  <i class="fab fa-linkedin"></i>
+      	</a>
+            </div>
+          </div>
+        </div>
+        <div class="m-0 py-2 text-center" style="font-family: &quot;Open Sans&quot;, sans-serif; background: #212121;">
+          <a class="text-primary font-weight-bold" href="https://www.gnu.org/licenses/agpl-3.0.en.html"> AGPL 3.0 </a>
+          &nbsp;&amp;&nbsp;
+          <a class="text-primary font-weight-bold" href="https://creativecommons.org/licenses/by-nc-sa/4.0/"> Creative Commons (CC BY-NC-SA 4.0) </a>
+        </div>
+      </footer>
+    <script src="./assets/js/toggleSidebar.js"></script>
+    <script src="./assets/js/event-handler.js"></script>
+
+
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register("sw.js");
+        });
+      }
+    </script>
+  
+
+<script type="module" src="https://cdn.vlabs.ac.in/bug-report/vlabs-bug-report.js"></script><script type="module" src="/exp-multipliers-iiith/plugins/svc-rating/index.js"></script><script type="module" src="/exp-multipliers-iiith/plugins/svc-rating/config.js"></script><script type="module" src="https://apis.google.com/js/api.js"></script></body></html>

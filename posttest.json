@@ -1,0 +1,90 @@
+{
+  "version": 2.0,
+  "questions": [
+    {
+      "question": "1. When multiplying two 3-bit numbers, what is the maximum number of output bits required:",
+      "answers": {
+        "a": "5",
+        "b": "6",
+        "c": "7",
+        "d": "4"
+      },
+      "correctAnswer": "b",
+      "explanations": {
+        "a": "Incorrect. The maximum product of two 3-bit numbers (7 × 7 = 49) requires 6 bits to represent in binary (110001₂), not 5 bits.",
+        "b": "Correct. Two 3-bit numbers can have maximum values of 7 each. The maximum product is 7 × 7 = 49, which in binary is 110001₂ requiring 6 bits.",
+        "c": "Incorrect. While 7 bits could represent the result, it would be unnecessarily large. The maximum product (49) only requires 6 bits.",
+        "d": "Incorrect. 4 bits can only represent values up to 15, but the maximum product of two 3-bit numbers is 49, which requires more than 4 bits."
+      },
+      "difficulty": "beginner"
+    },
+    {
+      "question": "2. In a 2-bit array multiplier, how many AND gates are required for partial product generation:",
+      "answers": {
+        "a": "2",
+        "b": "3",
+        "c": "4",
+        "d": "6"
+      },
+      "correctAnswer": "c",
+      "explanations": {
+        "a": "Incorrect. A 2-bit × 2-bit multiplication requires more than 2 AND gates for generating all necessary partial products.",
+        "b": "Incorrect. This is insufficient for a complete 2-bit × 2-bit multiplication which requires partial products for all bit combinations.",
+        "c": "Correct. A 2-bit × 2-bit multiplier requires 4 AND gates (2×2 matrix) to generate all partial products: A₀B₀, A₀B₁, A₁B₀, A₁B₁.",
+        "d": "Incorrect. This would be excessive for a 2-bit multiplier. Only 4 AND gates are needed for the 2×2 partial product matrix."
+      },
+      "difficulty": "intermediate"
+    },
+    {
+      "question": "3. Which components are essential for implementing a 2-bit binary multiplier:",
+      "answers": {
+        "a": "Only half adders",
+        "b": "AND gates and half adders",
+        "c": "Only full adders",
+        "d": "XOR gates and OR gates"
+      },
+      "correctAnswer": "b",
+      "explanations": {
+        "a": "Incorrect. Half adders alone cannot generate the partial products needed for multiplication. AND gates are required for this purpose.",
+        "b": "Correct. A 2-bit multiplier requires AND gates to generate partial products and half adders to sum the aligned partial products together.",
+        "c": "Incorrect. Full adders alone cannot generate partial products. AND gates are essential for creating the partial product matrix.",
+        "d": "Incorrect. While XOR gates are part of adders, this combination alone cannot perform multiplication operations effectively."
+      },
+      "difficulty": "advanced"
+    },
+    {
+      "question": "4. A 2-bit multiplier circuit using combinational logic:",
+      "answers": {
+        "a": "Requires clock synchronization",
+        "b": "Is a combinational circuit",
+        "c": "Needs memory elements",
+        "d": "Uses sequential logic"
+      },
+      "correctAnswer": "b",
+      "explanations": {
+        "a": "Incorrect. Combinational circuits do not require clock signals as they produce outputs based solely on current inputs.",
+        "b": "Correct. A 2-bit multiplier using AND gates and adders is a combinational circuit that produces outputs directly from inputs without memory or timing dependencies.",
+        "c": "Incorrect. Combinational circuits do not use memory elements like flip-flops or latches. The output depends only on current inputs.",
+        "d": "Incorrect. Sequential logic requires memory elements and clock signals, which are not needed in a basic combinational multiplier."
+      },
+      "difficulty": "beginner"
+    },
+    {
+      "question": "5. What is the main advantage of Wallace tree multiplier over array multiplier:",
+      "answers": {
+        "a": "Uses fewer logic gates",
+        "b": "Simpler control logic",
+        "c": "Reduced critical path delay",
+        "d": "Lower power consumption"
+      },
+      "correctAnswer": "c",
+      "explanations": {
+        "a": "Incorrect. Wallace tree multipliers typically use more logic gates due to their complex tree structure compared to the simple array arrangement.",
+        "b": "Incorrect. Wallace tree multipliers have more complex control and routing compared to the straightforward array multiplier structure.",
+        "c": "Correct. Wallace tree multipliers reduce the critical path delay by using parallel tree reduction instead of sequential addition, making them faster for large bit widths.",
+        "d": "Incorrect. Wallace tree multipliers may consume more power due to increased parallelism and higher gate count compared to array multipliers."
+      },
+      "difficulty": "intermediate"
+    }
+  ]
+}
