@@ -248,6 +248,9 @@ function outputHandler() {
 
 }
 function appendInput1() {
+    if (timeline.progress() === 1) {
+        rewindDemo();
+    }
     if (textInput[0].textContent !== "0" && timeline.progress() === 0) {
         changeTo0(15, 225, 0, 0);
     }
@@ -260,6 +263,9 @@ function appendInput1() {
 
 
 function appendInput2() {
+    if (timeline.progress() === 1) {
+        rewindDemo();
+    }
     if (textInput[1].textContent !== "0" && timeline.progress() === 0) {
         changeTo0(15, 565, 1, 1);
     }
@@ -270,16 +276,22 @@ function appendInput2() {
     setter(textInput[1].textContent, inputDots[5]);
 }
 function appendInput3() {
+    if (timeline.progress() === 1) {
+        rewindDemo();
+    }
     if (textInput[2].textContent !== "0" && timeline.progress() === 0) {
         changeTo0(15, 345, 2, 2);
     }
-    else if (textInput[1].textContent !== "1" && timeline.progress() === 0) {
+    else if (textInput[2].textContent !== "1" && timeline.progress() === 0) {
         changeTo1(15, 345, 2, 2);
     }
     setter(textInput[2].textContent, inputDots[2]);
     setter(textInput[2].textContent, inputDots[6]);
 }
 function appendInput4() {
+    if (timeline.progress() === 1) {
+        rewindDemo();
+    }
     if (textInput[3].textContent !== "0" && timeline.progress() === 0) {
         changeTo0(15, 445, 3, 3);
     }
@@ -314,20 +326,47 @@ function changeTo0(coordinateX, coordinateY, object, textObject) {
     clearObservation();
 }
 
+// The demo starts with the inputs A1 A0 = 11 and B1 B0 = 10 (3 x 2), which can be changed by clicking on the bits
+function initInputs() {
+    const values = [1, 1, 1, 0];
+    const positions = [[15, 225], [15, 565], [15, 345], [15, 445]];
+    values.forEach((value, i) => {
+        if (value === 1) {
+            changeTo1(positions[i][0], positions[i][1], i, i);
+        } else {
+            changeTo0(positions[i][0], positions[i][1], i, i);
+        }
+        setter(String(value), inputDots[i]);
+        setter(String(value), inputDots[i + 4]);
+    });
+    observ.innerHTML = "The inputs are set to A = 11 and B = 10. Click on the input bits to change them, then click on Start.";
+}
+
 function reboot() {
     for (const elements of objects) {
         elements.style.fill = "#008000";
     }
-    for (const text of textInput) {
-        text.textContent = 2;
-    }
+    initInputs();
+}
 
+// Back to the starting state, after a run has finished
+function rewindDemo() {
+    circuitStarted = false;
+    timeline.seek(0);
+    timeline.pause();
+    allDisappear();
+    currPos = 0;
+    reboot();
+    decide = false;
+    status.innerHTML = "Start";
+    speed.selectedIndex = 0;
 }
 function display() {
-
-    observ.innerHTML = "Simulation has finished. Please click on Reset and repeat the instructions given to start again.";
-
-    observ.innerHTML += "<br />";
+    decide = false;
+    status.innerHTML = "Start";
+    const a = parseInt(textInput[0].textContent) * 2 + parseInt(textInput[1].textContent);
+    const b = parseInt(textInput[2].textContent) * 2 + parseInt(textInput[3].textContent);
+    observ.innerHTML = `Simulation has finished.<br />A = ${a}, B = ${b} and the product C3C2C1C0 = ${a * b} (in binary ${(a * b).toString(2).padStart(4, "0")}).<br />Change the inputs and click on Start to run it again.`;
 }
 function setter(value, component) {
     //toggles the text content a of input/output component b
@@ -385,6 +424,9 @@ function stopCircuit() {
     }
 }
 function startCircuit() {
+    if (timeline.progress() === 1) {
+        rewindDemo();
+    }
     if (textInput[0].textContent !== "2" && textInput[1].textContent !== "2" && textInput[2].textContent !== "2" && textInput[3].textContent !== "2") {
         if (!circuitStarted) {
             circuitStarted = true;
@@ -779,4 +821,5 @@ timeline.add(display, 24);
 timeline.eventCallback("onComplete", outputVisible);
 timeline.eventCallback("onComplete", display);
 timeline.pause();
+reboot();
 dotsDisappear();

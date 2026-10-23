@@ -86,8 +86,6 @@ function loadTask1Components() {
   const toolbar = document.getElementById("toolbar");
   toolbar.innerHTML = `
     <div class="component-button and" onclick="addGate(event)">AND</div>
-    <div class="component-button or" onclick="addGate(event)">OR</div>
-    <div class="component-button xor" onclick="addGate(event)">XOR</div>
     <div class="component-button half-adder" onclick="addGate(event)">HALF ADDER</div>
   `;
 }
@@ -96,8 +94,6 @@ function loadTask2Components() {
   const toolbar = document.getElementById("toolbar");
   toolbar.innerHTML = `
     <div class="component-button and" onclick="addGate(event)">AND</div>
-    <div class="component-button or" onclick="addGate(event)">OR</div>
-    <div class="component-button xor" onclick="addGate(event)">XOR</div>
     <div class="component-button half-adder" onclick="addGate(event)">HALF ADDER</div>
     <div class="component-button full-adder" onclick="addGate(event)">FULL ADDER</div>
   `;

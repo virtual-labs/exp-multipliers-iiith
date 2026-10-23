@@ -143,7 +143,7 @@ export function validateMultiplier4(inputA3, inputA2, inputA1, inputA0, inputB3,
 
     document.getElementById("result").innerHTML = "";
     let head =
-        '<tr><th colspan="8">Inputs</th><th colspan="1" rowspan="2">Expected Values</th><th colspan="1" rowspan="2">Observed Values</th></tr> <tr><th>B</th><th>A</th></tr>';
+        '<tr><th colspan="8">Inputs</th><th colspan="1" rowspan="2">Expected Values</th><th colspan="1" rowspan="2">Observed Values</th></tr> <tr><th>B3</th><th>B2</th><th>B1</th><th>B0</th><th>A3</th><th>A2</th><th>A1</th><th>A0</th></tr>';
     document.getElementById("table-head").innerHTML = head;
 
     if (!checkConnections()) {
